@@ -495,7 +495,7 @@ body.is-fixed-pagetop .nav-fix-pos-pagetop a:hover {
 /*トップページのNEWアイコン
 ---------------------------------------------------------------------------*/
 .newicon {
-	background: #F00;	/*背景色*/
+	background: #AFB4DB;	/*背景色*/
 	color: #FFF;		/*文字色*/
 	font-size: 70%;
 	line-height: 1.5;
