@@ -18,7 +18,7 @@ body {
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   font-size: 15px;
   line-height: 2;
-  background: #332927; /* 森林の土をイメージした濃い茶色に変更 */
+  background: #003366; /* 海の深い部分をイメージした濃い青色に変更 */
 }
 
 h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form {margin: 0px;padding: 0px;font-size: 100%;}
@@ -35,7 +35,7 @@ a {
   transition: 0.5s; /*マウスオン時の移り変わるまでの時間設定。0.5秒。*/
 }
 a:hover {
-  color: #c2d1b1; /*マウスオン時の文字色*/
+  color: #99ccff; /*マウスオン時の文字色*/
   text-decoration: none; /*マウスオン時に下線を消す設定。残したいならこの１行削除。*/
 }
 
@@ -51,8 +51,8 @@ a:hover {
 ---------------------------------------------------------------------------*/
 /*ヘッダーブロック*/
 header {
-  background: #8fbc8f; /* 緑の濃淡に変更 */
-  background: linear-gradient(to right, #8fbc8f, #a9c695); /* グラデーションを適用 */
+  background: #66b3ff; /* 海の浅瀬をイメージした水色に変更 */
+  background: linear-gradient(to right, #66b3ff, #99ccff); /* グラデーションを適用 */
   height: 100px; /*高さ*/
 }
 /*ロゴ画像*/
@@ -85,8 +85,7 @@ header #logo {
 ---------------------------------------------------------------------------*/
 /*メニューブロック*/
 #menubar {
-  background: #c2d1b1; /* 薄い緑に変更 */
-  background: linear-gradient(to right, #c2d1b1, #d2dfc1); /* グラデーションを適用 */
+  background: #e0f2f7; /* サンゴ礁をイメージした薄い水色に変更 */
 }
 
 /*メニュー１個あたりの設定*/
@@ -117,13 +116,13 @@ header #logo {
 }
 /*マウスオン時メニューの設定*/
 #menubar li a:hover {
-  background: #a9c695; /*背景色*/
+  background: #99ccff; /*背景色*/
   color: #fff; /*文字色*/
 }
 /*現在表示中(current)メニューの設定*/
 #menubar li.current a {
   background: #000; /*背景色（古いブラウザ用）*/
-  background: radial-gradient(ellipse 100px 50px at 50% 70px,#8fbc8f,#000); /*楕円形(幅100px高さ50px)グラデーション。左から50%＆上から70pxの場所に配置。#0b24c2が円の中心色で#000が外側の色。*/
+  background: radial-gradient(ellipse 100px 50px at 50% 70px,#66b3ff,#000); /*楕円形(幅100px高さ50px)グラデーション。左から50%＆上から70pxの場所に配置。#0b24c2が円の中心色で#000が外側の色。*/
 }
 /*スマホ用メニューを表示させない*/
 #menubar-s {display: none;}
@@ -163,9 +162,9 @@ header #logo {
   margin-bottom: 20px;
   padding: 10px 15px; /*上下、左右への余白*/
   font-size: 16px; /*文字サイズ*/
-  background: #8fbc8f; /* 深緑に変更 */
-  background: linear-gradient(to right, #8fbc8f, #a9c695); /* グラデーションを適用 */
-  border-bottom: 3px solid #a9c695; /* アクセントカラーの黄緑 */
+  background: #99ccff; /* クラゲをイメージした薄紫に変更 */
+  background: linear-gradient(to right, #99ccff, #b3d9ff); /* グラデーションを適用 */
+  border-bottom: 3px solid #b3d9ff; /* アクセントカラーの薄い水色 */
 } /*枠線の幅、線種、色*/
 /*mainコンテンツのh3タグ設定*/
 #main h3 {
@@ -177,7 +176,7 @@ header #logo {
 }
 /*h3タグの１文字目への追加設定*/
 #main h3::first-letter {
-  border-left: 3px solid #8fbc8f; /*左の線の幅、線種、色*/
+  border-left: 3px solid #99ccff; /*左の線の幅、線種、色*/
   padding-left: 15px; /*線とテキストとの余白*/
 }
 /*コンテンツの段落タグ設定*/
@@ -220,7 +219,7 @@ header #logo {
   bottom: 10px; /*ボックスの下から10pxの場所に配置*/
   width: 30px; /*幅*/
   line-height: 30px; /*高さ*/
-  background: #8fbc8f; /*背景色*/
+  background: #99ccff; /*背景色*/
 }
 /*マウスオン時の「→」マーク*/
 #main .list a:hover::before {
@@ -228,7 +227,7 @@ header #logo {
 }
 /*ボックス内のh4タグ設定*/
 #main .list h4 {
-  border-left: 3px solid #8fbc8f; /*左側の線の幅、線種、色*/
+  border-left: 3px solid #99ccff; /*左側の線の幅、線種、色*/
   padding-left: 10px; /*左の線との間に空ける余白*/
   margin-bottom: 0.5em; /*下に少しスペースを空ける*/
   margin-left: 32%; /*左側に空けるスペース。下の画像の幅を変更する場合はここも調整して下さい。*/
@@ -275,8 +274,8 @@ header #logo {
 #sub h2,
 #side h2 {
   text-align: center; /*文字をセンタリング*/
-  background: #8fbc8f; /* メインカラーのローズピンク *//* グラデーションを適用 */
-    background: linear-gradient(to right, #8fbc8f, #a9c695); /*グラデーション*/
+  background: #99ccff; /* クラゲをイメージした薄紫に変更 *//* グラデーションを適用 */
+    background: linear-gradient(to right, #99ccff, #b3d9ff); /*グラデーション*/
   padding: 8px 0px; /*上下、左右への余白*/
   border-radius: 6px 6px 0px 0px; /*角丸のサイズ。左上、右上、右下、左下への設定*/
   margin-bottom: 10px;
@@ -367,7 +366,7 @@ header #logo {
 ---------------------------------------------------------------------------*/
 footer {
   clear: both;
-  background: #a9c695; /*背景色を黄緑に変更*/
+  background: #b3d9ff; /*背景色を薄い水色に変更*/
   font-size: 85%; /*文字サイズ*/
 }
 footer .pr {display: block;font-size: 80%;}
@@ -512,7 +511,7 @@ body.is-fixed-pagetop .nav-fix-pos-pagetop a:hover {
 ul.disc {padding: 0em 25px 15px;list-style: disc;}
 .color1,
 .color1 a {
-    color: #c2d1b1; /* アクセントカラーを黄緑に変更 */
+    color: #99ccff; /* アクセントカラーを薄紫に変更 */
 }
 .pr {font-size: 10px;}
 .wl {width: 96%;}
@@ -533,7 +532,8 @@ img.fl {float: left;margin-right: 10px;margin-bottom: 10px;}
 @media screen and (max-width:800px){
 
 /*ヘッダー右側の電話番号ブロック
----------------------------------------------------------------------------*//*ブロック全体*/
+---------------------------------------------------------------------------*/
+/*ブロック全体*/
 #contact {
   display: none; /*非表示にする*/
 }
@@ -542,8 +542,7 @@ img.fl {float: left;margin-right: 10px;margin-bottom: 10px;}
 ---------------------------------------------------------------------------*/
 /*アニメーションのフレーム設定。全100コマアニメーションだと思って下さい。透明(0%)から色を100%出すアニメーション指定。*/
 @keyframes menu1 {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {opacity: 0;}100% {opacity: 1;}
 }
 /*スマホ用メニューブロック*/
 #menubar-s {
