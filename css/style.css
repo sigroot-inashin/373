@@ -132,7 +132,7 @@ header #logo {
 
 #menubar li.current a {
   background: #000;
-  background: radial-gradient(ellipse 100px 50px at 50% 70px, #2c3e50, #000);
+  background: radial-gradient(ellipse 100px 50px at 50% 70px, #2c3e50, #A6B5A5);
 }
 
 #menubar-s {
