@@ -7,18 +7,18 @@
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
-  color: #333; /* 全体の文字色を濃いグレーに変更 */
+  margin: 0;
+  padding: 0;
+  color: #555; /* 少し濃いめのグレーに変更 */
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   font-size: 15px;
   line-height: 2;
-  background: #E6E6FA; /* 薄い紫色に変更 */
+  background: #FCE4EC; /* 薄いピンクに変更 */
 }
 
 h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd, form, figure, form {
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   font-size: 100%;
 }
 
@@ -49,12 +49,12 @@ iframe {
 }
 
 a {
-  color: #6699CC; /* リンクテキストの色を薄い青色に変更 */
+  color: #81D4FA; /* 薄い水色に変更 */
   transition: 0.5s;
 }
 
 a:hover {
-  color: #9370DB; /* マウスオン時の文字色を紫に変更 */
+  color: #CE93D8; /* 薄い紫に変更 */
   text-decoration: none;
 }
 
@@ -65,7 +65,7 @@ a:hover {
 }
 
 header {
-  background: linear-gradient(to right, #87CEEB, #9370DB); /* 水色と紫のグラデーションに変更 */
+  background: linear-gradient(to right, #B2EBF2, #CE93D8); /* 薄い水色と薄い紫のグラデーションに変更 */
   height: 125px;
 }
 
@@ -92,7 +92,7 @@ header #logo {
 }
 
 #menubar {
-  background: #ADD8E6; /* 薄い水色に変更 */
+  background: #E1F5FE; /* より薄い水色に変更 */
 }
 
 #menubar li {
@@ -105,14 +105,14 @@ header #logo {
   text-decoration: none;
   text-align: center;
   font-weight: bold;
-  border-right: 1px solid #333;
+  border-right: 1px solid #ddd; /* 薄いグレーの線に変更 */
   line-height: 1.6;
   padding: 14px 0;
-  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.3); /* 薄い影に変更 */
 }
 
 #menubar li:first-child a {
-  border-left: 1px solid #333;
+  border-left: 1px solid #ddd; /* 薄いグレーの線に変更 */
 }
 
 #menubar li a span {
@@ -125,18 +125,15 @@ header #logo {
 }
 
 #menubar li a:hover {
-  background: #B0E0E6; /* より薄い水色に変更 */
-  color: #333;
+  background: #E3F2FD; /* さらに薄い水色に変更 */
+  color: #555;
 }
 
 #menubar li.current a {
-  background: radial-gradient(ellipse 100px 50px at 50% 70px, #9370DB, #333); /* 紫と濃いグレーのグラデーションに変更 */
+  background: radial-gradient(ellipse 100px 50px at 50% 70px, #CE93D8, #555); /* 薄い紫と濃いグレーのグラデーションに変更 */
 }
 
-#menubar-s {
-  display: none;
-}
-
+#menubar-s,
 #menubar_hdr {
   display: none;
 }
@@ -146,7 +143,7 @@ header #logo {
   overflow: hidden;
   padding-top: 40px;
   padding-bottom: 40px;
-  background: #F8F8FF; /* ほぼ白色に変更 */
+  background: #FFF8E1; /* 薄い黄色に変更 */
 }
 
 #contents-in {
@@ -169,8 +166,9 @@ header #logo {
   margin-bottom: 20px;
   padding: 10px 15px;
   font-size: 16px;
-  background: linear-gradient(to right, #A9A9A9, #D8BFD8); /* 薄いグレーと薄い紫のグラデーションに変更 */
-  border-bottom: 3px solid #D8BFD8;
+  background: linear-gradient(to right, #F0F0F0, #E1BEE7); /* 薄いグレーと薄い紫のグラデーションに変更 */
+  border-bottom: 3px solid #E1BEE7;
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 #main h3 {
@@ -178,16 +176,17 @@ header #logo {
   margin-bottom: 20px;
   padding: 4px 15px;
   font-size: 16px;
-  border: 1px solid #666;
+  border: 1px solid #ddd; /* 薄いグレーの線に変更 */
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 #main h3::first-letter {
-  border-left: 3px solid #9370DB;
+  border-left: 3px solid #CE93D8;
   padding-left: 15px;
 }
 
 #main p {
-  padding: 0px 15px 20px;
+  padding: 0 15px 20px;
 }
 
 #main h2 + p,
@@ -203,7 +202,8 @@ header #logo {
   position: relative;
   overflow: hidden;
   padding: 20px;
-  border-top: 1px solid #666;
+  border-top: 1px solid #ddd; /* 薄いグレーの線に変更 */
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 #main .list a {
@@ -215,8 +215,8 @@ header #logo {
 }
 
 #main .list a:hover {
-  color: #333;
-  background: #F0F8FF; /* より薄い青色に変更 */
+  color: #555;
+  background: #F0FFF0; /* 薄い緑に変更 */
 }
 
 #main .list a::before {
@@ -229,22 +229,23 @@ header #logo {
   bottom: 10px;
   width: 30px;
   line-height: 30px;
-  background: #9370DB;
+  background: #CE93D8;
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 #main .list a:hover::before {
-  background: #8A2BE2; /* より濃い紫に変更 */
+  background: #BA68C8; /* 少し濃い紫に変更 */
 }
 
 #main .list h4 {
-  border-left: 3px solid #9370DB;
+  border-left: 3px solid #CE93D8;
   padding-left: 10px;
   margin-bottom: 0.5em;
   margin-left: 32%;
 }
 
 #main .list p {
-  padding: 0px !important;
+  padding: 0 !important;
   font-size: 13px;
   line-height: 1.6;
   margin-left: 34%;
@@ -253,11 +254,11 @@ header #logo {
 #main .list figure {
   float: left;
   width: 30%;
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 #main .list:last-of-type,
-#main .list:last-of-type {
-  border-bottom: 1px solid #666;
+#main .list:last-of-type {border-bottom: 1px solid #ddd; /* 薄いグレーの線に変更 */
   margin-bottom: 20px;
 }
 
@@ -276,11 +277,11 @@ header #logo {
 }
 
 #sub h2,
-#sideh2 {
+#side h2 {
   text-align: center;
-  background: linear-gradient(to right, #A9A9A9, #D8BFD8);
-  padding: 8px 0px;
-  border-radius: 6px 6px 0px 0px;
+  background: linear-gradient(to right, #F0F0F0, #E1BEE7); /* 薄いグレーと薄い紫のグラデーションに変更 */
+  padding: 8px 0;
+  border-radius: 6px 6px 0 0;
   margin-bottom: 10px;
 }
 
@@ -291,20 +292,21 @@ header #logo {
 
 #sub .box1,
 #side .box1 {
-  border: 1px solid #666;
+  border: 1px solid #ddd; /* 薄いグレーの線に変更 */
   padding: 10px;
   margin-bottom: 20px;
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 #sub .box1 h2,
 #side .box1 h2 {
-  border-radius: 0;
+  border-radius: 5px 5px 0 0; /* 上の角丸のみ */
 }
 
 #sub .submenu,
 #side .submenu {
   margin-bottom: 20px;
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid #ddd; /* 薄いグレーの線に変更 */
 }
 
 #sub .submenu li a,
@@ -312,9 +314,9 @@ header #logo {
   text-decoration: none;
   display: block;
   padding: 0 10px;
-  border-top: 1px solid #666;
-  border-left: 1px solid #666;
-  border-right: 1px solid #666;
+  border-top: 1px solid #ddd; /* 薄いグレーの線に変更 */
+  border-left: 1px solid #ddd; /* 薄いグレーの線に変更 */
+  border-right: 1px solid #ddd; /* 薄いグレーの線に変更 */
 }
 
 #sub h2 + .submenu,
@@ -328,8 +330,9 @@ header #logo {
   overflow: hidden;
   font-size: 11px;
   line-height: 1.2;
-  border-top: 1px solid #666;
+  border-top: 1px solid #ddd; /* 薄いグレーの線に変更 */
   padding: 10px;
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 #sub .list a,
@@ -341,7 +344,7 @@ header #logo {
 
 #sub .list:last-of-type,
 #side .list:last-of-type {
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid #ddd; /* 薄いグレーの線に変更 */
   margin-bottom: 20px;
 }
 
@@ -360,6 +363,7 @@ header #logo {
   float: left;
   width: 30%;
   margin-right: 10px;
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 #sub h2 + .list,
@@ -369,9 +373,9 @@ header #logo {
 
 footer {
   clear: both;
-  background: #D8BFD8; /* 薄い紫色に変更 */
+  background: #E1BEE7; /* 薄い紫に変更 */
   font-size: 85%;
-  color: #333;
+  color: #555;
 }
 
 footer .pr {
@@ -394,8 +398,8 @@ footer .pr {
 #copyright {
   clear: both;
   text-align: center;
-  background: #E6E6FA; /* 薄い紫色に変更 */
-  color: #333;
+  background: #FCE4EC; /* 薄いピンクに変更 */
+  color: #555;
 }
 
 #copyright a {
@@ -403,7 +407,7 @@ footer .pr {
 }
 
 #new dl {
-  padding: 0px 20px;
+  padding: 0 20px;
   margin-bottom: 15px;
 }
 
@@ -419,12 +423,13 @@ footer .pr {
 }
 
 .ta1 caption {
-  border: 1px solid #666;
+  border: 1px solid #ddd; /* 薄いグレーの線に変更 */
   border-bottom: none;
   text-align: left;
-  background: #F0F8FF; /* 薄い青色に変更 */
+  background: #F0FFF0; /* 薄い緑に変更 */
   font-weight: bold;
   padding: 10px;
+  border-radius: 5px 5px 0 0; /* 上の角丸のみ */
 }
 
 .ta1 {
@@ -435,7 +440,7 @@ footer .pr {
 .ta1,
 .ta1 td,
 .ta1 th {
-  border: 1px solid #666;
+  border: 1px solid #ddd; /* 薄いグレーの線に変更 */
   padding: 10px 15px;
   word-break: break-all;
 }
@@ -493,6 +498,7 @@ body.is-fixed-pagetop .nav-fix-pos-pagetop a {
   animation-name: scroll;
   animation-duration: 1S;
   animation-fill-mode: forwards;
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 body.is-fixed-pagetop .nav-fix-pos-pagetop a:hover {
@@ -506,7 +512,7 @@ body.is-fixed-pagetop .nav-fix-pos-pagetop a:hover {
   line-height: 1.5;
   padding: 2px 5px;
   border-radius: 2px;
-  margin: 0px 5px;
+  margin: 0 5px;
   vertical-align: text-top;
 }
 
@@ -526,13 +532,13 @@ body.is-fixed-pagetop .nav-fix-pos-pagetop a:hover {
 }
 
 ul.disc {
-  padding: 0em 25px 15px;
+  padding: 0 25px 15px;
   list-style: disc;
 }
 
 .color1,
 .color1 a {
-  color: #9370DB; /* 紫色に変更 */
+  color: #CE93D8; /* 薄い紫に変更 */
 }
 
 .pr {
@@ -549,9 +555,7 @@ ul.disc {
 
 .c {
   text-align: center;
-}
-
-.r {
+}.r {
   text-align: right;
 }
 
@@ -563,12 +567,14 @@ img.fr {
   float: right;
   margin-left: 10px;
   margin-bottom: 10px;
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 img.fl {
   float: left;
   margin-right: 10px;
   margin-bottom: 10px;
+  border-radius: 5px; /* 角丸を追加 */
 }
 
 .big1 {
@@ -597,7 +603,7 @@ img.fl {
     }
 
     100% {
-      opacity:1;
+      opacity: 1;
     }
   }
 
@@ -721,96 +727,41 @@ img.fl {
   }
 }
 
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+    line-height: 1.5;
+  }
 
+  #main h2,
+  #main h3 {
+    font-size: 14px;
+  }
 
+  #sub .submenu li a,
+  #side .submenu li a {
+    padding: 10px;
+  }
 
+  .ta1 th {
+    width: 100px;
+    padding: 5px;
+  }
 
-/*画面幅480px以下の設定
+  .ta1 td {
+    width: auto;
+    padding: 5px;
+  }
 
-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+  .ws,
+  .wl {
+    width: 94%;
+  }
 
-@media screen and (max-width:480px){
-
-
-
-/*全体の設定
-
----------------------------------------------------------------------------*/
-
-body {
-
-  font-size: 12px; /*文字サイズ*/
-
-  line-height: 1.5; /*行間*/
-
-}
-
-
-
-/*mainコンテンツ（中央のブロック）
-
----------------------------------------------------------------------------*/
-
-/*mainコンテンツのh2,h3タグ設定*/
-
-#main h2, #main h3 {
-
-  font-size: 14px; /*文字サイズ*/
-
-}
-
-
-
-/*submenu（sub,sideのメニュー）
-
----------------------------------------------------------------------------*/
-
-/*メニュー１個ごとの設定*/
-
-#sub .submenu li a,
-
-#side .submenu li a {
-
-  padding: 10px; /*ボックス内の余白*/
-
-}
-
-
-
-/*テーブル
-
----------------------------------------------------------------------------*/
-
-/*テーブル内の左側*/
-
-.ta1 th {
-
-  width: 100px;
-
-  padding: 5px;
-
-}
-
-/*テーブル内の右側*/
-
-.ta1 td {
-
-  width: auto;
-
-  padding: 5px;
-
-}
-
-
-
-/*その他
-
----------------------------------------------------------------------------*/
-
-.ws,.wl {width: 94%;}
-
-img.fr,img.fl {float: none;margin: 0;width: 100%;}
-
-
-
+  img.fr,
+  img.fl {
+    float: none;
+    margin: 0;
+    width: 100%;
+  }
 }
