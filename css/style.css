@@ -52,7 +52,7 @@ a:hover {
 /*ヘッダーブロック*/
 header {
   background: #66b3ff; /* 海の浅瀬をイメージした水色に変更 */
-  background: linear-gradient(to right, #66b3ff, #99ccff); /* グラデーションを適用 */
+  background: linear-gradient(to right, #6699CC, #77AACC); /* グラデーションを適用 */
   height: 125px; /*高さ*/
 }
 /*ロゴ画像*/
