@@ -13,7 +13,7 @@ body {
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   font-size: 15px;
   line-height: 2;
-  background: #FFFCF7; /* ベースカラー */
+  background: #E7D0A9; /* ベースカラー */
 }
 
 h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd, form, figure, form {
@@ -93,7 +93,7 @@ header #logo {
 }
 
 #menubar {
-  background: #ffffff;
+  background: ##859A93;
 }
 
 #menubar li {
@@ -132,7 +132,7 @@ header #logo {
 
 #menubar li.current a {
   background: #000;
-  background: radial-gradient(ellipse 100px 50px at 50% 70px, #2c3e50, #000);
+  background: radial-gradient(ellipse 100px 50px at 50% 70px, #66ffff, #66ffff);
 }
 
 #menubar-s {
