@@ -92,12 +92,14 @@ header #logo {
 }
 
 #menubar {
-  background: #EAE3D9; /* メニューバーの色を調整 */
+  background: #EAE3D9;
+  padding: 10px;
+  display: flex; /* フレックスボックスを使用 */
+  justify-content: center; /* 中央寄せ */
 }
 
 #menubar li {
-  float: left;
-  width: 16.66%;
+  margin: 0 5px; /* メニュー間のスペース */
 }
 
 #menubar li a {
@@ -105,33 +107,22 @@ header #logo {
   text-decoration: none;
   text-align: center;
   font-weight: bold;
-  border-right: 1px solid #D1C9C0; /* 境界線を調整 */
   line-height: 1.6;
-  padding: 14px 0;
+  padding: 12px 20px;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
-}
-
-#menubar li:first-child a {
-  border-left: 1px solid #D1C9C0; /* 境界線を調整 */
-}
-
-#menubar li a span {
-  text-shadow: none;
-  display: block;
-  font-size: 9px;
-  font-weight: normal;
-  letter-spacing: 0.2em;
-  opacity: 0.5;
+  background: linear-gradient(to bottom, #fff, #eee);
+  color: #333;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* 星形 */
 }
 
 #menubar li a:hover {
-  background: rgba(132, 147, 171, 0.1); /* ホバー時の背景色を調整 */
-  color: #4A3F35; /* テキストカラーを調整 */
+  background: linear-gradient(to bottom, #FF69B4, #FFB6C1);
+  color: #fff;
 }
 
 #menubar li.current a {
-  background: #FFD700; /* currentの色を調整 */
-  background: radial-gradient(ellipse 100px 50px at 50% 70px, #FF69B4, #87CEEB); /* グラデーションも調整 */
+  background: #FFD700;
+  color: #fff;
 }
 
 #menubar-s {
