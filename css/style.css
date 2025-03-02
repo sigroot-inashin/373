@@ -92,82 +92,46 @@ header #logo {
 }
 
 #menubar {
-  background: #EAE3D9;
-  padding: 10px;
-  border-radius: 30px;
-}
-
-.navigation {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%; /* メニューバーの幅に合わせる */
-}
-
-.navigation ul {
-  width: 100%;
-}
-
-.button {
-  display: block;
-  padding: 10px;
-  background: #fff;
-  width: 20%;
-  float: left;
-  border-top: 1px solid #d6d6d6;
-  border-bottom: 1px solid #d6d6d6;
-  transition: 0.2s all;
-  border-radius: 25px; /* 角丸を追加 */
-  margin: 0 5px; /* ボタン間のスペースを追加 */
-}
-
-.button p {
-  height: 10px;
-  font-weight: 300;
-}
-
-.button a {
-  color: #333333;
-  text-decoration: none;
-}
-
-.navigation:hover .button {
-  filter: blur(3px);
-  opacity: 0.8;
-  transform: scale(1);
-}
-
-.navigation:hover .button:hover {
-  transition: 0.6s;
-  transform: scale(1.1);
-  filter: blur(0px);
-  opacity: 1;
-  border-top: 1px solid #888888;
-  border-bottom: 1px solid #888888;
-}
-
-.navigation:hover .button:hover > p {
-  font-weight: bold;
+  background: #EAE3D9; /* メニューバーの色を調整 */
 }
 
 #menubar li {
-  margin: 0; /* メニュー項目のマージンを削除 */
-  width: 20%; /* ボタンと同じ幅にする */
+  float: left;
+  width: 16.66%;
 }
 
 #menubar li a {
-  display: flex; /* フレックスボックスを使用 */
-  justify-content: center; /* 中央寄せ */
-  align-items: center; /* 中央寄せ */
-  padding: 0; /* パディングを削除 */
-  text-shadow: none; /* テキストシャドウを削除 */
-  background: none; /* 背景を削除 */
-  border: none; /* ボーダーを削除 */
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  border-right: 1px solid #D1C9C0; /* 境界線を調整 */
+  line-height: 1.6;
+  padding: 14px 0;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+}
+
+#menubar li:first-child a {
+  border-left: 1px solid #D1C9C0; /* 境界線を調整 */
+}
+
+#menubar li a span {
+  text-shadow: none;
+  display: block;
+  font-size: 9px;
+  font-weight: normal;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+}
+
+#menubar li a:hover {
+  background: rgba(132, 147, 171, 0.1); /* ホバー時の背景色を調整 */
+  color: #4A3F35; /* テキストカラーを調整 */
 }
 
 #menubar li.current a {
-  background: linear-gradient(to bottom, #FFD700, #FFB6C1); /* 黄色から薄いピンクのグラデーション */
-  color: #fff;
+  background: #7A8F88; /* currentの色を調整 */
+  background: radial-gradient(ellipse 100px 50px at 50% 70px, #95A5A6, #7A8F88); /* グラデーションも調整 */
 }
 
 #menubar-s {
