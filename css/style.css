@@ -49,7 +49,7 @@ iframe {
 }
 
 a {
-  color: #333; /* アクセントカラーを調整 */
+  color: #90CE9C; /* アクセントカラーを調整 */
   transition: 0.5s;
 }
 
@@ -372,7 +372,7 @@ header #logo {
 
 footer {
   clear: both;
-  background: #fffff9; /* フッターの色を調整 */
+  background: #66ffff; /* フッターの色を調整 */
   color: #4A3F35; /* テキストカラーを調整 */
   font-size: 85%;
 }
