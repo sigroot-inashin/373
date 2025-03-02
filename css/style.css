@@ -94,7 +94,7 @@ header #logo {
 #menubar {
 	clear: both;overflow: hidden;
 	background: #454545;	/*背景色（古いブラウザ用）*/
-	background: linear-gradient(#7d7d7d, #616161 49%, #454545 50%);		/*グラデーション*/
+	background: linear-gradient(#7d7d7d, #fce4ec 49%, #b0e0e6 50%);		/*グラデーション*/
 }
 /*メニュー１個あたりの設定*/
 #menubar li {
@@ -129,7 +129,7 @@ header #logo {
   }
 /*現在表示中(current)メニューの設定*/
 #menubar li.current a {
-	background: linear-gradient(to bottom, #7A8F88, #95A5A6); /* グラデーション */
+	background: linear-gradient(to bottom, #FFD700, #87CEEB); /* グラデーション */
 	color: #fff;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* シャドウを追加 */
   }
