@@ -49,7 +49,7 @@ iframe {
 }
 
 a {
-  color: #87CEEB; /* アクセントカラーを調整 */
+  color: #F3F0E9; /* アクセントカラーを調整 */
   transition: 0.5s;
 }
 
@@ -536,7 +536,7 @@ ul.disc {
 
 .color1,
 .color1 a {
-  color: #87CEEB; /* アクセントカラーを調整 */
+  color: #0000Ff; /* アクセントカラーを調整 */
 }
 
 .pr {
