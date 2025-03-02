@@ -94,12 +94,13 @@ header #logo {
 #menubar {
   background: #EAE3D9;
   padding: 10px;
-  display: flex; /* フレックスボックスを使用 */
-  justify-content: center; /* 中央寄せ */
+  display: flex;
+  justify-content: center;
+  border-radius: 30px; /* 全体を丸くする */
 }
 
 #menubar li {
-  margin: 0 5px; /* メニュー間のスペース */
+  margin: 0 5px;
 }
 
 #menubar li a {
@@ -110,19 +111,23 @@ header #logo {
   line-height: 1.6;
   padding: 12px 20px;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
-  background: linear-gradient(to bottom, #fff, #eee);
+  background: linear-gradient(to bottom, #fce4ec, #f8bbd0); /* パステルピンクのグラデーション */
   color: #333;
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); /* 星形 */
+  border-radius: 25px; /* 角を丸くする */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* ドロップシャドウ */
+  transition: 0.3s; /* ホバー時のアニメーション */
 }
 
 #menubar li a:hover {
-  background: linear-gradient(to bottom, #FF69B4, #FFB6C1);
+  background: linear-gradient(to bottom, #FF69B4, #FFB6C1); /* ホバー時のグラデーション */
   color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* ホバー時のドロップシャドウ */
 }
 
 #menubar li.current a {
-  background: #FFD700;
+  background: #FFD700; /* 黄色 */
   color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 #menubar-s {
