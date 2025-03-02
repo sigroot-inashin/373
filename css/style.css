@@ -99,27 +99,30 @@ header #logo {
 }
 
 #menubar li {
-  flex-grow: 1; /* 均等な幅にする */
+  float: left;
+  width: 16.66%;
 }
 
 #menubar li a {
   display: block;
   text-decoration: none;
   text-align: center;
-  font-weight: 600; /* フォントを少し太くする */
-  font-family: 'Arial', sans-serif; /* フォントを変更 */
+  font-weight: bold;
+  border-right: 1px solid #333;
   line-height: 1.6;
   padding: 14px 0;
-  color: #333;
-  transition: background-color 0.3s ease; /* ホバー時のアニメーション */
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+}
+#menubar li:first-child a {
+  border-left: 1px solid #333;
 }
 
 #menubar li a span {
   display: block;
-  font-size: 0.8em;
+  font-size: 9px;
   font-weight: normal;
-  letter-spacing: 0.1em;
-  opacity: 0.7;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
 }
 
 #menubar li a:hover {
