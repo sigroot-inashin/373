@@ -92,49 +92,47 @@ header #logo {
 }
 
 #menubar {
-  background: #EAE3D9;
-  display: flex; /* フレックスボックスを使用 */
-  justify-content: space-around; /* 均等間隔に配置 */
-  padding: 10px 0;
+	clear: both;overflow: hidden;
+	background: #454545;	/*背景色（古いブラウザ用）*/
+	background: linear-gradient(#7d7d7d, #616161 49%, #454545 50%);		/*グラデーション*/
 }
-
+/*メニュー１個あたりの設定*/
 #menubar li {
-  float: left;
-  width: 16.66%;
+	float: left;	/*左に回り込み*/
+	width: 16.66%;	/*メニュー幅（100÷6個=16.66%）　もし４個にするなら100÷4=25%になる。*/
 }
-
 #menubar li a {
-  display: block;
-  text-decoration: none;
-  text-align: center;
-  font-weight: bold;
-  border-right: 1px solid #333;
-  line-height: 1.6;
-  padding: 14px 0;
-  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+	display:  block;text-decoration: none;
+	text-align: center;	/*文字をセンタリング*/
+	font-weight: bold;	/*太字に*/
+	border-right: 1px solid #333;	/*メニューの右側の線の幅、線種、色*/
+	line-height: 1.6;	/*行間を少し狭く*/
+	padding: 14px 0;	/*上下、左右へのメニュー内への余白*/
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.6);	/*テキストの影。右に、下に、広げる幅、0,0,0は黒の事で0.6は色が60%ついた状態。*/
 }
+/*１つ目のメニューへの追加設定*/
 #menubar li:first-child a {
-  border-left: 1px solid #333;
+	border-left: 1px solid #333;	/*メニューの線の幅、線種、色*/
 }
-
+/*装飾文字（英語表記）の設定*/
 #menubar li a span {
-  display: block;
-  font-size: 9px;
-  font-weight: normal;
-  letter-spacing: 0.2em;
-  opacity: 0.5;
+	text-shadow: none;display: block;
+	font-size: 9px;			/*文字サイズ*/
+	font-weight: normal;	/*文字を太字でなく標準に戻す設定*/
+	letter-spacing: 0.2em;	/*文字間隔を少しあける設定*/
+	opacity: 0.5;			/*透明度50％*/
 }
-
+/*マウスオン時メニューの設定*/
 #menubar li a:hover {
-  background-color: rgba(132, 147, 171, 0.3); /* ホバー時の背景色 */
-  color: #222;
-}
-
+	background-color: rgba(132, 147, 171, 0.3); /* ホバー時の背景色 */
+	color: #222;
+  }
+/*現在表示中(current)メニューの設定*/
 #menubar li.current a {
-  background: linear-gradient(to bottom, #7A8F88, #95A5A6); /* グラデーション */
-  color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* シャドウを追加 */
-}
+	background: linear-gradient(to bottom, #7A8F88, #95A5A6); /* グラデーション */
+	color: #fff;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* シャドウを追加 */
+  }
 #menubar-s {
   display: none;
 }
