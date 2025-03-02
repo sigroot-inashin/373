@@ -9,23 +9,30 @@
 body {
   margin: 0;
   padding: 0;
-  color: #333;
-  font-family: "ヒラギノ丸ゴ Pro W3", "Rounded Mplus 1c", sans-serif; /* 丸ゴシック体 */
-  font-size: 16px;
-  line-height: 1.8;
-  background: #FFF0F5; /* 淡いピンク */
+  color: #4A3F35; /* テキストカラーを少し濃く */
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-size: 15px;
+  line-height: 2;
+  background: #FFF0F5; /* 温かみのある明るいベースカラー */
 }
 
 h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd, form, figure, form {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
+  font-size: 100%;
 }
 
-ul, ol {
-  list-style: none;
+ul {
+  list-style-type: none;
+}
+
+ol {
+  padding-left: 40px;
+  padding-bottom: 15px;
 }
 
 img {
+  border: none;
   max-width: 100%;
   height: auto;
   vertical-align: middle;
@@ -42,88 +49,89 @@ iframe {
 }
 
 a {
-  color: #87CEEB; /* 水色 */
-  text-decoration: none;
-  transition: 0.3s;
+  color: #87CEEB; /* アクセントカラーを調整 */
+  transition: 0.5s;
 }
 
 a:hover {
-  color: #FF69B4; /* 濃いピンク */
+  color: #FF69B4; /* アクセントカラーの濃い色を調整 */
+  text-decoration: none;
 }
 
 .inner {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 0 2%;
 }
 
 header {
-  background: linear-gradient(to right, #FFD700, #87CEEB); /* 黄色から水色のグラデーション */
-  padding: 30px 0;
-  text-align: center;
-  margin-bottom: 30px;
-  border-radius: 0 0 30px 30px; /* 角丸 */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* ドロップシャドウ */
+  background: linear-gradient(to right, #FFD700, #87CEEB); /* ヘッダーの色を調整 */
+  height: 125px;
 }
 
 header #logo {
   width: 250px;
-  margin-top: 20px;
+  float: left;
+  margin-top: 34px;
 }
 
 #contact {
-  float: none;
-  margin-top: 10px;
+  float: right;
+  margin-top: 12px;
   text-align: center;
 }
 
 .tel {
   letter-spacing: 0.1em;
   font-size: 24px;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .tel span {
   display: block;
   font-size: 11px;
-  color: #fff;
 }
 
 #menubar {
-  background: #fff;
-  border-radius: 30px;
-  padding: 15px;
-  margin-bottom: 30px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#menubar ul {
-  display: flex;
-  justify-content: center;
+  background: #EAE3D9; /* メニューバーの色を調整 */
 }
 
 #menubar li {
-  margin: 0 20px;
+  float: left;
+  width: 16.66%;
 }
 
 #menubar li a {
-  color: #333;
+  display: block;
+  text-decoration: none;
+  text-align: center;
   font-weight: bold;
-  padding: 10px 20px;
-  border-radius: 25px;
-  background: linear-gradient(to bottom, #fff, #eee);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #D1C9C0; /* 境界線を調整 */
+  line-height: 1.6;
+  padding: 14px 0;
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+}
+
+#menubar li:first-child a {
+  border-left: 1px solid #D1C9C0; /* 境界線を調整 */
+}
+
+#menubar li a span {
+  text-shadow: none;
+  display: block;
+  font-size: 9px;
+  font-weight: normal;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
 }
 
 #menubar li a:hover {
-  background: linear-gradient(to bottom, #FF69B4, #FFB6C1); /* 濃いピンクから薄いピンクのグラデーション */
-  color: #fff;
+  background: rgba(132, 147, 171, 0.1); /* ホバー時の背景色を調整 */
+  color: #4A3F35; /* テキストカラーを調整 */
 }
 
 #menubar li.current a {
-  background: #FFD700; /* 黄色 */
-  color: #fff;
+  background: #FFD700; /* currentの色を調整 */
+  background: radial-gradient(ellipse 100px 50px at 50% 70px, #FF69B4, #87CEEB); /* グラデーションも調整 */
 }
 
 #menubar-s {
@@ -139,49 +147,54 @@ header #logo {
   overflow: hidden;
   padding-top: 40px;
   padding-bottom: 40px;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #F3F0E9; /* コンテンツ部の背景色を調整 */
 }
 
 #contents-in {
+  float: left;
+  width: 80%;
+}
+
+.c2 #contents-in {
   float: none;
-  width: 100%;
-  padding: 30px;
+  width: auto;
 }
 
 #main {
-  width: 100%;
+  float: right;
+  width: 75%;
 }
 
 #main h2 {
-  color: #FF69B4; /* 濃いピンク */
-  font-size: 28px;
+  clear: both;
   margin-bottom: 20px;
-  border-bottom: 2px solid #FFB6C1; /* 薄いピンク */
-  padding-bottom: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background: #87CEEB; /* 見出しの色を調整 */
+  background: linear-gradient(to right, #87CEEB, #ADD8E6); /* グラデーションも調整 */
+  border-bottom: 3px solid #ADD8E6;
 }
 
 #main h3 {
-  color: #87CEEB; /* 水色 */
-  font-size: 24px;
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ADD8E6; /* 薄い水色 */
-  padding-bottom: 8px;
+  clear: both;
+  margin-bottom: 20px;
+  padding: 4px 15px;
+  font-size: 16px;
+  border: 1px solid #D1C9C0; /* 境界線を調整 */
 }
 
 #main h3::first-letter {
-  border-left: none;
-  padding-left: 0;
+  border-left: 3px solid #87CEEB; /* 境界線を調整 */
+  padding-left: 15px;
 }
 
 #main p {
-  margin-bottom: 20px;
+  padding: 0px 15px 20px;
 }
 
 #main h2 + p,
 #main h3 + p {
-  margin-top: 0;
+  margin-top: -10px;
 }
 
 #main section + section {
@@ -192,7 +205,7 @@ header #logo {
   position: relative;
   overflow: hidden;
   padding: 20px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #D1C9C0; /* 境界線を調整 */
 }
 
 #main .list a {
@@ -201,11 +214,11 @@ header #logo {
   overflow: hidden;
   padding: 20px;
   margin: -20px;
-  transition: 0.3s;
 }
 
 #main .list a:hover {
-  background: #f9f9f9;
+  color: #fff;
+  background: #333;
 }
 
 #main .list a::before {
@@ -218,24 +231,23 @@ header #logo {
   bottom: 10px;
   width: 30px;
   line-height: 30px;
-  background: #FFD700; /* 黄色 */
-  border-radius: 50%;
-  color: #fff;
+  background: #87CEEB; /* アクセントカラーを調整 */
 }
 
 #main .list a:hover::before {
-  background: #FF69B4; /* 濃いピンク */
+  background: #FF69B4; /* アクセントカラーの濃い色を調整 */
 }
 
 #main .list h4 {
-  color: #FF69B4; /* 濃いピンク */
-  font-size: 20px;
-  margin-bottom: 10px;
+  border-left: 3px solid #87CEEB; /* 境界線を調整 */
+  padding-left: 10px;
+  margin-bottom: 0.5em;
   margin-left: 32%;
 }
 
 #main .list p {
-  font-size: 14px;
+  padding: 0px !important;
+  font-size: 13px;
   line-height: 1.6;
   margin-left: 34%;
 }
@@ -247,29 +259,29 @@ header #logo {
 
 #main .list:last-of-type,
 #main .list:last-of-type {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #D1C9C0; /* 境界線を調整 */
   margin-bottom: 20px;
 }
 
 #sub {
-  float: none;
-  width: 100%;
-  margin-bottom: 30px;
+  float: left;
+  width: 22.5%;
 }
 
 #side {
-  float: none;
-  width: 100%;
-  margin-bottom: 30px;
+  float: right;
+  width: 18%;
 }
 
-#sub h2,
+.c2 #side {
+  display: none;
+}#sub h2,
 #side h2 {
   text-align: center;
-  background: #FFD700; /* 黄色 */
-  color: #fff;
-  padding: 10px 0;
-  border-radius: 10px 10px 0 0;
+  background: #87CEEB; /* 見出しの色を調整 */
+  background: linear-gradient(to right, #87CEEB, #ADD8E6); /* グラデーションも調整 */
+  padding: 8px 0px;
+  border-radius: 6px 6px 0px 0px;
   margin-bottom: 10px;
 }
 
@@ -280,10 +292,9 @@ header #logo {
 
 #sub .box1,
 #side .box1 {
-  border: 1px solid #eee;
-  padding: 20px;
+  border: 1px solid #D1C9C0; /* 境界線を調整 */
+  padding: 10px;
   margin-bottom: 20px;
-  border-radius: 10px;
 }
 
 #sub .box1 h2,
@@ -294,17 +305,17 @@ header #logo {
 #sub .submenu,
 #side .submenu {
   margin-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #D1C9C0; /* 境界線を調整 */
 }
 
 #sub .submenu li a,
 #side .submenu li a {
   text-decoration: none;
   display: block;
-  padding: 10px;
-  border-top: 1px solid #eee;
-  border-left: 1px solid #eee;
-  border-right: 1px solid #eee;
+  padding: 0 10px;
+  border-top: 1px solid #D1C9C0; /* 境界線を調整 */
+  border-left: 1px solid #D1C9C0; /* 境界線を調整 */
+  border-right: 1px solid #D1C9C0; /* 境界線を調整 */
 }
 
 #sub h2 + .submenu,
@@ -316,9 +327,9 @@ header #logo {
 #side .list {
   position: relative;
   overflow: hidden;
-  font-size: 14px;
+  font-size: 11px;
   line-height: 1.2;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #D1C9C0; /* 境界線を調整 */
   padding: 10px;
 }
 
@@ -331,14 +342,13 @@ header #logo {
 
 #sub .list:last-of-type,
 #side .list:last-of-type {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #D1C9C0; /* 境界線を調整 */
   margin-bottom: 20px;
 }
 
 #sub .list h4,
 #side .list h4 {
   font-weight: bold;
-  color: #FF69B4; /* 濃いピンク */
 }
 
 #sub .list p,
@@ -360,12 +370,9 @@ header #logo {
 
 footer {
   clear: both;
-  background: #FFB6C1; /* 薄いピンク */
-  color: #666;
+  background: #EAE3D9; /* フッターの色を調整 */
+  color: #4A3F35; /* テキストカラーを調整 */
   font-size: 85%;
-  padding: 20px 0;
-  text-align: center;
-  border-radius: 30px 30px 0 0;
 }
 
 footer .pr {
@@ -379,27 +386,21 @@ footer .pr {
 }
 
 #footermenu ul {
-  float: none;
-  width: 100%;
-  text-align: center;
-}
-
-#footermenu ul li {
-  display: inline-block;
-  margin: 0 10px;
+  float: left;
+  width: 18%;
+  padding-right: 1%;
+  padding-left: 1%;
 }
 
 #copyright {
   clear: both;
   text-align: center;
-  background: #eee;
-  color: #666;
-  padding: 10px 0;
+  background: #333;
+  color: #fff;
 }
 
 #copyright a {
   text-decoration: none;
-  color: #666;
 }
 
 #new dl {
@@ -419,10 +420,10 @@ footer .pr {
 }
 
 .ta1 caption {
-  border: 1px solid #eee;
+  border: 1px solid #D1C9C0; /* 境界線を調整 */
   border-bottom: none;
   text-align: left;
-  background: #f9f9f9;
+  background: #222;
   font-weight: bold;
   padding: 10px;
 }
@@ -435,7 +436,7 @@ footer .pr {
 .ta1,
 .ta1 td,
 .ta1 th {
-  border: 1px solid #eee;
+  border: 1px solid #D1C9C0; /* 境界線を調整 */
   padding: 10px 15px;
   word-break: break-all;
 }
@@ -449,20 +450,19 @@ footer .pr {
 #main input[type="submit"].btn,
 #main input[type="button"].btn,
 #main input[type="reset"].btn {
-  padding: 10px 20px;
-  border: none;
-  font-size: 16px;
-  border-radius: 25px;
-  background: #FFD700; /* 黄色 */
-  color: #fff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  border-radius: 3px;
+  background: #eee;
+  color: #4A3F35; /* テキストカラーを調整 */
 }
 
 #main input[type="submit"].btn:hover,
 #main input[type="button"].btn:hover,
 #main input[type="reset"].btn:hover {
-  background: #FF69B4; /* 濃いピンク */
+  border: 1px solid #999;
+  background: #fff;
 }
 
 @keyframes scroll {
@@ -488,22 +488,22 @@ body.is-fixed-pagetop .nav-fix-pos-pagetop a {
   line-height: 50px;
   bottom: 50px;
   right: 3%;
-  background: #FFD700; /* 黄色 */
+  background: #000;
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: 1px solid #fff;
   animation-name: scroll;
   animation-duration: 1S;
   animation-fill-mode: forwards;
 }
 
 body.is-fixed-pagetop .nav-fix-pos-pagetop a:hover {
-  background: #FF69B4; /* 濃いピンク */
+  background: #999;
 }
 
 .newicon {
-  background: #FFD700; /* 黄色 */
-  color: #fff;
+  background: #87CEEB; /* アクセントカラーを調整 */
+  color: #FFF;
   font-size: 70%;
   line-height: 1.5;
   padding: 2px 5px;
@@ -514,7 +514,6 @@ body.is-fixed-pagetop .nav-fix-pos-pagetop a:hover {
 
 .look {
   background: #333;
-  color: #fff;
   padding: 5px 10px;
   border-radius: 4px;
 }
@@ -535,7 +534,7 @@ ul.disc {
 
 .color1,
 .color1 a {
-  color: #87CEEB; /* 水色 */
+  color: #87CEEB; /* アクセントカラーを調整 */
 }
 
 .pr {
@@ -555,7 +554,7 @@ ul.disc {
 }
 
 .r {
-  text--align: right;
+  text-align: right;
 }
 
 .l {
@@ -576,7 +575,7 @@ img.fl {
 
 .big1 {
   font-size: 24px;
-  letter-spacing: 0.2em;
+  letter-spacing:0.2em;
 }
 
 .mini1 {
@@ -589,7 +588,6 @@ img.fl {
   display: none;
 }
 
-/* レスポンシブデザイン */
 @media screen and (max-width: 800px) {
   #contact {
     display: none;
@@ -689,22 +687,22 @@ img.fl {
 
 @media screen and (max-width: 480px) {
   body {
-    font-size: 14px; /* フォントサイズを調整 */
-    line-height: 1.6; /* 行間を調整 */
+    font-size: 12px;
+    line-height: 1.5;
   }
 
   #main h2,
   #main h3 {
-    font-size: 18px; /* 見出しのフォントサイズを調整 */
+    font-size: 14px;
   }
 
   #sub .submenu li a,
   #side .submenu li a {
-    padding: 8px; /* パディングを調整 */
+    padding: 10px;
   }
 
   .ta1 th {
-    width: 80px; /* 幅を調整 */
+    width: 100px;
     padding: 5px;
   }
 
@@ -723,22 +721,5 @@ img.fl {
     float: none;
     margin: 0;
     width: 100%;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  #main h2,
-  #main h3 {
-    font-size: 16px; /* 見出しのフォントサイズを調整 */
-  }
-
-  #sub .submenu li a,
-  #side .submenu li a {
-    font-size: 14px; /* フォントサイズを調整 */
-  }
-
-  .ta1 th,
-  .ta1 td {
-    font-size: 12px; /* フォントサイズを調整 */
   }
 }
