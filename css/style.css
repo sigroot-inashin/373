@@ -371,7 +371,7 @@ header #logo {
 
 footer {
   clear: both;
-  background: #FFFCF7; /* ベースカラー */
+  background: ##859A93; /* ベースカラー */
   color: #544739; /* テキストカラー */
   font-size: 85%;
 }
