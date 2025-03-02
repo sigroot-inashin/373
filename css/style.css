@@ -372,7 +372,7 @@ header #logo {
 
 footer {
   clear: both;
-  background: #EAE3D9; /* フッターの色を調整 */
+  background: #87CEEB; /* フッターの色を調整 */
   color: #4A3F35; /* テキストカラーを調整 */
   font-size: 85%;
 }
@@ -425,7 +425,7 @@ footer .pr {
   border: 1px solid #D1C9C0; /* 境界線を調整 */
   border-bottom: none;
   text-align: left;
-  background: #222;
+  background: #87CEEB;
   font-weight: bold;
   padding: 10px;
 }
