@@ -94,14 +94,26 @@ header #logo {
 #menubar {
   clear: both;
   overflow: hidden;
-  background: linear-gradient(to bottom, #EAE3D9, #F5F5F5); /* メニューバーの背景を柔らかい印象に */
-  border-radius: 8px; /* 角を丸くする */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 影を追加 */
+  background: linear-gradient(to right, 
+    #FFC0CB, /* 薄いピンク */
+    #FFD700, /* 薄い黄色 */
+    #90EE90, /* 薄い緑 */
+    #87CEEB, /* 薄い水色 */
+    #9370DB, /* 薄い紫 */
+    #FFA07A /* 薄いオレンジ */
+  );
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  top: 10px;
+  margin: 0 auto;
+  max-width: 1300px;
 }
 
 #menubar li {
   float: left;
   width: 16.66%;
+  box-sizing: border-box; /* 幅にpaddingとborderを含める */
 }
 
 #menubar li a {
@@ -109,15 +121,20 @@ header #logo {
   text-decoration: none;
   text-align: center;
   font-weight: bold;
-  border-right: 1px solid #ddd; /* 区切り線を薄くする */
   line-height: 1.6;
   padding: 14px 0;
-  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1); /* 影を薄くする */
-  color: #333; /* 文字色を少し濃くする */
+  text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
+  color: #333;
 }
 
+/* 最初の要素の左ボーダーを削除 */
 #menubar li:first-child a {
-  border-left: 1px solid #ddd; /* 区切り線を薄くする */
+  border-left: none;
+}
+
+/* 最後の要素の右ボーダーを削除 */
+#menubar li:last-child a {
+  border-right: none;
 }
 
 #menubar li a span {
