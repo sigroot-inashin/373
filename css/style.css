@@ -149,7 +149,7 @@ header #logo {
   overflow: hidden;
   padding-top: 40px;
   padding-bottom: 40px;
-  background: #F3F0E9; /* コンテンツ部の背景色を調整 */
+  background: #F8F5F0; /* コンテンツ部の背景色を調整 */
 }
 
 #contents-in {
@@ -280,7 +280,7 @@ header #logo {
 }#sub h2,
 #side h2 {
   text-align: center;
-  background: #87CEEB; /* 見出しの色を調整 */
+  background: #F8F5F0; /* 見出しの色を調整 */
   background: linear-gradient(to right, #87CEEB, #ADD8E6); /* グラデーションも調整 */
   padding: 8px 0px;
   border-radius: 6px 6px 0px 0px;
@@ -372,7 +372,7 @@ header #logo {
 
 footer {
   clear: both;
-  background: #66ffff; /* フッターの色を調整 */
+  background: #E0E0E0; /* フッターの色を調整 */
   color: #4A3F35; /* テキストカラーを調整 */
   font-size: 85%;
 }
