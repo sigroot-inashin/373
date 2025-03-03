@@ -49,7 +49,7 @@ iframe {
 }
 
 a {
-  color: #00B48D;
+  color: #333;
   transition: 0.5s;
 }
 
@@ -426,7 +426,7 @@ footer .pr {
   clear: both;
   text-align: center;
   background: #B3C5FF;
-  color: #fff;
+  color: #333;
 }
 
 #copyright a {
