@@ -113,7 +113,12 @@ header #logo {
 #menubar li {
   float: left;
   width: 16.66%;
-  box-sizing: border-box; /* 幅にpaddingとborderを含める */
+  box-sizing: border-box;
+  border-right: 1px solid rgba(0, 0, 0, 0.2); /* 右側に区切り線を追加 */
+}
+
+#menubar li:last-child {
+  border-right: none; /* 最後の要素の右側の区切り線を削除 */
 }
 
 #menubar li a {
@@ -125,16 +130,16 @@ header #logo {
   padding: 14px 0;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1);
   color: #333;
+  transition: background-color 0.3s ease; /* マウスオーバー時のアニメーションを追加 */
+}
+
+#menubar li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* マウスオーバー時に薄い白色の背景色を追加 */
 }
 
 /* 最初の要素の左ボーダーを削除 */
 #menubar li:first-child a {
   border-left: none;
-}
-
-/* 最後の要素の右ボーダーを削除 */
-#menubar li:last-child a {
-  border-right: none;
 }
 
 #menubar li a span {
