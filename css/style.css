@@ -157,7 +157,7 @@ header #logo {
 }
 
 #menubar li.current a {
-  background: linear-gradient(to bottom, #fff352, #fffff9); /* 現在のページの背景色を調整 */
+  background: linear-gradient(to bottom, #8EC5FC, #E0C3FC); /* 現在のページの背景色を調整 */
   color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 影を薄くする */
 }
