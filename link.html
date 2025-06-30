@@ -59,7 +59,7 @@
 <h2>おみくじ</h2>
 <p>今日の運勢を占ってみましょう！</p>
 <button id="drawOmikuji">おみくじを引く</button>
-<div id="omikujiResult" style="font-size: 2em; margin-top: 20px; text-align: center;">
+<div id="omikujiResult">
     </div>
 </section>
 
@@ -174,21 +174,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const drawButton = document.getElementById('drawOmikuji');
     const resultDiv = document.getElementById('omikujiResult');
 
+    // 初期状態では結果表示エリアは非表示
+    resultDiv.style.display = 'none';
+
     const fortunes = [
-        "大吉 (Great Blessing) - すべてが順調に進むでしょう！ (Everything will go smoothly!)",
-        "中吉 (Middle Blessing) - 良いことが起こりそうです。 (Good things are likely to happen.)",
-        "小吉 (Small Blessing) - 小さな幸運があります。 (You will have a small stroke of luck.)",
-        "吉 (Blessing) - 平穏な一日になるでしょう。 (It will be a peaceful day.)",
-        "末吉 (Future Blessing) - これから良くなる兆しです。 (Things are looking up from now on.)",
-        "凶 (Curse) - 今日は慎重に行動しましょう。 (Act cautiously today.)",
-        "大凶 (Great Curse) - 注意が必要です。 (You need to be very careful.)"
+        { text: "大吉 (Great Blessing) - すべてが順調に進むでしょう！", class: "omikuji-daikichi" },
+        { text: "中吉 (Middle Blessing) - 良いことが起こりそうです。", class: "omikuji-chukichi" },
+        { text: "小吉 (Small Blessing) - 小さな幸運があります。", class: "omikuji-shokichi" },
+        { text: "吉 (Blessing) - 平穏な一日になるでしょう。", class: "omikuji-kichi" },
+        { text: "末吉 (Future Blessing) - これから良くなる兆しです。", class: "omikuji-suekichi" },
+        { text: "凶 (Curse) - 今日は慎重に行動しましょう。", class: "omikuji-kyo" },
+        { text: "大凶 (Great Curse) - 注意が必要です。", class: "omikuji-daikyo" }
     ];
 
     if (drawButton && resultDiv) {
         drawButton.addEventListener('click', function() {
             const randomIndex = Math.floor(Math.random() * fortunes.length);
-            const fortune = fortunes[randomIndex];
-            resultDiv.textContent = fortune;
+            const selectedFortune = fortunes[randomIndex];
+
+            // 既存の運勢クラスをすべて削除
+            resultDiv.className = ''; 
+            // 新しい運勢クラスを追加
+            resultDiv.classList.add(selectedFortune.class);
+            // 結果テキストを設定
+            resultDiv.textContent = selectedFortune.text;
+            // 結果表示エリアを表示
+            resultDiv.style.display = 'flex'; // CSSでflexが設定されているのでflexにする
         });
     }
 });
