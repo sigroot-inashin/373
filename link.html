@@ -22,31 +22,29 @@
 <p class="tel">Welcome To My Site !!<span>稼働時間：24時間　休止時間：サイトメンテナンス日</span></p>
 </div>
 <div id="language-switcher">
-  <a href="link.html" hreflang="ja">日本語</a> |
-  <a href="link_en.html" hreflang="en">English</a> |
-  <a href="link_fr.html" hreflang="fr">Français</a>
+  <a href="link.html" hreflang="ja">日本語</a> |
+  <a href="link_en.html" hreflang="en">English</a> |
+  <a href="link_fr.html" hreflang="fr">Français</a>
 </div>
 </div>
 </header>
 
-<!--PC用（801px以上端末）メニュー-->
 <nav id="menubar">
 <ul class="inner">
 <li><a href="index.html">ホーム<span>HOME</span></a></li>
 <li><a href="company.html">サイトについて<span>ABOUT WEBSITE</span></a></li>
 <li><a href="service.html">サービス紹介<span>SERVICE</span></a></li>
-<li><a href="recruit.html">製作者情報<span>DEVELOPER INFORMATION</span></a></li>
-<li class="current"><a href="link.html">リンク<span>STAFF</span></a></li>
+<li class="current"><a href="recruit.html">おみくじ<span>OMIKUJI</span></a></li>
+<li><a href="link.html">リンク<span>STAFF</span></a></li>
 <li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
 </ul>
 </nav>
-<!--小さな端末用（800px以下端末）メニュー-->
 <nav id="menubar-s">
 <ul>
 <li><a href="index.html">ホーム<span>HOME</span></a></li>
-<li class="current"><a href="company.html">サイトについて<span>ABOUT WEBSITE</span></a></li>
+<li><a href="company.html">サイトについて<span>ABOUT WEBSITE</span></a></li>
 <li><a href="service.html">サービス紹介<span>SERVICE</span></a></li>
-<li><a href="recruit.html">製作者情報<span>DEVELOPER INFORMATION</span></a></li>
+<li class="current"><a href="recruit.html">おみくじ<span>OMIKUJI</span></a></li>
 <li><a href="link.html">リンク<span>STAFF</span></a></li>
 <li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
 </ul>
@@ -57,30 +55,15 @@
 
 <div id="main">
 
-
 <section>
-
-<h2>リンク</h2>
-<p>リンク名について下線が置かれていますがクリックによる遷移はスパム防止のためいたしませんのでご了承ください。</p>
-
-<table class="ta1">
-<caption>製作者使用のSNS一覧</caption>
-<tr>
-<th><a href="#">DISCORD</a></th>
-<td>名前: ☆(アットマーク）riachan20</td>
-</tr>
-<tr>
-<th><a href="#">Instagram</a></th>
-<td>名前：☆（アットマーク）</td>
-</tr>
-
-</table>
-
+<h2>おみくじ</h2>
+<p>今日の運勢を占ってみましょう！</p>
+<button id="drawOmikuji">おみくじを引く</button>
+<div id="omikujiResult" style="font-size: 2em; margin-top: 20px; text-align: center;">
+    </div>
 </section>
 
 </div>
-<!--/#main-->
-
 <div id="sub">
 
 <nav>
@@ -124,8 +107,6 @@
 </a>
 </div>
 
-
-
 </section>
 
 <div class="box1">
@@ -137,11 +118,7 @@
 </div>
 
 </div>
-<!--/#sub-->
-
 </div>
-<!--/#contents-in-->
-
 <div id="side">
 
 <section>
@@ -154,9 +131,7 @@
 </ul>
 </nav>
 
-
 </section>
-
 
 <p>
 <a href="recruit.html"><img src="images/banner1.jpg" alt="ロゴについて" class="pc"></a>
@@ -166,18 +141,12 @@
 <a href="company.html#banner">ロゴ作成は現在しておりません。</a></p>
 
 </div>
-<!--/#side-->
-
 </div>
-<!--/#contents-->
-
 <footer>
 
 <div id="footermenu" class="inner">
 
 </div>
-<!--/footermenu-->
-
 <div id="copyright">
 <small>Copyright&copy; <a href="index.html">Ria373</a> All Rights Reserved.</small>
 <span class="pr"><a href="http://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
@@ -187,22 +156,43 @@
 
 <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
 
-<!--小さな端末用（800px以下端末）メニュー-->
 <script type="text/javascript">
 if (OCwindowWidth() <= 800) {
 	open_close("newinfo_hdr", "newinfo");
 }
 </script>
 
-<!--メニュー開閉ボタン-->
 <div id="menubar_hdr" class="close"></div>
-<!--メニューの開閉処理条件設定　800px以下-->
 <script type="text/javascript">
 if (OCwindowWidth() <= 800) {
 	open_close("menubar_hdr", "menubar-s");
 }
 </script>
 
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    const drawButton = document.getElementById('drawOmikuji');
+    const resultDiv = document.getElementById('omikujiResult');
+
+    const fortunes = [
+        "大吉 (Great Blessing) - すべてが順調に進むでしょう！ (Everything will go smoothly!)",
+        "中吉 (Middle Blessing) - 良いことが起こりそうです。 (Good things are likely to happen.)",
+        "小吉 (Small Blessing) - 小さな幸運があります。 (You will have a small stroke of luck.)",
+        "吉 (Blessing) - 平穏な一日になるでしょう。 (It will be a peaceful day.)",
+        "末吉 (Future Blessing) - これから良くなる兆しです。 (Things are looking up from now on.)",
+        "凶 (Curse) - 今日は慎重に行動しましょう。 (Act cautiously today.)",
+        "大凶 (Great Curse) - 注意が必要です。 (You need to be very careful.)"
+    ];
+
+    if (drawButton && resultDiv) {
+        drawButton.addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * fortunes.length);
+            const fortune = fortunes[randomIndex];
+            resultDiv.textContent = fortune;
+        });
+    }
+});
+</script>
 
 </body>
 </html>
