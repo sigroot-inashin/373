@@ -11,74 +11,6 @@
 <link rel="stylesheet" href="css/slide.css">
 <script type="text/javascript" src="js/openclose.js"></script>
 <script type="text/javascript" src="js/fixmenu_pagetop.js"></script>
-
-<style type="text/css">
-/* おみくじボタンのスタイル */
-#drawOmikuji {
-    display: block; /* ボタンをブロック要素にし、中央寄せ可能にする */
-    margin: 30px auto; /* 上下に余白、左右中央寄せ */
-    padding: 15px 40px; /* 内側の余白 */
-    font-size: 1.5em; /* 文字サイズを大きく */
-    font-weight: bold; /* 文字を太く */
-    color: #fff; /* 文字色を白に */
-    background-color: #e07b39; /* ボタンの背景色（暖色系） */
-    border: none; /* ボーダーをなくす */
-    border-radius: 8px; /* 角を丸くする */
-    cursor: pointer; /* マウスオーバーでカーソルをポインターに */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 影で立体感を出す */
-    transition: all 0.3s ease; /* ホバー時のアニメーション */
-    letter-spacing: 0.1em; /* 文字間隔を少し広げる */
-    text-decoration: none; /* 下線があれば消す */
-}
-
-#drawOmikuji:hover {
-    background-color: #c96a30; /* ホバー時の背景色を少し濃く */
-    transform: translateY(-3px); /* 少し上に浮き上がるアニメーション */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* 影を強調 */
-}
-
-#drawOmikuji:active {
-    transform: translateY(0); /* クリック時に押し込まれるように */
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* おみくじ結果表示エリアのスタイル */
-#omikujiResult {
-    background-color: #fcf8e3; /* 背景色（淡いクリーム色） */
-    border: 3px solid #e07b39; /* 枠線 */
-    border-radius: 10px; /* 角を丸くする */
-    padding: 40px 20px; /* 内側の余白 */
-    margin-top: 40px; /* 上部に余白 */
-    font-size: 2.5em; /* 文字サイズをさらに大きく */
-    font-weight: bold; /* 文字を太く */
-    color: #333; /* 文字色 */
-    text-align: center; /* テキストを中央寄せ */
-    min-height: 150px; /* 最低限の高さを設定 */
-    display: flex; /* Flexboxを使って内容を中央揃え */
-    justify-content: center; /* 水平方向の中央揃え */
-    align-items: center; /* 垂直方向の中央揃え */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* 影 */
-    line-height: 1.5; /* 行の高さを調整 */
-    opacity: 0; /* 初期状態では透明 */
-    transform: translateY(20px); /* 初期状態では少し下 */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* アニメーション */
-}
-
-/* おみくじ結果表示時に表示されるスタイル */
-#omikujiResult.active {
-    opacity: 1; /* 表示時に不透明にする */
-    transform: translateY(0); /* 表示時に元の位置に戻す */
-}
-
-/* おみくじ結果の運勢ごとの色分け */
-.omikuji-daikichi { color: #d9534f; } /* 大吉 - 赤系 */
-.omikuji-chukichi { color: #5cb85c; } /* 中吉 - 緑系 */
-.omikuji-shokichi { color: #f0ad4e; } /* 小吉 - オレンジ系 */
-.omikuji-kichi { color: #337ab7; } /* 吉 - 青系 */
-.omikuji-suekichi { color: #5bc0de; } /* 末吉 - 水色系 */
-.omikuji-kyo { color: #777; } /* 凶 - 灰色系 */
-.omikuji-daikyo { color: #444; background-color: #fdd; } /* 大凶 - 濃い灰色、背景薄赤 */
-</style>
 </head>
 
 <body>
@@ -90,30 +22,32 @@
 <p class="tel">Welcome To My Site !!<span>稼働時間：24時間　休止時間：サイトメンテナンス日</span></p>
 </div>
 <div id="language-switcher">
-  <a href="link.html" hreflang="ja">日本語</a> |
-  <a href="link_en.html" hreflang="en">English</a> |
-  <a href="link_fr.html" hreflang="fr">Français</a>
+  <a href="contact.html" hreflang="ja">日本語</a> |
+  <a href="contact_en.html" hreflang="en">English</a> |
+  <a href="contact_fr.html" hreflang="fr">Français</a>
 </div>
 </div>
 </header>
 
+<!--PC用（801px以上端末）メニュー-->
 <nav id="menubar">
 <ul class="inner">
 <li><a href="index.html">ホーム<span>HOME</span></a></li>
 <li><a href="company.html">サイトについて<span>ABOUT WEBSITE</span></a></li>
 <li><a href="service.html">サービス紹介<span>SERVICE</span></a></li>
-<li class="current"><a href="recruit.html">おみくじ<span>OMIKUJI</span></a></li>
+<li><a href="recruit.html">製作者情報<span>DEVELOPER INFORMATION</span></a></li>
 <li><a href="link.html">リンク<span>STAFF</span></a></li>
-<li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
+<li class="current"><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
 </ul>
 </nav>
+<!--小さな端末用（800px以下端末）メニュー-->
 <nav id="menubar-s">
 <ul>
 <li><a href="index.html">ホーム<span>HOME</span></a></li>
-<li><a href="company.html">サイトについて<span>ABOUT WEBSITE</span></a></li>
+<li ><a href="company.html">サイトについて<span>ABOUT WEBSITE</span></a></li>
 <li><a href="service.html">サービス紹介<span>SERVICE</span></a></li>
-<li class="current"><a href="recruit.html">おみくじ<span>OMIKUJI</span></a></li>
-<li><a href="link.html">リンク<span>STAFF</span></a></li>
+<li><a href="recruit.html">製作者情報<span>DEVELOPER INFORMATION</span></a></li>
+<li class="current"><a href="link.html">リンク<span>STAFF</span></a></li>
 <li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
 </ul>
 </nav>
@@ -123,15 +57,25 @@
 
 <div id="main">
 
+
 <section>
-<h2>おみくじ</h2>
-<p>今日の運勢を占ってみましょう！</p>
-<button id="drawOmikuji">おみくじを引く</button>
-<div id="omikujiResult">
-    </div>
+
+<section>
+  <h2>お問い合わせフォーム</h2>
+
+  <iframe 
+    width="640" 
+    height="480" 
+    src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAYAADWYBldURDE3STNGTzBSREFFUUg5V0YwN05aRjBDNC4u" 
+    frameborder="0" 
+    allowfullscreen>
+  </iframe>
+
+</section>
 </section>
 
 </div>
+<!--/#main-->
 <div id="sub">
 
 <nav>
@@ -175,6 +119,8 @@
 </a>
 </div>
 
+
+
 </section>
 
 <div class="box1">
@@ -186,7 +132,11 @@
 </div>
 
 </div>
+<!--/#sub-->
+
 </div>
+<!--/#contents-in-->
+
 <div id="side">
 
 <section>
@@ -199,7 +149,9 @@
 </ul>
 </nav>
 
+
 </section>
+
 
 <p>
 <a href="recruit.html"><img src="images/banner1.jpg" alt="ロゴについて" class="pc"></a>
@@ -209,12 +161,18 @@
 <a href="company.html#banner">ロゴ作成は現在しておりません。</a></p>
 
 </div>
+<!--/#side-->
+
 </div>
+<!--/#contents-->
+
 <footer>
 
 <div id="footermenu" class="inner">
 
 </div>
+<!--/footermenu-->
+
 <div id="copyright">
 <small>Copyright&copy; <a href="index.html">Ria373</a> All Rights Reserved.</small>
 <span class="pr"><a href="http://template-party.com/" target="_blank">《Web Design:Template-Party》</a></span>
@@ -224,56 +182,22 @@
 
 <p class="nav-fix-pos-pagetop"><a href="#">↑</a></p>
 
+<!--小さな端末用（800px以下端末）メニュー-->
 <script type="text/javascript">
 if (OCwindowWidth() <= 800) {
 	open_close("newinfo_hdr", "newinfo");
 }
 </script>
 
+<!--メニュー開閉ボタン-->
 <div id="menubar_hdr" class="close"></div>
+<!--メニューの開閉処理条件設定　800px以下-->
 <script type="text/javascript">
 if (OCwindowWidth() <= 800) {
 	open_close("menubar_hdr", "menubar-s");
 }
 </script>
 
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function() {
-    const drawButton = document.getElementById('drawOmikuji');
-    const resultDiv = document.getElementById('omikujiResult');
 
-    // 初期状態では結果表示エリアは非表示
-    resultDiv.style.display = 'none'; // これで初期表示されません
-
-    const fortunes = [
-        { text: "大吉 (Great Blessing) - すべてが順調に進むでしょう！", class: "omikuji-daikichi" },
-        { text: "中吉 (Middle Blessing) - 良いことが起こりそうです。", class: "omikuji-chukichi" },
-        { text: "小吉 (Small Blessing) - 小さな幸運があります。", class: "omikuji-shokichi" },
-        { text: "吉 (Blessing) - 平穏な一日になるでしょう。", class: "omikuji-kichi" },
-        { text: "末吉 (Future Blessing) - これから良くなる兆しです。", class: "omikuji-suekichi" },
-        { text: "凶 (Curse) - 今日は慎重に行動しましょう。", class: "omikuji-kyo" },
-        { text: "大凶 (Great Curse) - 注意が必要です。", class: "omikuji-daikyo" }
-    ];
-
-    if (drawButton && resultDiv) {
-        drawButton.addEventListener('click', function() {
-            const randomIndex = Math.floor(Math.random() * fortunes.length);
-            const selectedFortune = fortunes[randomIndex];
-
-            // 既存の運勢クラスをすべて削除
-            resultDiv.className = ''; 
-            // 新しい運勢クラスを追加
-            resultDiv.classList.add(selectedFortune.class);
-            // 結果テキストを設定
-            resultDiv.textContent = selectedFortune.text;
-            // 結果表示エリアを表示（アニメーションのためにactiveクラスを追加）
-            resultDiv.style.display = 'flex'; // CSSでflexが設定されているのでflexにする
-            setTimeout(() => { // 短い遅延を入れてtransitionを有効にする
-                resultDiv.classList.add('active');
-            }, 10); 
-        });
-    }
-});
-</script>
 </body>
 </html>
