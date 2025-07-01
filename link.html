@@ -250,13 +250,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // 運勢とその確率を設定
     // probabilityの合計が100になるように調整してください。
     const fortunes = [
-        { text: "🌟 大吉 (Great Blessing) - すべてが順調に進むでしょう！素晴らしい一日になります！", class: "omikuji-daikichi", probability: 10 }, // 10%
-        { text: "✨ 中吉 (Middle Blessing) - 良いことが起こりそうです。積極的に行動してみましょう！", class: "omikuji-chukichi", probability: 25 }, // 25%
-        { text: "🍀 小吉 (Small Blessing) - 小さな幸運があります。日常の中に喜びを見つけましょう。", class: "omikuji-shokichi", probability: 30 }, // 30%
-        { text: "😊 吉 (Blessing) - 平穏な一日になるでしょう。感謝の気持ちを忘れずに。", class: "omikuji-kichi", probability: 20 }, // 20%
-        { text: "🌱 末吉 (Future Blessing) - これから良くなる兆しです。焦らず、一歩ずつ進みましょう。", class: "omikuji-suekichi", probability: 10 }, // 10%
-        { text: "⚠️ 凶 (Curse) - 今日は慎重に行動しましょう。予期せぬトラブルに注意が必要です。", class: "omikuji-kyo", probability: 4 }, // 4%
-        { text: "💀 大凶 (Great Curse) - 最低な運勢です。今日は静かに過ごし、無理は禁物です。", class: "omikuji-daikyo", probability: 1 } // 1%
+        { text: "🍀 大吉  - すべてが順調に進むでしょう！素晴らしい一日になります！", class: "omikuji-daikichi", probability: 10 }, // 10%
+        { text: "☘ 中吉  - 良いことが起こりそうです。積極的に行動してみましょう！", class: "omikuji-chukichi", probability: 25 }, // 25%
+        { text: "🍃 小吉  - 小さな幸運があります。日常の中に喜びを見つけましょう。", class: "omikuji-shokichi", probability: 30 }, // 30%
+        { text: "🌸 吉 　 - 平穏な一日になるでしょう。感謝の気持ちを忘れずに。", class: "omikuji-kichi", probability: 20 }, // 20%
+        { text: "🌱 末吉  - 良くも悪くもない一日。焦らず、一歩ずつ進みましょう。", class: "omikuji-suekichi", probability: 9 }, // 9%
+        { text: "☁ 凶 　 - 今日は慎重に行動しましょう。予期せぬトラブルに注意が必要です。", class: "omikuji-kyo", probability: 4 }, // 4%
+        { text: "🌧 大凶  - 何もかもうまくいかない日かも....今日は静かに過ごしましょう。無理は禁物です。", class: "omikuji-daikyo", probability: 1 } // 1%
+　　　　 { text: "🐻 くま吉 - くまになりそうなきがする一日" , class: "kumakichi", probability: 3 }, // 3%
     ];
 
     if (drawButton && resultDiv) {
