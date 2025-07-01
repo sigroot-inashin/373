@@ -78,6 +78,84 @@
 .omikuji-suekichi { color: #5bc0de; } /* 末吉 - 水色系 */
 .omikuji-kyo { color: #777; } /* 凶 - 灰色系 */
 .omikuji-daikyo { color: #444; background-color: #fdd; } /* 大凶 - 濃い灰色、背景薄赤 */
+.kumakichi { color: #8B4513; } /* くま吉 - 茶色系 */
+
+/* 星座占いセクションのスタイル */
+#horoscopeSection {
+    margin-top: 50px;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+#horoscopeSection h2 {
+    text-align: center;
+    color: #e07b39;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.horoscope-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.horoscope-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.horoscope-item:hover {
+    transform: translateY(-5px);
+}
+
+.horoscope-item .rank {
+    font-size: 2.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.rank-1 { color: #d9534f; } /* 1位 */
+.rank-2 { color: #f0ad4e; } /* 2位 */
+.rank-3 { color: #5cb85c; } /* 3位 */
+.rank-4 { color: #337ab7; } /* 4位 */
+.rank-5 { color: #5bc0de; } /* 5位 */
+.rank-6 { color: #777; } /* 6位 */
+.rank-7 { color: #d9534f; } /* 7位 */
+.rank-8 { color: #f0ad4e; } /* 8位 */
+.rank-9 { color: #5cb85c; } /* 9位 */
+.rank-10 { color: #337ab7; } /* 10位 */
+.rank-11 { color: #5bc0de; } /* 11位 */
+.rank-12 { color: #777; } /* 12位 */
+
+.horoscope-item .sign-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.horoscope-item .comment {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.4;
+}
+
+.horoscope-item img {
+    max-width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
 </style>
 </head>
 
@@ -90,9 +168,9 @@
 <p class="tel">Welcome To My Site !!<span>稼働時間：24時間　休止時間：サイトメンテナンス日</span></p>
 </div>
 <div id="language-switcher">
-  <a href="contact.html" hreflang="ja">日本語</a> |
-  <a href="contact_en.html" hreflang="en">English</a> |
-  <a href="contact_fr.html" hreflang="fr">Français</a>
+  <a href="contact.html" hreflang="ja">日本語</a> |
+  <a href="contact_en.html" hreflang="en">English</a> |
+  <a href="contact_fr.html" hreflang="fr">Français</a>
 </div>
 </div>
 </header>
@@ -129,6 +207,15 @@
 <button id="drawOmikuji">おみくじを引く</button>
 <div id="omikujiResult">
     </div>
+</section>
+
+---
+
+<section id="horoscopeSection">
+    <h2>今日の星座占い</h2>
+    <p>あなたの星座の今日の運勢をチェックしましょう！</p>
+    <ul id="horoscopeList" class="horoscope-list">
+        </ul>
 </section>
 
 </div>
@@ -228,14 +315,14 @@
 
 <script type="text/javascript">
 if (OCwindowWidth() <= 800) {
-	open_close("newinfo_hdr", "newinfo");
+    open_close("newinfo_hdr", "newinfo");
 }
 </script>
 
 <div id="menubar_hdr" class="close"></div>
 <script type="text/javascript">
 if (OCwindowWidth() <= 800) {
-	open_close("menubar_hdr", "menubar-s");
+    open_close("menubar_hdr", "menubar-s");
 }
 </script>
 
@@ -243,6 +330,7 @@ if (OCwindowWidth() <= 800) {
 document.addEventListener('DOMContentLoaded', function() {
     const drawButton = document.getElementById('drawOmikuji');
     const resultDiv = document.getElementById('omikujiResult');
+    const horoscopeList = document.getElementById('horoscopeList');
 
     // 初期状態では結果表示エリアは非表示
     resultDiv.style.display = 'none';
@@ -250,14 +338,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // 運勢とその確率を設定
     // probabilityの合計が100になるように調整してください。
     const fortunes = [
-        { text: "🍀 大吉  - すべてが順調に進むでしょう！素晴らしい一日になります！", class: "omikuji-daikichi", probability: 10 }, // 10%
-        { text: "☘ 中吉  - 良いことが起こりそうです。積極的に行動してみましょう！", class: "omikuji-chukichi", probability: 25 }, // 25%
-        { text: "🍃 小吉  - 小さな幸運があります。日常の中に喜びを見つけましょう。", class: "omikuji-shokichi", probability: 30 }, // 30%
-        { text: "🌸 吉 　 - 平穏な一日になるでしょう。感謝の気持ちを忘れずに。", class: "omikuji-kichi", probability: 20 }, // 20%
-        { text: "🌱 末吉  - 良くも悪くもない一日。焦らず、一歩ずつ進みましょう。", class: "omikuji-suekichi", probability: 9 }, // 9%
-        { text: "☁ 凶 　 - 今日は慎重に行動しましょう。予期せぬトラブルに注意が必要です。", class: "omikuji-kyo", probability: 4 }, // 4%
-        { text: "🌧 大凶  - 何もかもうまくいかない日かも....今日は静かに過ごしましょう。無理は禁物です。", class: "omikuji-daikyo", probability: 1 } // 1%
-　　　　 { text: "🐻 くま吉 - くまになりそうなきがする一日" , class: "kumakichi", probability: 3 }, // 3%
+        { text: "🍀 大吉 - すべてが順調に進むでしょう！素晴らしい一日になります！", class: "omikuji-daikichi", probability: 10 }, // 10%
+        { text: "☘ 中吉 - 良いことが起こりそうです。積極的に行動してみましょう！", class: "omikuji-chukichi", probability: 25 }, // 25%
+        { text: "🍃 小吉 - 小さな幸運があります。日常の中に喜びを見つけましょう。", class: "omikuji-shokichi", probability: 30 }, // 30%
+        { text: "🌸 吉 - 平穏な一日になるでしょう。感謝の気持ちを忘れずに。", class: "omikuji-kichi", probability: 20 }, // 20%
+        { text: "🌱 末吉 - 良くも悪くもない一日。焦らず、一歩ずつ進みましょう。", class: "omikuji-suekichi", probability: 9 }, // 9%
+        { text: "☁ 凶 - 今日は慎重に行動しましょう。予期せぬトラブルに注意が必要です。", class: "omikuji-kyo", probability: 4 }, // 4%
+        { text: "🌧 大凶 - 何もかもうまくいかない日かも....今日は静かに過ごしましょう。無理は禁物です。", class: "omikuji-daikyo", probability: 1 }, // 1%
+        { text: "🐻 くま吉 - くまになりそうなきがする一日", class: "kumakichi", probability: 1 } // 1% (調整済み)
     ];
 
     if (drawButton && resultDiv) {
@@ -293,6 +381,58 @@ document.addEventListener('DOMContentLoaded', function() {
                 }, 10); 
             }
         });
+    }
+
+    // 星座占いデータを定義
+    const horoscopes = [
+        { sign: "♈ 牡羊座", comment: "今日は新しいことに挑戦する良い日です。エネルギッシュに進みましょう！", img: "images/aries.png" },
+        { sign: "♉ 牡牛座", comment: "安定を求める一日。落ち着いて物事に取り組むと吉。", img: "images/taurus.png" },
+        { sign: "♊ 双子座", comment: "コミュニケーションが活発になる日。新しい発見があるかも。", img: "images/gemini.png" },
+        { sign: "♋ 蟹座", comment: "家族や大切な人との時間を大切にしましょう。心が満たされます。", img: "images/cancer.png" },
+        { sign: "♌ 獅子座", comment: "自己表現のチャンスが訪れます。自信を持って輝きましょう！", img: "images/leo.png" },
+        { sign: "♍ 乙女座", comment: "細部への気配りが成功を呼びます。計画的に行動しましょう。", img: "images/virgo.png" },
+        { sign: "♎ 天秤座", comment: "バランス感覚が冴える日。人間関係を円滑に進められます。", img: "images/libra.png" },
+        { sign: "♏ 蠍座", comment: "深い洞察力が得られる日。真実を見抜く力が強まります。", img: "images/scorpio.png" },
+        { sign: "♐ 射手座", comment: "冒険心が芽生える日。新しい知識や経験を求めましょう。", img: "images/sagittarius.png" },
+        { sign: "♑ 山羊座", comment: "努力が実を結ぶ日。地道な作業が評価されます。", img: "images/capricorn.png" },
+        { sign: "♒ 水瓶座", comment: "独創的なアイデアが閃く日。自由な発想を大切に。", img: "images/aquarius.png" },
+        { sign: "♓ 魚座", comment: "感受性が豊かになる日。直感を信じて行動してみましょう。", img: "images/pisces.png" }
+    ];
+
+    // 星座の画像を動的に生成するために、imagesフォルダ内に以下の画像を準備してください。
+    // aries.png, taurus.png, gemini.png, cancer.png, leo.png, virgo.png,
+    // libra.png, scorpio.png, sagittarius.png, capricorn.png, aquarius.png, pisces.png
+    // これらの画像は、各星座のシンボルや関連するイラストなど、自由なものをご用意ください。
+    // もし画像がない場合、imgタグをコメントアウトするか、ダミー画像パスを指定してください。
+
+    // 星座占いのランキングを生成・表示する関数
+    function generateHoroscopeRankings() {
+        // ランキングのシャッフル
+        const shuffledHoroscopes = [...horoscopes]; // 元の配列をコピー
+        for (let i = shuffledHoroscopes.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledHoroscopes[i], shuffledHoroscopes[j]] = [shuffledHoroscopes[j], shuffledHoruffledHoroscopes[i]];
+        }
+
+        horoscopeList.innerHTML = ''; // 既存の内容をクリア
+
+        shuffledHoroscopes.forEach((astro, index) => {
+            const rank = index + 1;
+            const listItem = document.createElement('li');
+            listItem.classList.add('horoscope-item');
+            listItem.innerHTML = `
+                <div class="rank rank-${rank}">${rank}位</div>
+                <img src="${astro.img}" alt="${astro.sign}" onerror="this.onerror=null;this.src='images/default.png';">
+                <div class="sign-name">${astro.sign}</div>
+                <p class="comment">${astro.comment}</p>
+            `;
+            horoscopeList.appendChild(listItem);
+        });
+    }
+
+    // ページロード時に星座占いを生成
+    if (horoscopeList) {
+        generateHoroscopeRankings();
     }
 });
 </script>
