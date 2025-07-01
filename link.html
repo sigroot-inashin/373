@@ -193,7 +193,7 @@
 <li ><a href="company.html">サイトについて<span>ABOUT WEBSITE</span></a></li>
 <li><a href="service.html">サービス紹介<span>SERVICE</span></a></li>
 <li><a href="recruit.html">製作者情報<span>DEVELOPER INFORMATION</span></a></li>
-<li class="current"><a href="link.html">おみくじ<span>OMIKUJI</span></a></li>
+<li class="current"><a href="link.html">おみくじ<span>OMIKUJI</span></li>
 <li><a href="contact.html">お問い合わせ<span>CONTACT</span></a></li>
 </ul>
 </nav>
@@ -216,8 +216,7 @@
 <section id="horoscopeSection">
     <h2>今日の星座占い</h2>
     <p>あなたの星座の今日の運勢をチェックしましょう！</p>
-    <button id="drawUranai">運勢を占う</button>
-    <ul id="horoscopeList" class="horoscope-list">
+        <ul id="horoscopeList" class="horoscope-list">
             </ul>
 </section>
 
@@ -334,7 +333,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const drawButton = document.getElementById('drawOmikuji');
     const resultDiv = document.getElementById('omikujiResult');
     const horoscopeList = document.getElementById('horoscopeList');
-    const drawUranaiButton = document.getElementById('drawUranai'); // 新しいボタンを取得
 
     // 初期状態では結果表示エリアは非表示
     resultDiv.style.display = 'none';
@@ -421,76 +419,74 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 星座占いデータを定義
+    // 星座占いデータを定義（commentsプロパティを削除）
     const horoscopes = [
-        { sign: "♈ 牡羊座", img: "images/aries.png", comments: [
-            "今日は新しいことに挑戦する良い日です。エネルギッシュに進みましょう！",
-            "あなたのリーダーシップが輝く一日。周りを引っ張っていきましょう！",
-            "情熱を持って取り組むことで、素晴らしい結果が得られます。"
-        ]},
-        { sign: "♉ 牡牛座", img: "images/taurus.png", comments: [
-            "安定を求める一日。落ち着いて物事に取り組みましょう。",
-            "五感が冴える日。美味しいものを食べたり、美しいものに触れたりすると吉。",
-            "着実な努力が報われます。目標に向かって一歩ずつ進みましょう。"
-        ]},
-        { sign: "♊ 双子座", img: "images/gemini.png", comments: [
-            "コミュニケーションが活発になる日。新しい発見があるかも。",
-            "情報収集に最適。SNSやニュースから有益な情報が得られそうです。",
-            "好奇心旺盛に行動することで、楽しい出会いが期待できます。"
-        ]},
-        { sign: "♋ 蟹座", img: "images/cancer.png", comments: [
-            "家族や大切な人との時間を大切にしましょう。心が満たされます。",
-            "感受性が高まる日。直感を信じて行動すると良いでしょう。",
-            "居心地の良い場所でリラックス。心身ともに癒される一日になりそうです。"
-        ]},
-        { sign: "♌ 獅子座", img: "images/leo.png", comments: [
-            "自己表現のチャンスが訪れます。自信を持って輝きましょう！",
-            "注目を浴びる機会がありそう。堂々と振る舞って。",
-            "創造性が高まる日。趣味や好きなことに時間を費やしましょう。"
-        ]},
-        { sign: "♍ 乙女座", img: "images/virgo.png", comments: [
-            "細部への気配りが成功を呼びます。計画的に行動しましょう。",
-            "整理整頓がはかどる日。身の回りをスッキリさせると運気アップ。",
-            "分析力が冴える日。問題解決に力を発揮できるでしょう。"
-        ]},
-        { sign: "♎ 天秤座", img: "images/libra.png", comments: [
-            "バランス感覚が冴える日。人間関係を円滑に進められます。",
-            "協力することで大きな成果が得られます。チームワークを大切に。",
-            "美的センスが光る日。おしゃれを楽しんだり、芸術に触れたりすると良いでしょう。"
-        ]},
-        { sign: "♏ 蠍座", img: "images/scorpio.png", comments: [
-            "深い洞察力が得られる日。真実を見抜く力が強まります。",
-            "集中力が高まる日。一つのことに没頭すると良い結果に繋がります。",
-            "秘密の計画が進展するかもしれません。秘密は大切に。"
-        ]},
-        { sign: "♐ 射手座", img: "images/sagittarius.png", comments: [
-            "冒険心が芽生える日。新しい知識や経験を求めましょう。",
-            "自由な発想が幸運を呼びます。旅の計画を立てるのも吉。",
-            "楽観的な気持ちで過ごすことで、良い流れを引き寄せます。"
-        ]},
-        { sign: "♑ 山羊座", img: "images/capricorn.png", comments: [
-            "努力が実を結ぶ日。地道な作業が評価されます。",
-            "責任感が強まる日。任されたことは最後までやり遂げましょう。",
-            "計画通りに進めることで、確実な成果が得られます。"
-        ]},
-        { sign: "♒ 水瓶座", img: "images/aquarius.png", comments: [
-            "独創的なアイデアが閃く日。自由な発想を大切に。",
-            "友人との交流が楽しい一日。新しい視点が見つかるかも。",
-            "未来への展望が開ける日。新しい目標を立てるのに最適です。"
-        ]},
-        { sign: "♓ 魚座", img: "images/pisces.png", comments: [
-            "感受性が豊かになる日。直感を信じて行動してみましょう。",
-            "夢やインスピレーションが冴える日。芸術的な活動に触れると良いでしょう。",
-            "誰かのために行動することで、自分も満たされるでしょう。"
-        ]}
+        { sign: "♈ 牡羊座", img: "images/aries.png" },
+        { sign: "♉ 牡牛座", img: "images/taurus.png" },
+        { sign: "♊ 双子座", img: "images/gemini.png" },
+        { sign: "♋ 蟹座", img: "images/cancer.png" },
+        { sign: "♌ 獅子座", img: "images/leo.png" },
+        { sign: "♍ 乙女座", img: "images/virgo.png" },
+        { sign: "♎ 天秤座", img: "images/libra.png" },
+        { sign: "♏ 蠍座", img: "images/scorpio.png" },
+        { sign: "♐ 射手座", img: "images/sagittarius.png" },
+        { sign: "♑ 山羊座", img: "images/capricorn.png" },
+        { sign: "♒ 水瓶座", img: "images/aquarius.png" },
+        { sign: "♓ 魚座", img: "images/pisces.png" }
     ];
+
+    // ランダムなメッセージを生成する関数
+    function generateRandomHoroscopeComment(signName, rank) {
+        const adjs = ["今日の", "あなたの", "素晴らしい", "少し変わった", "思いがけない", "最高の"];
+        const nouns = ["一日", "運勢", "幸運", "出来事", "出会い", "チャレンジ", "休息", "学び"];
+        const verbs = ["でしょう", "かもしれません", "待っています", "訪れます", "期待できます", "大切にしましょう"];
+        const advice = ["積極的に行動すると良いでしょう。", "焦らず、じっくりと取り組みましょう。", "新しい発見があるかもしれません。", "周りの人とのコミュニケーションを大切に。", "直感を信じて行動してみてください。", "リラックスして過ごすと吉です。", "小さな幸せを見つけてください。", "目標に向かって一歩踏み出しましょう。", "感謝の気持ちを忘れずに。"];
+
+        const randomAdj = adjs[Math.floor(seededRandom() * adjs.length)];
+        const randomNoun = nouns[Math.floor(seededRandom() * nouns.length)];
+        const randomVerb = verbs[Math.floor(seededRandom() * verbs.length)];
+        const randomAdvice = advice[Math.floor(seededRandom() * advice.length)];
+
+        let comment = `${randomAdj}${randomNoun}は、${signName}にとって${randomVerb}。${randomAdvice}`;
+        
+        // 順位に応じたヒントを追加（完全にランダムなので、少しだけ調整）
+        if (rank <= 3) {
+            comment += " 特に良いことがありそうです！";
+        } else if (rank >= 10) {
+            comment += " 慎重な行動を心がけましょう。";
+        }
+        
+        return comment;
+    }
+
+    // 本日の日付に基づいてシードを生成する関数
+    function getDateSeed() {
+        const today = new Date();
+        // 年、月、日の数値を結合してシードとする (例: 20250701)
+        return today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate();
+    }
+
+    // シード値に基づいて乱数を生成する擬似乱数ジェネレーター (XORShift)
+    // これにより、同じ日であれば常に同じ順序の乱数が生成されます
+    let currentSeed = getDateSeed(); // 初期シードを本日日付に設定
+
+    function seededRandom() {
+        currentSeed ^= currentSeed << 13;
+        currentSeed ^= currentSeed >> 17;
+        currentSeed ^= currentSeed << 5;
+        // 乱数の範囲を0から1にする
+        return ((currentSeed >>> 0) / 0xFFFFFFFF); // 32bit符号なし整数で正規化
+    }
 
     // 星座占いのランキングを生成・表示する関数
     function generateHoroscopeRankings() {
-        // ランキングのシャッフル
+        // 本日の日付のシードで乱数ジェネレータをリセット
+        currentSeed = getDateSeed(); 
+
+        // ランキングのシャッフル（シード付き乱数を使用）
         const shuffledHoroscopes = [...horoscopes]; // 元の配列をコピー
         for (let i = shuffledHoroscopes.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
+            const j = Math.floor(seededRandom() * (i + 1)); // seededRandomを使用
             [shuffledHoroscopes[i], shuffledHoroscopes[j]] = [shuffledHoroscopes[j], shuffledHoroscopes[i]];
         }
 
@@ -498,7 +494,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         shuffledHoroscopes.forEach((astro, index) => {
             const rank = index + 1;
-            const randomComment = astro.comments[Math.floor(Math.random() * astro.comments.length)]; // ランダムなコメントを選択
+            // ランダムメッセージ生成関数を呼び出す
+            const randomComment = generateRandomHoroscopeComment(astro.sign.split(' ')[1], rank); // 星座名だけを渡す
             const listItem = document.createElement('li');
             listItem.classList.add('horoscope-item');
             listItem.innerHTML = `
@@ -514,13 +511,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // ページロード時に星座占いを生成
     if (horoscopeList) {
         generateHoroscopeRankings();
-    }
-
-    // 星座占いの「運勢を占う」ボタンにイベントリスナーを追加
-    if (drawUranaiButton) {
-        drawUranaiButton.addEventListener('click', function() {
-            generateHoroscopeRankings(); // ボタンクリックで星座占いを再生成
-        });
     }
 });
 </script>
