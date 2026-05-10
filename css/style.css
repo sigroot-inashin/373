@@ -817,3 +817,599 @@ img.fl {
     width: 100%;
   }
 }
+
+/* =========================================================
+   既存デザイン維持型 リファインCSS
+   （元の見た目を壊さず現代化）
+   ↓ 元の819行CSSの「一番下」に追加
+========================================================= */
+
+
+/* ========================
+   全体
+======================== */
+
+body {
+
+  color: #d7deea;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #181c26,
+      #212838
+    );
+
+  font-family:
+    "Segoe UI",
+    "Noto Sans JP",
+    sans-serif;
+
+  letter-spacing: 0.02em;
+}
+
+
+/* ========================
+   リンク
+======================== */
+
+a {
+
+  color: #9fc2ff;
+}
+
+a:hover {
+
+  color: #ffffff;
+}
+
+
+/* ========================
+   header
+======================== */
+
+header {
+
+  background:
+    linear-gradient(
+      to right,
+      #20293b,
+      #2c3b57
+    );
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.08);
+}
+
+
+/* ========================
+   ロゴ
+======================== */
+
+header #logo {
+
+  filter:
+    drop-shadow(
+      0 2px 8px rgba(0,0,0,0.25)
+    );
+}
+
+
+/* ========================
+   電話エリア
+======================== */
+
+.tel {
+
+  color: #eef4ff;
+}
+
+.tel span {
+
+  color: #b8c4d9;
+}
+
+
+/* ========================
+   メニュー
+======================== */
+
+#menubar {
+
+  background:
+    linear-gradient(
+      to right,
+      #243247,
+      #2d3d57
+    );
+
+  border:
+    1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 3px 10px rgba(0,0,0,0.22);
+}
+
+
+/* 区切り線 */
+
+#menubar li {
+
+  border-right:
+    1px solid rgba(255,255,255,0.06);
+}
+
+
+/* メニュー文字 */
+
+#menubar li a {
+
+  color: #edf3ff;
+
+  text-shadow: none;
+}
+
+
+/* hover */
+
+#menubar li a:hover {
+
+  background:
+    rgba(255,255,255,0.07);
+
+  color: #fff;
+}
+
+
+/* current */
+
+#menubar li.current a {
+
+  background:
+    linear-gradient(
+      to bottom,
+      #5578ff,
+      #3e5fe0
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+
+/* サブタイトル */
+
+#menubar li a span {
+
+  opacity: 0.8;
+
+  color: #d6e2ff;
+}
+
+
+/* ========================
+   contents
+======================== */
+
+#contents {
+
+  background:
+    #1c2230;
+}
+
+
+/* ========================
+   h2
+======================== */
+
+#main h2 {
+
+  background:
+    linear-gradient(
+      to right,
+      #4967e8,
+      #5a7dff
+    );
+
+  border-bottom:
+    3px solid #8ba8ff;
+
+  color: #fff;
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,0.2);
+}
+
+
+/* ========================
+   h3
+======================== */
+
+#main h3 {
+
+  background:
+    rgba(255,255,255,0.02);
+
+  border:
+    1px solid #44516a;
+
+  color: #edf2ff;
+}
+
+
+#main h3::first-letter {
+
+  border-left:
+    3px solid #7aa2ff;
+}
+
+
+/* ========================
+   本文
+======================== */
+
+#main p,
+#sub p,
+#side p,
+li,
+dd,
+dt {
+
+  color: #d5dceb;
+}
+
+
+/* ========================
+   list
+======================== */
+
+#main .list {
+
+  border-top:
+    1px solid #3f4d66;
+
+  transition:
+    background 0.25s ease;
+}
+
+
+/* hover */
+
+#main .list a:hover {
+
+  background:
+    #2a3548;
+}
+
+
+/* 矢印 */
+
+#main .list a::before {
+
+  background:
+    #5d7fff;
+
+  color: #fff;
+}
+
+
+#main .list a:hover::before {
+
+  background:
+    #7c5cff;
+}
+
+
+/* タイトル */
+
+#main .list h4 {
+
+  border-left:
+    3px solid #7da5ff;
+
+  color: #f1f5ff;
+}
+
+
+/* ========================
+   sub / side
+======================== */
+
+#sub h2,
+#side h2 {
+
+  background:
+    linear-gradient(
+      to right,
+      #4866e6,
+      #5d7fff
+    );
+
+  color: #fff;
+}
+
+
+/* box */
+
+#sub .box1,
+#side .box1 {
+
+  border:
+    1px solid #44516a;
+
+  background:
+    rgba(255,255,255,0.02);
+}
+
+
+/* ========================
+   submenu
+======================== */
+
+#sub .submenu,
+#side .submenu {
+
+  border-bottom:
+    1px solid #44516a;
+}
+
+
+#sub .submenu li a,
+#side .submenu li a {
+
+  border-top:
+    1px solid #44516a;
+
+  border-left:
+    1px solid #44516a;
+
+  border-right:
+    1px solid #44516a;
+
+  background:
+    rgba(255,255,255,0.02);
+
+  color:
+    #dce7ff;
+}
+
+
+/* hover */
+
+#sub .submenu li a:hover,
+#side .submenu li a:hover {
+
+  background:
+    rgba(255,255,255,0.06);
+}
+
+
+/* ========================
+   side list
+======================== */
+
+#sub .list,
+#side .list {
+
+  border-top:
+    1px solid #44516a;
+}
+
+
+/* ========================
+   table
+======================== */
+
+.ta1 caption {
+
+  background:
+    #597bff;
+
+  color: #fff;
+}
+
+
+.ta1,
+.ta1 td,
+.ta1 th {
+
+  border:
+    1px solid #46546f;
+}
+
+
+.ta1 th {
+
+  background:
+    rgba(89,123,255,0.15);
+
+  color:
+    #eef3ff;
+}
+
+
+.ta1 td {
+
+  background:
+    rgba(255,255,255,0.02);
+
+  color:
+    #dbe6ff;
+}
+
+
+/* ========================
+   button
+======================== */
+
+#drawOmikuji,
+#main input[type="submit"].btn,
+#main input[type="button"].btn,
+#main input[type="reset"].btn {
+
+  background:
+    linear-gradient(
+      to bottom,
+      #5a7dff,
+      #4866e6
+    );
+
+  border:
+    1px solid #89a7ff;
+
+  color: #fff;
+
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.22);
+}
+
+
+/* hover */
+
+#drawOmikuji:hover,
+#main input[type="submit"].btn:hover,
+#main input[type="button"].btn:hover,
+#main input[type="reset"].btn:hover {
+
+  background:
+    linear-gradient(
+      to bottom,
+      #7290ff,
+      #597bff
+    );
+}
+
+
+/* ========================
+   omikuji
+======================== */
+
+#omikujiResult {
+
+  background:
+    #273247;
+
+  border:
+    3px solid #597bff;
+
+  color:
+    #fff;
+
+  box-shadow:
+    0 4px 18px rgba(0,0,0,0.25);
+}
+
+
+/* ========================
+   footer
+======================== */
+
+footer {
+
+  background:
+    #1a2030;
+
+  color:
+    #c4cfdf;
+}
+
+
+/* copyright */
+
+#copyright {
+
+  background:
+    #273247;
+
+  color:
+    #eef4ff;
+}
+
+
+/* ========================
+   new icon
+======================== */
+
+.newicon {
+
+  background:
+    #5b7dff;
+}
+
+
+/* ========================
+   page top
+======================== */
+
+body.is-fixed-pagetop .nav-fix-pos-pagetop a {
+
+  background:
+    rgba(91,125,255,0.9);
+
+  border:
+    1px solid #aac0ff;
+}
+
+
+/* ========================
+   look
+======================== */
+
+.look {
+
+  background:
+    #2d3a52;
+}
+
+
+/* ========================
+   スクロールバー
+======================== */
+
+::-webkit-scrollbar {
+
+  width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+
+  background:
+    #1a2030;
+}
+
+
+::-webkit-scrollbar-thumb {
+
+  background:
+    #597bff;
+}
+
+
+/* ========================
+   モバイルメニュー
+======================== */
+
+#menubar-s li a {
+
+  background:
+    rgba(26,32,48,0.95);
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.08);
+
+  color:
+    #eef4ff;
+}
+
+
+/* ========================
+   モバイルメニューボタン
+======================== */
+
+#menubar_hdr.close,
+#menubar_hdr.open {
+
+  border:
+    1px solid #5a7dff;
+}
