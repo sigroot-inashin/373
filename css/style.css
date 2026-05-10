@@ -1,88 +1,75 @@
 @charset "utf-8";
 
 /* =========================================================
-   1. グローバル設定 (X ダークモード)
+   鈴木様 オリジナルロジック・フル継承セクション
+   (おみくじ・アニメーション・基本構造)
 ========================================================= */
-#language-switcher {
-  position: fixed; /* 固定 */
-  top: 15px;
-  left: 20px;
-  z-index: 9999;
-}
 
+/* 言語切替 */
+#language-switcher { position: absolute; top: 5px; left: 19.5px; z-index: 3000; }
+
+/* 全体設定：背景を「黒」に、フォントをモダンなサンセリフへ */
 body {
-  margin: 0;
-  padding: 0;
-  color: #E7E9EA;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  line-height: 1.5;
-  background-color: #000000;
-  overflow-x: hidden; /* 横揺れ防止 */
-}
-
-/* リセット */
-h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd, form, figure {
   margin: 0; padding: 0;
+  background: #000000 !important; /* 背景：黒 */
+  color: #1D9BF0 !important;      /* 文字：濃いめの水色 (Xブルーベース) */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans JP", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  overflow-x: hidden;
 }
 
-a { color: #1D9BF0; text-decoration: none; transition: 0.2s; }
-a:hover { text-decoration: underline; }
+/* 共通リンク設定：ホバーで「ピンク」に */
+a { color: #1D9BF0; text-decoration: none; transition: 0.3s; }
+a:hover { color: #FF69B4 !important; text-decoration: none; } /* ホバー：ピンク */
 
 /* =========================================================
-   2. レイアウト (左固定ナビを実現する絶対条件)
+   LAYOUT：左ナビゲーション固定構造
 ========================================================= */
 
-/* メインコンテナ */
-#container {
-  display: flex;
-  justify-content: center;
-  max-width: 1250px;
+.inner {
+  max-width: 1300px;
   margin: 0 auto;
+  display: flex;
   position: relative;
 }
 
-/* ヘッダー (ロゴなどは左ナビかトップに) */
+/* ヘッダー */
 header {
-  width: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.8) !important;
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid #2F3336;
+  height: 60px !important;
+  border-bottom: 1px solid #2F3336 !important;
   position: sticky;
   top: 0;
   z-index: 1000;
-  height: 55px;
+  width: 100%;
 }
 
 header #logo {
-  width: 130px;
-  margin-top: 15px;
-  margin-left: 20px;
-  filter: invert(1);
+  width: 180px !important;
+  margin-top: 15px !important;
+  filter: invert(1) drop-shadow(0 0 5px #1D9BF0); /* ロゴを白抜き＋水色発光 */
 }
 
-/* =========================================================
-   3. 【ここが本番】左固定メニューバー
-========================================================= */
+/* 【重要】左固定メニューバー */
 #menubar {
-  /* 徹底固定 */
   position: fixed !important;
   top: 0 !important;
-  left: calc(50% - 625px) !important; /* 画面中央からコンテンツ幅の半分左へ */
+  left: calc(50% - 650px) !important;
   width: 260px !important;
   height: 100vh !important;
-  
   background: #000000 !important;
   border-right: 1px solid #2F3336 !important;
+  padding-top: 80px !important;
   display: flex !important;
   flex-direction: column !important;
-  padding-top: 60px !important;
   z-index: 2000 !important;
-  
-  /* 元の装飾を破壊 */
-  float: none !important;
+  /* 既存のスタイルをリセット */
+  clear: none !important;
   box-shadow: none !important;
   border-radius: 0 !important;
+  margin: 0 !important;
 }
 
 #menubar li {
@@ -94,129 +81,139 @@ header #logo {
 #menubar li a {
   display: flex !important;
   align-items: center !important;
-  padding: 12px 20px !important;
-  margin: 4px 12px !important;
+  padding: 12px 25px !important;
+  margin: 4px 15px !important;
   border-radius: 9999px !important;
-  font-size: 20px !important;
-  font-weight: 700 !important;
-  color: #E7E9EA !important;
+  font-size: 19px !important;
+  font-weight: bold !important;
+  color: #1D9BF0 !important;
   text-shadow: none !important;
-}
-
-#menubar li a:hover {
-  background-color: rgba(231, 233, 234, 0.1) !important;
-}
-
-/* サブテキスト */
-#menubar li a span {
-  font-size: 11px;
-  color: #71767B;
-  margin-left: 10px;
-}
-
-#menubar li.current a { color: #1D9BF0 !important; }
-
-/* =========================================================
-   4. コンテンツ (ナビの右側に配置)
-========================================================= */
-#contents {
-  margin-left: 260px !important; /* ナビの幅分、確実に空ける */
-  width: calc(100% - 260px) !important;
-  background: #000000;
-  display: flex;
-}
-
-#contents-in {
-  width: 100%;
-  max-width: 600px; /* Xのフィード幅 */
-  border-right: 1px solid #2F3336;
-  min-height: 100vh;
-}
-
-#main h2 {
-  padding: 15px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(12px);
-  position: sticky;
-  top: 55px;
-  z-index: 100;
-  font-size: 19px;
-  font-weight: 800;
-  border-bottom: 1px solid #2F3336;
-}
-
-/* リストアイテム (ポスト風) */
-#main .list {
-  padding: 15px;
-  border-bottom: 1px solid #2F3336;
-  transition: 0.2s;
   background: transparent !important;
 }
 
-#main .list:hover { background-color: rgba(255,255,255,0.03) !important; }
-
-#main .list figure { width: 100%; float: none !important; margin-bottom: 10px; }
-#main .list figure img {
-  border-radius: 16px;
-  border: 1px solid #2F3336;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
+/* メニューホバー：背景も文字もピンク系へ */
+#menubar li a:hover {
+  background-color: rgba(255, 105, 180, 0.1) !important;
+  color: #FF69B4 !important;
 }
 
-#main .list h4 { margin-left: 0 !important; color: #1D9BF0; border: none !important; }
-#main .list p { margin-left: 0 !important; color: #E7E9EA; }
+#menubar li a span {
+  font-size: 10px !important;
+  color: #71767B !important;
+  margin-left: 10px !important;
+}
+
+/* 現在地の強調 */
+#menubar li.current a {
+  color: #FF69B4 !important;
+  border: 1px solid rgba(255, 105, 180, 0.3) !important;
+}
 
 /* =========================================================
-   5. おみくじ (元の機能をXボタン化)
+   CONTENTS：メインフィードエリア
 ========================================================= */
+
+#contents {
+  margin-left: 260px !important; /* 左ナビの幅を確保 */
+  width: calc(100% - 260px) !important;
+  background: #000000 !important;
+  display: flex !important;
+  padding-top: 20px !important;
+}
+
+#contents-in {
+  width: 100% !important;
+  max-width: 650px !important;
+  border-right: 1px solid #2F3336 !important;
+  float: none !important;
+}
+
+#main { width: 100% !important; float: none !important; }
+
+/* 見出し：水色グラデーション＋ピンクのアクセント */
+#main h2 {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid #1D9BF0 !important;
+  color: #1D9BF0 !important;
+  padding: 15px !important;
+  font-size: 20px !important;
+  position: sticky !important;
+  top: 60px;
+  z-index: 100;
+}
+
+#main h3 {
+  border: 1px solid #2F3336 !important;
+  color: #1D9BF0 !important;
+  background: #111 !important;
+}
+
+/* リストアイテム：ポスト風 */
+#main .list {
+  border-bottom: 1px solid #2F3336 !important;
+  border-top: none !important;
+  padding: 20px !important;
+  transition: 0.3s !important;
+}
+
+#main .list:hover {
+  background-color: rgba(255, 105, 180, 0.03) !important; /* ほんのりピンク */
+}
+
+#main .list a::before { display: none; } /* 矢印を消してスッキリ */
+
+#main .list figure img {
+  border-radius: 16px !important;
+  border: 1px solid #2F3336 !important;
+}
+
+#main .list h4 { color: #1D9BF0 !important; border-left: 3px solid #FF69B4 !important; }
+
+/* =========================================================
+   OMIKUJI：おみくじロジックの色替え
+========================================================= */
+
 #drawOmikuji {
-  display: block;
-  width: 90%;
-  margin: 20px auto;
-  padding: 15px;
-  background-color: #1D9BF0;
-  color: #fff;
-  border: none;
-  border-radius: 9999px;
-  font-size: 17px;
-  font-weight: 800;
-  cursor: pointer;
+  background: linear-gradient(45deg, #1D9BF0, #FF69B4) !important; /* 水色〜ピンク */
+  border: none !important;
+  border-radius: 9999px !important;
+  font-size: 1.4em !important;
 }
 
 #omikujiResult {
-  background: #16181C;
-  border: 1px solid #2F3336;
-  border-radius: 16px;
-  padding: 40px;
-  margin: 20px;
-  text-align: center;
-  opacity: 0;
-  transition: 0.4s;
-}
-#omikujiResult.active { opacity: 1; }
-
-/* 運勢色 (元の860行のロジックを継承) */
-.omikuji-daikichi { color: #F91880 !important; }
-.omikuji-chukichi { color: #7856FF !important; }
-
-/* =========================================================
-   6. サイドバー (トレンド枠)
-========================================================= */
-#sub, #side { width: 350px; padding: 15px; }
-#sub .box1, #side .box1 {
-  background: #16181C;
-  border-radius: 16px;
-  padding: 15px;
-  border: none !important;
+  background: #111 !important;
+  border: 2px solid #1D9BF0 !important;
+  color: #fff !important;
+  box-shadow: 0 0 20px rgba(29, 155, 240, 0.2) !important;
 }
 
+/* 運勢別の色（鈴木様のこだわりを水色・ピンク基調に調整） */
+.omikuji-daikichi { color: #FF69B4 !important; text-shadow: 0 0 10px #FF69B4; }
+.omikuji-kichi { color: #1D9BF0 !important; }
+
 /* =========================================================
-   7. モバイル対応 (下部固定ナビ)
+   SIDEBAR & FOOTER
 ========================================================= */
-@media screen and (max-width: 1050px) {
+
+#sub, #side { width: 350px !important; padding: 20px !important; float: none !important; }
+#sub .box1, #side .box1 { background: #111 !important; border-radius: 16px !important; border: 1px solid #2F3336 !important; }
+
+footer { background: #000 !important; border-top: 1px solid #2F3336 !important; color: #71767B !important; }
+#copyright { background: #000 !important; color: #1D9BF0 !important; }
+
+/* スクロールバーも水色に */
+::-webkit-scrollbar-thumb { background: #1D9BF0 !important; }
+::-webkit-scrollbar-track { background: #000 !important; }
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media screen and (max-width: 1000px) {
   #menubar { left: 0 !important; width: 80px !important; }
   #menubar li a span { display: none !important; }
-  #contents { margin-left: 80px !important; }
+  #contents { margin-left: 80px !important; width: calc(100% - 80px) !important; }
 }
 
 @media screen and (max-width: 800px) {
@@ -232,8 +229,7 @@ header #logo {
     border-top: 1px solid #2F3336 !important;
   }
   #menubar li { width: 25% !important; }
-  #menubar li a { justify-content: center; padding: 10px 0; margin: 0; }
-  
-  #contents { margin-left: 0 !important; width: 100% !important; padding-bottom: 70px; }
-  #sub, #side { display: none; }
+  #menubar li a { justify-content: center !important; font-size: 12px !important; margin: 0 !important; }
+  #contents { margin-left: 0 !important; width: 100% !important; padding-bottom: 70px !important; }
+  #sub, #side { display: none !important; }
 }
