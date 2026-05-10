@@ -1153,3 +1153,119 @@ body {
     background-color: #1a8cd8 !important;
     box-shadow: 0 0 15px var(--hover-pink) !important;
 }
+
+  /* =========================================================
+   最終修正：1400行の魂を活かす「レイアウト修復」コード
+   元のfloatを安全に解除し、指定配色を反映します
+========================================================= */
+
+/* --- 1. 配色の反映（鈴木様指定：黒・水色） --- */
+body {
+    background: #000000 !important; /* 背景：黒 */
+    color: #1D9BF0 !important;      /* 文字：濃いめの水色 */
+}
+
+/* リンクとホバー（鈴木様指定：ピンク） */
+a { color: #1D9BF0 !important; }
+a:hover { color: #FF69B4 !important; }
+
+/* --- 2. 壊れたレイアウトの修復（親要素の初期化） --- */
+#container, .inner {
+    display: block !important;
+    max-width: 1300px !important;
+    margin: 0 auto !important;
+    overflow: visible !important; /* はみ出しを許容して固定ナビを表示 */
+    padding: 0 !important;
+}
+
+/* --- 3. 左固定ナビゲーション（絶対配置で外に出す） --- */
+#menubar {
+    position: fixed !important;
+    top: 0 !important;
+    /* コンテンツの左端にピタッと合わせる計算 */
+    left: calc(50% - 650px) !important; 
+    width: 250px !important;
+    height: 100vh !important;
+    
+    /* デザイン：黒の透過グラデーション */
+    background: rgba(0, 0, 0, 0.95) !important;
+    border-right: 1px solid #2F3336 !important;
+    
+    /* 内部の横並びを縦並びに強制変更 */
+    display: flex !important;
+    flex-direction: column !important;
+    padding-top: 80px !important;
+    z-index: 9999 !important;
+    
+    /* 元の不要な指示をリセット */
+    float: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+#menubar li {
+    width: 100% !important;
+    float: none !important;
+    border: none !important;
+}
+
+#menubar li a {
+    color: #1D9BF0 !important;
+    padding: 20px 30px !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    transition: 0.3s !important;
+    background: transparent !important;
+}
+
+/* ★ホバー反映：ピンク */
+#menubar li a:hover {
+    color: #FF69B4 !important;
+    background: rgba(255, 105, 180, 0.1) !important;
+}
+
+/* --- 4. メインコンテンツの保護（重なりを解消） --- */
+#contents {
+    margin-left: 250px !important; /* メニューの幅分、確実に右へ */
+    width: calc(100% - 250px) !important;
+    background: transparent !important;
+    float: none !important;
+    display: block !important;
+    padding-top: 40px !important;
+}
+
+#contents-in {
+    width: 100% !important;
+    max-width: 650px !important; /* 中央フィードの適切な幅 */
+    float: none !important;
+    margin: 0 auto !important;
+    border-right: 1px solid #2F3336 !important;
+}
+
+#main {
+    float: none !important;
+    width: 100% !important;
+}
+
+/* 見出しなどの色調整 */
+#main h2 {
+    background: #111 !important;
+    color: #1D9BF0 !important;
+    border-bottom: 2px solid #1D9BF0 !important;
+}
+
+/* --- 5. スマホ表示の修復（壊さないための処置） --- */
+@media screen and (max-width: 800px) {
+    #menubar {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        left: 0 !important;
+        display: none !important; /* スマホ用メニュー(#menubar-s)に任せる */
+    }
+    #contents {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+}
