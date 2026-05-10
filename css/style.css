@@ -1,143 +1,134 @@
 @charset "utf-8";
 
 /* =========================================================
-   X-Style Full Fix (Navigation Lock Edition)
-   元の860行のロジックをすべて含んだ完全版
+   1. グローバル設定 (X ダークモード)
 ========================================================= */
-
-/* --- 1. 基本設定（Xダークモード） --- */
 #language-switcher {
-  position: absolute;
+  position: fixed; /* 固定 */
   top: 15px;
-  left: 25px;
-  z-index: 2500;
+  left: 20px;
+  z-index: 9999;
 }
 
 body {
   margin: 0;
   padding: 0;
   color: #E7E9EA;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 15px;
   line-height: 1.5;
   background-color: #000000;
+  overflow-x: hidden; /* 横揺れ防止 */
 }
 
-/* 全パーツのリセット（元の指定を維持） */
+/* リセット */
 h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd, form, figure {
-  margin: 0;
-  padding: 0;
-  font-size: 100%;
+  margin: 0; padding: 0;
 }
 
-ul { list-style-type: none; }
-img { max-width: 100%; height: auto; border: none; vertical-align: middle; }
-
-a {
-  color: #1D9BF0;
-  transition: 0.2s;
-  text-decoration: none;
-}
-
+a { color: #1D9BF0; text-decoration: none; transition: 0.2s; }
 a:hover { text-decoration: underline; }
 
-/* --- 2. レイアウト構造（ここが修正の肝） --- */
+/* =========================================================
+   2. レイアウト (左固定ナビを実現する絶対条件)
+========================================================= */
 
-/* 全体のコンテナ：メニューの幅分、左に余白を作る */
+/* メインコンテナ */
 #container {
   display: flex;
   justify-content: center;
-  width: 100%;
-}
-
-.inner {
-  width: 1250px;
+  max-width: 1250px;
   margin: 0 auto;
-  display: flex;
   position: relative;
 }
 
-/* ヘッダー：ロゴとコンタクトのみに絞る */
+/* ヘッダー (ロゴなどは左ナビかトップに) */
 header {
-  background: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(12px);
-  height: 60px;
   border-bottom: 1px solid #2F3336;
   position: sticky;
   top: 0;
-  z-index: 1500;
-  width: 100%;
+  z-index: 1000;
+  height: 55px;
 }
 
 header #logo {
-  width: 140px;
-  margin-top: 18px;
+  width: 130px;
+  margin-top: 15px;
+  margin-left: 20px;
   filter: invert(1);
 }
 
-/* --- 3. 【最重要】左固定ナビゲーション --- */
+/* =========================================================
+   3. 【ここが本番】左固定メニューバー
+========================================================= */
 #menubar {
-  position: fixed; /* 画面に対して固定 */
-  top: 0;
-  /* 画面幅に応じて、中央のコンテンツの左隣に配置 */
-  left: calc(50% - 625px); 
-  width: 260px;
-  height: 100vh;
-  background: #000000;
-  border-right: 1px solid #2F3336;
-  padding-top: 80px; /* ヘッダーとの干渉防止 */
-  display: flex;
-  flex-direction: column;
-  z-index: 2000;
-  box-shadow: none;
-  border-radius: 0;
+  /* 徹底固定 */
+  position: fixed !important;
+  top: 0 !important;
+  left: calc(50% - 625px) !important; /* 画面中央からコンテンツ幅の半分左へ */
+  width: 260px !important;
+  height: 100vh !important;
+  
+  background: #000000 !important;
+  border-right: 1px solid #2F3336 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding-top: 60px !important;
+  z-index: 2000 !important;
+  
+  /* 元の装飾を破壊 */
+  float: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 #menubar li {
-  width: 100%;
-  float: none !important; /* 元のfloatを無効化 */
-  border-right: none !important;
+  width: 100% !important;
+  float: none !important;
+  border: none !important;
 }
 
 #menubar li a {
-  display: flex;
-  align-items: center;
-  padding: 12px 20px;
-  margin: 4px 15px;
-  border-radius: 9999px;
-  font-size: 19px;
-  font-weight: 700;
-  color: #E7E9EA;
-  transition: 0.2s;
-  text-shadow: none;
+  display: flex !important;
+  align-items: center !important;
+  padding: 12px 20px !important;
+  margin: 4px 12px !important;
+  border-radius: 9999px !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #E7E9EA !important;
+  text-shadow: none !important;
 }
 
 #menubar li a:hover {
-  background-color: rgba(231, 233, 234, 0.1);
+  background-color: rgba(231, 233, 234, 0.1) !important;
 }
 
+/* サブテキスト */
 #menubar li a span {
-  display: block;
   font-size: 11px;
   color: #71767B;
   margin-left: 10px;
 }
 
-#menubar li.current a {
-  color: #1D9BF0;
-}
+#menubar li.current a { color: #1D9BF0 !important; }
 
-/* --- 4. メインコンテンツ（中央寄せ） --- */
+/* =========================================================
+   4. コンテンツ (ナビの右側に配置)
+========================================================= */
 #contents {
-  margin-left: 260px; /* メニューの幅分、右へズラす */
-  width: calc(100% - 260px);
+  margin-left: 260px !important; /* ナビの幅分、確実に空ける */
+  width: calc(100% - 260px) !important;
   background: #000000;
   display: flex;
 }
 
 #contents-in {
   width: 100%;
-  max-width: 600px; /* フィードの幅 */
+  max-width: 600px; /* Xのフィード幅 */
   border-right: 1px solid #2F3336;
   min-height: 100vh;
 }
@@ -147,18 +138,24 @@ header #logo {
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(12px);
   position: sticky;
-  top: 60px;
+  top: 55px;
   z-index: 100;
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 800;
   border-bottom: 1px solid #2F3336;
 }
 
+/* リストアイテム (ポスト風) */
 #main .list {
   padding: 15px;
   border-bottom: 1px solid #2F3336;
+  transition: 0.2s;
+  background: transparent !important;
 }
 
+#main .list:hover { background-color: rgba(255,255,255,0.03) !important; }
+
+#main .list figure { width: 100%; float: none !important; margin-bottom: 10px; }
 #main .list figure img {
   border-radius: 16px;
   border: 1px solid #2F3336;
@@ -166,81 +163,77 @@ header #logo {
   object-fit: cover;
 }
 
-/* --- 5. おみくじ（元のロジック完全維持） --- */
+#main .list h4 { margin-left: 0 !important; color: #1D9BF0; border: none !important; }
+#main .list p { margin-left: 0 !important; color: #E7E9EA; }
+
+/* =========================================================
+   5. おみくじ (元の機能をXボタン化)
+========================================================= */
 #drawOmikuji {
   display: block;
-  margin: 20px auto;
-  padding: 12px 0;
   width: 90%;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #1D9BF0;
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
   font-size: 17px;
   font-weight: 800;
-  color: #fff;
-  background-color: #1D9BF0;
-  border-radius: 9999px;
   cursor: pointer;
-  border: none;
-  text-align: center;
 }
 
 #omikujiResult {
-  background-color: #16181C;
+  background: #16181C;
   border: 1px solid #2F3336;
   border-radius: 16px;
-  padding: 30px;
+  padding: 40px;
   margin: 20px;
   text-align: center;
   opacity: 0;
-  transition: 0.5s ease;
+  transition: 0.4s;
 }
-
 #omikujiResult.active { opacity: 1; }
 
-/* 運勢色分け */
+/* 運勢色 (元の860行のロジックを継承) */
 .omikuji-daikichi { color: #F91880 !important; }
 .omikuji-chukichi { color: #7856FF !important; }
 
-/* --- 6. 右サイドバー（トレンド） --- */
-#sub, #side {
-  width: 350px;
-  padding: 15px;
-}
-
+/* =========================================================
+   6. サイドバー (トレンド枠)
+========================================================= */
+#sub, #side { width: 350px; padding: 15px; }
 #sub .box1, #side .box1 {
   background: #16181C;
   border-radius: 16px;
   padding: 15px;
+  border: none !important;
 }
 
-/* --- 7. モバイル対応（下部固定ナビへ切り替え） --- */
-@media screen and (max-width: 1100px) {
-  #menubar {
-    left: 0;
-  }
+/* =========================================================
+   7. モバイル対応 (下部固定ナビ)
+========================================================= */
+@media screen and (max-width: 1050px) {
+  #menubar { left: 0 !important; width: 80px !important; }
+  #menubar li a span { display: none !important; }
+  #contents { margin-left: 80px !important; }
 }
 
 @media screen and (max-width: 800px) {
   #menubar {
-    position: fixed;
-    bottom: 0;
-    top: auto;
-    left: 0;
-    height: 65px;
-    width: 100%;
-    flex-direction: row;
-    border-top: 1px solid #2F3336;
-    border-right: none;
-    padding-top: 0;
-    background: #000;
+    position: fixed !important;
+    bottom: 0 !important;
+    top: auto !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 60px !important;
+    flex-direction: row !important;
+    padding-top: 0 !important;
+    border-top: 1px solid #2F3336 !important;
   }
+  #menubar li { width: 25% !important; }
+  #menubar li a { justify-content: center; padding: 10px 0; margin: 0; }
   
-  #menubar li { width: 25%; }
-  #menubar li a {
-    font-size: 10px;
-    flex-direction: column;
-    padding: 10px 0;
-    margin: 0;
-  }
-
-  #contents { margin-left: 0; width: 100%; padding-bottom: 80px; }
+  #contents { margin-left: 0 !important; width: 100% !important; padding-bottom: 70px; }
   #sub, #side { display: none; }
 }
