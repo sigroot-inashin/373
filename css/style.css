@@ -12,23 +12,39 @@
 ========================================= */
 
 /* ===== 全体 ===== */
+/* =========================================
+   SOFT MODERN MYSTIC THEME
+   レイアウトを崩さない改善版
+========================================= */
+
+/* ===== 全体 ===== */
 
 body {
 
   background:
     linear-gradient(to bottom,
-      #0b0f16,
-      #131a24
+      #161922,
+      #1b2230
     );
 
-  color: #d6deeb;
+  color: #d8dee9;
 
   font-family:
-    "Trebuchet MS",
+    "Segoe UI",
     "Noto Sans JP",
     sans-serif;
+}
 
-  letter-spacing: 0.03em;
+/* ===== リンク ===== */
+
+a {
+
+  color: #9dc1ff;
+}
+
+a:hover {
+
+  color: #ffffff;
 }
 
 /* ===== ヘッダー ===== */
@@ -37,19 +53,9 @@ header {
 
   background:
     linear-gradient(to right,
-      #101826,
-      #1b2740
+      #1b2332,
+      #243048
     );
-
-  border-bottom:
-    2px solid #3b82f6;
-}
-
-/* ===== ロゴ ===== */
-
-header #logo {
-
-  margin-top: 28px;
 }
 
 /* ===== メニュー ===== */
@@ -57,45 +63,38 @@ header #logo {
 #menubar {
 
   background:
-    #111827;
-
-  border:
-    1px solid #243041;
-
-  border-radius: 8px;
+    linear-gradient(to right,
+      #20293a,
+      #2a3650
+    );
 
   box-shadow:
-    0 4px 12px rgba(0,0,0,0.35);
+    0 2px 8px rgba(0,0,0,0.25);
 }
 
-/* メニュー区切り */
+/* 区切り線 */
 
 #menubar li {
 
   border-right:
-    1px solid #1e293b;
+    1px solid rgba(255,255,255,0.08);
 }
 
 /* メニュー文字 */
 
 #menubar li a {
 
-  color: #dbeafe;
+  color: #e5ecff;
 
-  font-weight: bold;
-
-  letter-spacing: 0.08em;
-
-  transition:
-    background 0.25s ease;
+  text-shadow: none;
 }
 
-/* hover */
+/* ホバー */
 
 #menubar li a:hover {
 
   background:
-    #1d4ed8;
+    rgba(255,255,255,0.08);
 
   color: #fff;
 }
@@ -106,89 +105,70 @@ header #logo {
 
   background:
     linear-gradient(to bottom,
-      #2563eb,
-      #1e40af
+      #4f6bff,
+      #3952d4
     );
-
-  color: #fff;
 }
 
-/* ===== メイン背景 ===== */
+/* ===== コンテンツ背景 ===== */
 
 #contents {
 
   background:
-    #0f172a;
+    #1a1f2b;
 }
 
-/* ===== 見出し ===== */
+/* ===== h2 ===== */
 
 #main h2 {
 
   background:
     linear-gradient(to right,
-      #1d4ed8,
-      #2563eb
+      #3d5afe,
+      #5677ff
     );
 
   border-bottom:
-    2px solid #60a5fa;
+    3px solid #89a7ff;
 
   color: #fff;
-
-  border-radius: 4px;
 }
 
-/* h3 */
+/* ===== h3 ===== */
 
 #main h3 {
 
   background:
-    #111827;
+    rgba(255,255,255,0.03);
 
   border:
-    1px solid #334155;
+    1px solid #3a465d;
 
-  color: #e2e8f0;
-
-  border-radius: 4px;
+  color: #f1f5ff;
 }
 
 #main h3::first-letter {
 
   border-left:
-    3px solid #60a5fa;
+    3px solid #6ea8ff;
 }
 
-/* ===== 本文 ===== */
-
-#main p,
-#sub p,
-#side p {
-
-  color: #cbd5e1;
-}
-
-/* ===== リストカード ===== */
+/* ===== リスト ===== */
 
 #main .list {
 
-  background:
-    #111827;
-
   border-top:
-    1px solid #334155;
-
-  transition:
-    background 0.25s ease;
+    1px solid #39465d;
 }
 
 /* hover */
 
-#main .list:hover {
+#main .list a:hover {
 
   background:
-    #172033;
+    #273247;
+
+  color: #fff;
 }
 
 /* 矢印 */
@@ -196,117 +176,137 @@ header #logo {
 #main .list a::before {
 
   background:
-    #2563eb;
-
-  color: #fff;
-
-  border-radius: 50%;
+    #4a6cff;
 }
 
-/* ===== サイド ===== */
+#main .list a:hover::before {
+
+  background:
+    #7c4dff;
+}
+
+/* ===== サイド見出し ===== */
 
 #sub h2,
 #side h2 {
 
   background:
     linear-gradient(to right,
-      #1e3a8a,
-      #2563eb
+      #4258ca,
+      #4f6bff
     );
-
-  color: #fff;
 }
+
+/* ===== サイドBOX ===== */
 
 #sub .box1,
 #side .box1 {
 
-  background:
-    #111827;
-
   border:
-    1px solid #334155;
+    1px solid #39465d;
+
+  background:
+    rgba(255,255,255,0.02);
 }
 
 /* ===== サブメニュー ===== */
 
+#sub .submenu,
+#side .submenu {
+
+  border-bottom:
+    1px solid #39465d;
+}
+
 #sub .submenu li a,
 #side .submenu li a {
 
-  background:
-    #0f172a;
+  border-top:
+    1px solid #39465d;
 
-  border-color:
-    #334155;
+  border-left:
+    1px solid #39465d;
+
+  border-right:
+    1px solid #39465d;
+
+  background:
+    rgba(255,255,255,0.02);
 
   color:
-    #dbeafe;
+    #d9e5ff;
 }
 
 #sub .submenu li a:hover,
 #side .submenu li a:hover {
 
   background:
-    #1e293b;
+    rgba(255,255,255,0.06);
 }
 
 /* ===== テーブル ===== */
+
+.ta1 caption {
+
+  background:
+    #4f6bff;
+
+  color: #fff;
+}
 
 .ta1,
 .ta1 td,
 .ta1 th {
 
   border:
-    1px solid #334155;
-}
-
-.ta1 th {
-
-  background:
-    #1e3a8a;
-
-  color: #fff;
+    1px solid #44516a;
 }
 
 .ta1 td {
 
   background:
-    #0f172a;
+    rgba(255,255,255,0.02);
+}
 
-  color: #dbeafe;
+.ta1 th {
+
+  background:
+    rgba(79,107,255,0.15);
+
+  color:
+    #eef4ff;
 }
 
 /* ===== ボタン ===== */
 
 #drawOmikuji,
 #main input[type="submit"].btn,
-#main input[type="button"].btn {
+#main input[type="button"].btn,
+#main input[type="reset"].btn {
 
   background:
     linear-gradient(to bottom,
-      #2563eb,
-      #1d4ed8
+      #5677ff,
+      #3d5afe
     );
 
+  border:
+    1px solid #7c95ff;
+
   color: #fff;
-
-  border: none;
-
-  border-radius: 6px;
-
-  box-shadow:
-    0 2px 8px rgba(37,99,235,0.35);
 }
 
 /* hover */
 
 #drawOmikuji:hover,
 #main input[type="submit"].btn:hover,
-#main input[type="button"].btn:hover {
+#main input[type="button"].btn:hover,
+#main input[type="reset"].btn:hover {
 
   background:
     linear-gradient(to bottom,
-      #3b82f6,
-      #2563eb
+      #6f8cff,
+      #5677ff
     );
 }
 
@@ -315,27 +315,13 @@ header #logo {
 #omikujiResult {
 
   background:
-    #111827;
+    #202736;
 
   border:
-    2px solid #2563eb;
+    3px solid #5677ff;
 
-  color: #fff;
-
-  box-shadow:
-    0 0 20px rgba(37,99,235,0.25);
-}
-
-/* ===== リンク ===== */
-
-a {
-
-  color: #93c5fd;
-}
-
-a:hover {
-
-  color: #ffffff;
+  color:
+    #ffffff;
 }
 
 /* ===== footer ===== */
@@ -343,24 +329,27 @@ a:hover {
 footer {
 
   background:
-    #0b1120;
+    #171c27;
 
-  color: #94a3b8;
+  color:
+    #c2cde0;
 }
 
 #copyright {
 
   background:
-    #111827;
+    #222b3c;
 
-  color: #cbd5e1;
+  color:
+    #f0f4ff;
 }
 
-/* ===== 画像 ===== */
+/* ===== NEWアイコン ===== */
 
-img {
+.newicon {
 
-  border-radius: 6px;
+  background:
+    #5677ff;
 }
 
 /* ===== ページトップ ===== */
@@ -368,8 +357,8 @@ img {
 body.is-fixed-pagetop .nav-fix-pos-pagetop a {
 
   background:
-    rgba(37,99,235,0.9);
+    rgba(61,90,254,0.85);
 
   border:
-    1px solid #60a5fa;
+    1px solid #8fb0ff;
 }
