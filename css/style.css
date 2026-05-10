@@ -971,3 +971,25 @@ a:hover {
         padding-bottom: 70px !important;
     }
 }
+<button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+
+<script>
+function toggleTheme() {
+    const body = document.body;
+    const currentTheme = body.getAttribute('data-theme');
+    
+    if (currentTheme === 'light') {
+        body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        body.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+    }
+}
+
+// ページ読み込み時に保存されたテーマを適用
+window.onload = () => {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.setAttribute('data-theme', savedTheme);
+}
+</script>
