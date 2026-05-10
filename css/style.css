@@ -1269,3 +1269,115 @@ a:hover { color: #FF69B4 !important; }
         width: 100% !important;
     }
 }
+
+/* =========================================================
+   鈴木様流：オリジナルスタンダード・最終調整版
+   背景：黒 / 文字：濃水色 / ホバー：ピンク
+========================================================= */
+
+/* --- 1. 全体カラー・リセット（余白の根源を断つ） --- */
+html, body {
+    height: 100%;
+    background: #000000 !important;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #1D9BF0 !important; /* 濃いめの水色 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* --- 2. 左ナビゲーション固定 (X-Style) --- */
+#menubar {
+    position: fixed !important;
+    top: 0 !important;
+    left: calc(50% - 650px) !important;
+    width: 260px !important;
+    height: 100vh !important;
+    background: #000 !important;
+    border-right: 1px solid #2F3336 !important;
+    padding-top: 60px !important;
+    z-index: 9999 !important;
+    float: none !important;
+    margin: 0 !important;
+}
+
+#menubar li a {
+    color: #1D9BF0 !important;
+    padding: 15px 25px !important;
+    display: flex !important;
+    transition: 0.2s !important;
+}
+
+#menubar li a:hover {
+    color: #FF69B4 !important; /* ホバー：ピンク */
+    background: rgba(255, 105, 180, 0.1) !important;
+}
+
+/* --- 3. コンテンツエリア（h3と下部余白の修正） --- */
+#contents {
+    margin-left: 260px !important; /* ナビ分空ける */
+    width: calc(100% - 260px) !important;
+    background: #000 !important;
+    min-height: 100vh; /* 下部の隙間を埋める */
+}
+
+#contents-in {
+    width: 100% !important;
+    max-width: 650px !important;
+    margin: 0 !important;
+    float: none !important;
+    border-right: 1px solid #2F3336 !important;
+}
+
+/* 【修正点】準備中のh3タブバー */
+#main h3 {
+    margin: 0 !important; /* 外側の余白をゼロに */
+    padding: 15px !important;
+    background: #111 !important; /* 浮かないように落ち着いたトーン */
+    border: 1px solid #2F3336 !important;
+    border-left: 5px solid #FF69B4 !important; /* ピンクのアクセント */
+    color: #1D9BF0 !important;
+    font-size: 16px !important;
+}
+
+/* --- 4. 【修正点】一番下の余白を消し去る --- */
+footer {
+    margin-top: 0 !important;
+    padding: 40px 0 !important;
+    background: #000 !important;
+    border-top: 1px solid #2F3336 !important;
+    clear: both !important;
+}
+
+#copyright {
+    background: #000 !important;
+    padding-bottom: 30px !important; /* 下端まで黒で埋める */
+}
+
+/* 元のコードにあった「clearfix」的な余白を無効化 */
+.inner::after, #container::after {
+    content: none !important;
+}
+
+/* --- 5. おみくじ（質感維持） --- */
+#drawOmikuji {
+    background: linear-gradient(to right, #1D9BF0, #FF69B4) !important;
+    border-radius: 9999px !important;
+    color: #fff !important;
+}
+
+#omikujiResult {
+    background: #111 !important;
+    border: 2px solid #1D9BF0 !important;
+    margin-bottom: 20px !important;
+}
+
+/* --- 6. スマホ対応 --- */
+@media screen and (max-width: 800px) {
+    #menubar { position: relative !important; width: 100% !important; height: auto !important; left: 0 !important; display: none !important; }
+    #contents { margin-left: 0 !important; width: 100% !important; }
+}
+
+  
