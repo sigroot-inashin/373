@@ -1086,3 +1086,53 @@ header #logo, #contact {
   header { position: relative !important; width: 100% !important; height: auto !important; }
   #contents { width: 100% !important; border: none !important; }
 }
+
+<div class="container">
+    <aside class="left-sidebar">
+        <div class="x-logo">
+            <svg viewBox="0 0 24 24" width="30" height="30"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#"><span class="label">ホーム</span></a></li>
+                <li><a href="#"><span class="label">話題を検索</span></a></li>
+                <li><a href="#"><span class="label">通知</span></a></li>
+                <li><a href="#"><span class="label">プロフィール</span></a></li>
+            </ul>
+        </nav>
+        
+        <div class="user-profile">
+            <div class="user-icon"></div>
+            <div class="user-info">
+                <span class="user-name">Suzuki Yuto</span>
+                <span class="user-handle">@Discord_ID</span>
+            </div>
+        </div>
+    </aside>
+
+    <main>
+        <header class="main-header">
+            <h2>ホーム</h2>
+        </header>
+        
+        <article class="content-area">
+            <h3>お知らせ</h3>
+            <p>ここに元のサイトの内容をツイートのように流し込めます。</p>
+            
+            <button id="drawOmikuji">おみくじを引く</button>
+            <div id="omikujiResult">大吉</div>
+        </article>
+    </main>
+
+    <aside class="right-sidebar">
+        <div class="search-box">キーワード検索</div>
+        <div class="widget">
+            <h3>いまどうしてる？</h3>
+            <p>飯田線の秘境駅を探索中...</p>
+        </div>
+        <div class="widget">
+            <h3>おすすめユーザー</h3>
+            <p>@Kyōrindō_official</p>
+        </div>
+    </aside>
+</div>
