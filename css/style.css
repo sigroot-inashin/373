@@ -1,6 +1,5 @@
 /* =========================================
    RIa ORIGINAL COMMUNITY UI
-   SNS × GAME × CYBER
 ========================================= */
 
 *{
@@ -12,12 +11,17 @@
 body{
 
     background:
-    radial-gradient(circle at top left,#24123d 0%,#090909 35%,#000 100%);
+    radial-gradient(
+        circle at top left,
+        #24123d 0%,
+        #090909 35%,
+        #000 100%
+    );
 
     color:#f5f7ff;
+
     font-family:
     "Segoe UI",
-    "Hiragino Sans",
     sans-serif;
 
     overflow-x:hidden;
@@ -32,11 +36,13 @@ body{
 }
 
 ::-webkit-scrollbar-track{
-    background:#080808;
+    background:#090909;
 }
 
 ::-webkit-scrollbar-thumb{
-    background:linear-gradient(
+
+    background:
+    linear-gradient(
         #7a5cff,
         #00d2ff
     );
@@ -58,21 +64,26 @@ a{
 ========================================= */
 
 .layout{
+
     display:flex;
-    max-width:1450px;
+
+    max-width:1400px;
+
     margin:auto;
 }
 
 /* =========================================
-   左サイドバー
+   LEFT SIDEBAR
 ========================================= */
 
 .left-sidebar{
 
     width:270px;
+
     height:100vh;
 
     position:sticky;
+
     top:0;
 
     padding:20px;
@@ -81,21 +92,19 @@ a{
     1px solid rgba(255,255,255,0.08);
 
     background:
-    linear-gradient(
-        to bottom,
-        rgba(255,255,255,0.03),
-        rgba(255,255,255,0.01)
-    );
+    rgba(255,255,255,0.02);
 
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(18px);
 }
 
 /* ロゴ */
 
 .logo{
 
-    font-size:32px;
+    font-size:34px;
+
     font-weight:900;
+
     letter-spacing:0.2em;
 
     margin-bottom:30px;
@@ -108,29 +117,36 @@ a{
     );
 
     -webkit-background-clip:text;
+
     -webkit-text-fill-color:transparent;
 }
 
 /* メニュー */
 
 .sidebar-menu{
+
     display:flex;
+
     flex-direction:column;
+
     gap:8px;
 }
 
 .sidebar-menu a{
 
     display:flex;
+
     align-items:center;
+
     gap:15px;
 
     padding:15px 18px;
 
     border-radius:18px;
 
+    font-size:18px;
+
     transition:0.25s;
-    font-size:17px;
 }
 
 .sidebar-menu a:hover{
@@ -139,9 +155,12 @@ a{
     rgba(122,92,255,0.18);
 
     transform:translateX(6px);
+}
 
-    box-shadow:
-    0 0 20px rgba(122,92,255,0.2);
+.sidebar-menu a.active{
+
+    background:
+    rgba(0,210,255,0.12);
 }
 
 /* 投稿ボタン */
@@ -150,17 +169,18 @@ a{
 
     width:100%;
 
-    border:none;
-
     margin-top:25px;
 
     padding:15px;
+
+    border:none;
 
     border-radius:18px;
 
     color:white;
 
     font-size:17px;
+
     font-weight:bold;
 
     cursor:pointer;
@@ -169,7 +189,7 @@ a{
     linear-gradient(
         135deg,
         #7a5cff,
-        #00cfff
+        #00d2ff
     );
 
     transition:0.25s;
@@ -180,7 +200,7 @@ a{
     transform:translateY(-3px);
 
     box-shadow:
-    0 10px 30px rgba(0,210,255,0.3);
+    0 12px 30px rgba(0,210,255,0.25);
 }
 
 /* プロフィール */
@@ -190,12 +210,15 @@ a{
     position:absolute;
 
     bottom:20px;
+
     left:20px;
 
     width:220px;
 
     display:flex;
+
     align-items:center;
+
     gap:12px;
 
     padding:12px;
@@ -217,32 +240,37 @@ a{
 .profile-box img{
 
     width:48px;
+
     height:48px;
 
     border-radius:50%;
+
     object-fit:cover;
 
     border:
-    2px solid #7a5cff;
+    2px solid #00d2ff;
 }
 
 .profile-name{
+
     font-weight:bold;
 }
 
 .profile-id{
 
-    color:#9ea7c2;
+    color:#9aa3be;
+
     font-size:13px;
 }
 
 /* =========================================
-   メイン
+   MAIN CONTENT
 ========================================= */
 
 .main-content{
 
     width:650px;
+
     min-height:100vh;
 
     border-right:
@@ -254,6 +282,7 @@ a{
 .top-bar{
 
     position:sticky;
+
     top:0;
 
     z-index:100;
@@ -261,12 +290,13 @@ a{
     padding:22px;
 
     font-size:22px;
-    font-weight:bold;
 
-    backdrop-filter:blur(20px);
+    font-weight:bold;
 
     background:
     rgba(0,0,0,0.45);
+
+    backdrop-filter:blur(16px);
 
     border-bottom:
     1px solid rgba(255,255,255,0.08);
@@ -279,14 +309,14 @@ a{
 .tweet{
 
     display:flex;
+
     gap:15px;
 
     margin:18px;
+
     padding:18px;
 
     border-radius:28px;
-
-    transition:0.25s;
 
     background:
     rgba(255,255,255,0.035);
@@ -294,7 +324,9 @@ a{
     border:
     1px solid rgba(255,255,255,0.06);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(14px);
+
+    transition:0.25s;
 }
 
 .tweet:hover{
@@ -302,7 +334,7 @@ a{
     transform:translateY(-4px);
 
     box-shadow:
-    0 15px 40px rgba(0,0,0,0.35);
+    0 18px 40px rgba(0,0,0,0.35);
 }
 
 /* アイコン */
@@ -310,29 +342,34 @@ a{
 .tweet-icon{
 
     width:54px;
+
     height:54px;
 
     border-radius:50%;
+
     object-fit:cover;
 
     border:
-    2px solid #00d2ff;
+    2px solid #7a5cff;
 }
 
 /* 投稿ヘッダー */
 
 .tweet-header{
+
     margin-bottom:10px;
 }
 
 .tweet-name{
+
     font-weight:bold;
 }
 
 .tweet-id,
 .tweet-time{
 
-    color:#8c96b3;
+    color:#97a0bd;
+
     margin-left:6px;
 }
 
@@ -341,7 +378,8 @@ a{
 .tweet-text{
 
     line-height:1.8;
-    color:#f4f7ff;
+
+    color:#f5f7ff;
 }
 
 /* 投稿画像 */
@@ -363,6 +401,7 @@ a{
 .tweet-actions{
 
     display:flex;
+
     justify-content:space-between;
 
     margin-top:18px;
@@ -373,6 +412,7 @@ a{
 .tweet-actions i{
 
     cursor:pointer;
+
     transition:0.25s;
 }
 
@@ -384,12 +424,13 @@ a{
 }
 
 /* =========================================
-   右サイド
+   RIGHT SIDEBAR
 ========================================= */
 
 .right-sidebar{
 
     width:360px;
+
     padding:20px;
 }
 
@@ -398,12 +439,13 @@ a{
 .search-box{
 
     position:sticky;
+
     top:0;
 
     padding-bottom:15px;
 
     background:
-    rgba(0,0,0,0.55);
+    rgba(0,0,0,0.5);
 
     backdrop-filter:blur(12px);
 }
@@ -444,10 +486,9 @@ a{
 }
 
 .trend-box h2{
+
     margin-bottom:20px;
 }
-
-/* トレンド項目 */
 
 .trend-item{
 
@@ -465,6 +506,7 @@ a{
 }
 
 .trend-item:last-child{
+
     border-bottom:none;
 }
 
@@ -473,12 +515,14 @@ a{
     display:block;
 
     color:#8f97b5;
+
     font-size:13px;
 }
 
 .trend-item strong{
 
     display:block;
+
     margin-top:5px;
 }
 
@@ -501,7 +545,7 @@ a{
 
     .left-sidebar{
 
-        width:95px;
+        width:90px;
     }
 
     .sidebar-menu a span,
@@ -512,13 +556,15 @@ a{
     .post-button{
 
         font-size:0;
+
         height:58px;
     }
 
     .post-button::before{
 
         content:"+";
-        font-size:32px;
+
+        font-size:30px;
     }
 }
 
@@ -535,6 +581,7 @@ a{
     .tweet{
 
         margin:10px;
-        border-radius:20px;
+
+        border-radius:22px;
     }
 }
