@@ -1,6 +1,6 @@
 /* ==========================================
-   RIa Minimal Timeline UI
-   SNS × Blog Hybrid
+   RIa Personal Feed Style
+   ブログ × SNS投稿UI
 ========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
@@ -13,17 +13,19 @@
 
     --hover:#1d232c;
 
-    --border:#2f3844;
+    --border:#2b3440;
 
     --text:#e6edf3;
 
     --sub:#8b98a5;
 
     --accent:#3ea6ff;
+
+    --radius:22px;
 }
 
 /* =====================
-   RESET
+   BASE
 ===================== */
 
 *{
@@ -47,11 +49,11 @@ body{
 
 a{
 
-    text-decoration:none;
-
     color:inherit;
 
-    transition:0.2s ease;
+    text-decoration:none;
+
+    transition:0.25s ease;
 }
 
 /* =====================
@@ -67,15 +69,13 @@ header{
     z-index:9999;
 
     background:
-    rgba(15,20,25,0.97);
+    rgba(15,20,25,0.94);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
 
     border-bottom:
     1px solid var(--border);
 }
-
-/* ヘッダー内部 */
 
 header .inner{
 
@@ -87,47 +87,73 @@ header .inner{
 
     align-items:center;
 
-    justify-content:flex-start;
+    justify-content:space-between;
 
-    padding:14px 0;
+    padding:16px 0;
 }
 
 /* =====================
-   ロゴ
+   LOGO
 ===================== */
-
-#logo{
-
-    margin-right:18px;
-}
 
 #logo img{
 
-    height:42px;
+    height:46px;
 
-    width:auto;
-
-    border-radius:12px;
-
-    display:block;
+    border-radius:14px;
 }
 
 /* =====================
-   不要要素削除
+   CONTACT
 ===================== */
 
-/* Welcome削除 */
+#contact .tel{
 
-#contact{
+    font-size:14px;
 
-    display:none;
+    font-weight:700;
 }
 
-/* 言語切替削除 */
+#contact span{
+
+    display:block;
+
+    color:var(--sub);
+
+    font-size:11px;
+}
+
+/* =====================
+   LANGUAGE
+===================== */
 
 #language-switcher{
 
-    display:none;
+    display:flex;
+
+    gap:10px;
+}
+
+#language-switcher a{
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:var(--card);
+
+    color:var(--sub);
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+#language-switcher a:hover{
+
+    background:var(--hover);
+
+    color:white;
 }
 
 /* =====================
@@ -136,70 +162,58 @@ header .inner{
 
 #menubar{
 
-    background:
-    rgba(15,20,25,0.98);
-
     border-bottom:
     1px solid var(--border);
-}
 
-/* 左上寄せ */
+    background:
+    rgba(15,20,25,0.97);
+}
 
 #menubar ul{
 
-    width:min(1200px,94%);
+    width:min(1000px,94%);
 
     margin:auto;
 
     display:flex;
 
-    align-items:center;
+    justify-content:center;
 
-    justify-content:flex-start;
-
-    gap:8px;
+    gap:10px;
 
     list-style:none;
 
-    padding:10px 0;
+    padding:14px 0;
 }
-
-/* メニュー */
 
 #menubar a{
 
     display:flex;
 
+    flex-direction:column;
+
     align-items:center;
 
     justify-content:center;
 
-    padding:11px 18px;
+    padding:14px 22px;
 
-    border-radius:999px;
-
-    color:var(--sub);
-
-    font-size:14px;
+    border-radius:14px;
 
     font-weight:700;
 }
 
-/* 英語小文字削除 */
-
 #menubar a span{
 
-    display:none;
+    font-size:10px;
+
+    color:var(--sub);
 }
 
 #menubar a:hover{
 
     background:var(--hover);
-
-    color:var(--text);
 }
-
-/* 現在ページ */
 
 #menubar .current a{
 
@@ -214,22 +228,16 @@ header .inner{
 
 #contents{
 
-    width:min(760px,94%);
+    width:min(1000px,94%);
 
-    margin:0 auto;
+    margin:35px auto;
 }
 
 #contents-in{
 
-    display:block;
-}
+    display:flex;
 
-/* サイド削除 */
-
-#sub,
-#side{
-
-    display:none;
+    justify-content:center;
 }
 
 /* =====================
@@ -238,13 +246,27 @@ header .inner{
 
 #main{
 
+    width:100%;
+
+    max-width:760px;
+
     display:flex;
 
     flex-direction:column;
+
+    gap:24px;
+}
+
+/* サイド非表示 */
+
+#sub,
+#side{
+
+    display:none;
 }
 
 /* =====================
-   投稿スタイル
+   投稿カード
 ===================== */
 
 section,
@@ -252,25 +274,31 @@ section,
 
     position:relative;
 
-    padding:
-    76px 22px 26px;
+    background:var(--card);
 
-    border-bottom:
+    border:
     1px solid var(--border);
 
-    background:transparent;
+    border-radius:var(--radius);
 
-    transition:0.2s ease;
+    padding:
+    82px 28px 28px;
+
+    overflow:hidden;
+
+    transition:0.25s ease;
 }
 
 section:hover,
 .list:hover{
 
     background:var(--hover);
+
+    transform:translateY(-2px);
 }
 
 /* =====================
-   投稿アイコン
+   投稿ヘッダー
 ===================== */
 
 section::before,
@@ -280,9 +308,9 @@ section::before,
 
     position:absolute;
 
-    top:18px;
+    top:24px;
 
-    left:20px;
+    left:24px;
 
     width:48px;
 
@@ -290,64 +318,65 @@ section::before,
 
     border-radius:50%;
 
-    background:
-    url("../images/icon.jpg");
+    background:url("../images/icon.jpg");
 
     background-size:cover;
 
     background-position:center;
+
+    border:2px solid var(--accent);
 }
 
-/* =====================
-   投稿者情報
-===================== */
+/* 名前 */
 
 section::after,
 .list::after{
 
-    content:"りあ";
+    content:"りあ  @ria_official ・ just now";
 
     position:absolute;
 
-    top:22px;
+    top:26px;
 
-    left:80px;
+    left:86px;
 
-    font-size:15px;
+    font-size:14px;
 
     font-weight:800;
 
-    color:var(--text);
+    color:white;
 }
 
 /* =====================
-   見出し削除
+   HEADINGS
 ===================== */
 
 h2{
 
-    display:none;
-}
+    font-size:23px;
 
-/* 投稿タイトル */
+    margin-bottom:22px;
+
+    color:var(--accent);
+
+    font-weight:900;
+}
 
 h3{
 
-    font-size:22px;
-
-    line-height:1.6;
+    font-size:24px;
 
     margin-bottom:18px;
 
-    font-weight:800;
+    line-height:1.5;
 }
 
 h4{
 
-    font-size:18px;
+    font-size:20px;
 
     padding:
-    18px 20px 10px;
+    18px 24px 10px;
 
     font-weight:800;
 }
@@ -358,9 +387,9 @@ h4{
 
 p{
 
-    font-size:15px;
-
     margin-bottom:18px;
+
+    font-size:15px;
 }
 
 .color1{
@@ -387,14 +416,17 @@ p{
 
     color:var(--sub);
 
-    font-size:12px;
+    font-size:13px;
 
     font-weight:700;
 }
 
 #new dd{
 
-    padding-bottom:14px;
+    padding-bottom:16px;
+
+    border-bottom:
+    1px solid var(--border);
 }
 
 /* =====================
@@ -407,7 +439,7 @@ p{
 
     margin-left:10px;
 
-    padding:4px 10px;
+    padding:5px 12px;
 
     border-radius:999px;
 
@@ -424,34 +456,45 @@ p{
    IMAGE
 ===================== */
 
+#mainimg{
+
+    overflow:hidden;
+
+    border-radius:24px;
+}
+
 #mainimg img,
 .list img{
 
     width:100%;
 
-    border-radius:18px;
-
     display:block;
+
+    border-radius:20px;
 
     object-fit:cover;
 
-    margin-top:10px;
+    transition:0.5s ease;
+}
+
+#mainimg:hover img,
+.list:hover img{
+
+    transform:scale(1.02);
 }
 
 /* =====================
-   LIST
+   RECOMMEND
 ===================== */
 
 .list{
 
-    padding:
-    76px 0 0;
+    padding:82px 0 0;
 }
 
 .list p{
 
-    padding:
-    0 20px 20px;
+    padding:0 24px 24px;
 
     color:var(--sub);
 }
@@ -468,9 +511,9 @@ p{
 
     justify-content:center;
 
-    margin-top:12px;
+    margin-top:18px;
 
-    padding:11px 18px;
+    padding:13px 20px;
 
     border-radius:999px;
 
@@ -478,9 +521,12 @@ p{
 
     color:white;
 
-    font-size:14px;
-
     font-weight:700;
+}
+
+.r a:hover{
+
+    opacity:0.92;
 }
 
 /* =====================
@@ -489,37 +535,33 @@ p{
 
 footer{
 
-    margin-top:40px;
+    margin-top:60px;
 
-    padding:30px 20px;
+    padding:40px 20px;
+
+    text-align:center;
 
     border-top:
     1px solid var(--border);
 
-    text-align:center;
-
     color:var(--sub);
-
-    font-size:13px;
 }
 
 /* =====================
-   TOP BUTTON
+   PAGE TOP
 ===================== */
 
 .nav-fix-pos-pagetop a{
 
     position:fixed;
 
-    right:22px;
+    right:24px;
 
-    bottom:22px;
+    bottom:24px;
 
-    width:54px;
+    width:56px;
 
-    height:54px;
-
-    border-radius:50%;
+    height:56px;
 
     display:flex;
 
@@ -527,11 +569,13 @@ footer{
 
     justify-content:center;
 
+    border-radius:50%;
+
     background:var(--accent);
 
     color:white;
 
-    font-size:20px;
+    font-size:22px;
 
     font-weight:900;
 }
@@ -540,45 +584,43 @@ footer{
    MOBILE
 ===================== */
 
-@media screen and (max-width:700px){
+@media screen and (max-width:800px){
+
+    #contact{
+
+        display:none;
+    }
 
     #menubar ul{
 
-        overflow-x:auto;
-
-        justify-content:flex-start;
-
-        padding-bottom:12px;
+        flex-wrap:wrap;
     }
 
     #menubar a{
 
-        white-space:nowrap;
+        width:100%;
     }
 
     section,
     .list{
 
         padding:
-        72px 16px 22px;
+        78px 20px 22px;
     }
 
-    section::before,
-    .list::before{
+    h2{
 
-        left:16px;
+        font-size:20px;
+    }
+
+    h3{
+
+        font-size:20px;
     }
 
     section::after,
     .list::after{
 
-        left:74px;
-
-        font-size:13px;
-    }
-
-    h3{
-
-        font-size:19px;
+        font-size:12px;
     }
 }
