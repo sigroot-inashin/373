@@ -1,7 +1,7 @@
 /* ==========================================
-   RIa SNS Style
-   X風 + オリジナルアレンジ
-   （完全コピー回避デザイン）
+   RIa Hybrid Style
+   Blog × X風 SNS UI
+   オリジナル構成版
 ========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
@@ -10,19 +10,21 @@
 
     --bg:#0f1419;
 
-    --card:#161b22;
+    --main:#161b22;
 
-    --hover:#1d232c;
+    --subbg:#1c2128;
 
-    --border:#2a2f36;
+    --hover:#222933;
 
-    --text:#e7e9ea;
+    --border:#2f3844;
+
+    --text:#e6edf3;
 
     --sub:#8b98a5;
 
     --accent:#3ea6ff;
 
-    --radius:18px;
+    --radius:20px;
 
 }
 
@@ -44,7 +46,7 @@ body{
 
     font-family:'Noto Sans JP',sans-serif;
 
-    line-height:1.7;
+    line-height:1.8;
 
     overflow-x:hidden;
 }
@@ -55,7 +57,7 @@ a{
 
     text-decoration:none;
 
-    transition:0.25s ease;
+    transition:0.25s;
 }
 
 /* =====================
@@ -68,12 +70,12 @@ header{
 
     top:0;
 
-    z-index:999;
+    z-index:9999;
 
     background:
     rgba(15,20,25,0.92);
 
-    backdrop-filter:blur(14px);
+    backdrop-filter:blur(10px);
 
     border-bottom:
     1px solid var(--border);
@@ -81,17 +83,17 @@ header{
 
 header .inner{
 
-    width:min(1300px,95%);
+    width:min(1400px,94%);
 
     margin:auto;
 
     display:flex;
 
-    justify-content:space-between;
-
     align-items:center;
 
-    padding:16px 0;
+    justify-content:space-between;
+
+    padding:18px 0;
 }
 
 /* =====================
@@ -100,9 +102,9 @@ header .inner{
 
 #logo img{
 
-    height:42px;
+    height:46px;
 
-    border-radius:12px;
+    border-radius:14px;
 }
 
 /* =====================
@@ -126,16 +128,48 @@ header .inner{
 }
 
 /* =====================
+   LANGUAGE
+===================== */
+
+#language-switcher{
+
+    display:flex;
+
+    gap:10px;
+}
+
+#language-switcher a{
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:var(--subbg);
+
+    color:var(--sub);
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+#language-switcher a:hover{
+
+    background:var(--hover);
+
+    color:white;
+}
+
+/* =====================
    MENU
 ===================== */
 
 #menubar{
 
-    position:sticky;
+    border-bottom:
+    1px solid var(--border);
 
-    top:78px;
-
-    padding:20px 0;
+    background:rgba(15,20,25,0.95);
 }
 
 #menubar ul{
@@ -148,9 +182,11 @@ header .inner{
 
     justify-content:center;
 
-    gap:12px;
+    gap:10px;
 
     list-style:none;
+
+    padding:12px 0;
 }
 
 #menubar a{
@@ -163,17 +199,18 @@ header .inner{
 
     justify-content:center;
 
-    min-width:120px;
+    padding:14px 22px;
 
-    padding:14px 18px;
-
-    border-radius:999px;
+    border-radius:14px;
 
     font-weight:700;
+}
 
-    background:transparent;
+#menubar a span{
 
-    border:1px solid transparent;
+    font-size:10px;
+
+    color:var(--sub);
 }
 
 #menubar a:hover{
@@ -189,12 +226,12 @@ header .inner{
 }
 
 /* =====================
-   CONTENTS
+   LAYOUT
 ===================== */
 
 #contents{
 
-    width:min(1280px,95%);
+    width:min(1400px,94%);
 
     margin:30px auto;
 }
@@ -204,15 +241,35 @@ header .inner{
     display:grid;
 
     grid-template-columns:
-    240px
-    minmax(0,650px)
+    280px
+    minmax(0,760px)
     300px;
 
-    gap:28px;
+    gap:30px;
 }
 
 /* =====================
-   MAIN
+   SIDEBAR
+===================== */
+
+#sub,
+#side{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+
+    position:sticky;
+
+    top:130px;
+
+    height:fit-content;
+}
+
+/* =====================
+   MAIN BLOG AREA
 ===================== */
 
 #main{
@@ -221,32 +278,77 @@ header .inner{
 
     flex-direction:column;
 
-    gap:18px;
+    gap:24px;
 }
 
 /* =====================
-   POST STYLE
+   ARTICLE CARD
 ===================== */
 
 section,
-.list{
+.list,
+nav,
+.box1{
 
-    background:var(--card);
+    background:var(--main);
 
     border:
     1px solid var(--border);
 
     border-radius:var(--radius);
 
-    padding:24px;
+    overflow:hidden;
 
-    transition:0.2s ease;
+    transition:0.25s;
 }
 
 section:hover,
-.list:hover{
+.list:hover,
+nav:hover{
 
     background:var(--hover);
+}
+
+/* =====================
+   ARTICLE INNER
+===================== */
+
+section{
+
+    padding:28px;
+}
+
+nav,
+.box1{
+
+    padding:22px;
+}
+
+/* =====================
+   HERO IMAGE
+===================== */
+
+#mainimg{
+
+    overflow:hidden;
+
+    border-radius:24px;
+}
+
+#mainimg img{
+
+    width:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:0.7s;
+}
+
+#mainimg:hover img{
+
+    transform:scale(1.03);
 }
 
 /* =====================
@@ -255,20 +357,29 @@ section:hover,
 
 h2{
 
-    font-size:22px;
+    font-size:24px;
 
-    margin-bottom:18px;
-
-    font-weight:900;
+    margin-bottom:22px;
 
     color:var(--accent);
+
+    font-weight:900;
 }
 
 h3{
 
+    font-size:22px;
+
+    margin-bottom:16px;
+
+    line-height:1.5;
+}
+
+h4{
+
     font-size:18px;
 
-    margin-bottom:12px;
+    font-weight:800;
 }
 
 /* =====================
@@ -281,7 +392,7 @@ h3{
 
     flex-direction:column;
 
-    gap:16px;
+    gap:20px;
 }
 
 #new dt{
@@ -295,14 +406,14 @@ h3{
 
 #new dd{
 
-    padding-bottom:18px;
-
     border-bottom:
     1px solid var(--border);
+
+    padding-bottom:18px;
 }
 
 /* =====================
-   NEW ICON
+   TAG
 ===================== */
 
 .newicon{
@@ -311,7 +422,7 @@ h3{
 
     margin-left:10px;
 
-    padding:4px 10px;
+    padding:5px 12px;
 
     border-radius:999px;
 
@@ -325,38 +436,14 @@ h3{
 }
 
 /* =====================
-   IMAGE
+   BLOG STYLE PARAGRAPH
 ===================== */
 
-#mainimg img,
-.list img{
+p{
 
-    width:100%;
+    margin-bottom:18px;
 
-    border-radius:20px;
-
-    object-fit:cover;
-}
-
-.list{
-
-    overflow:hidden;
-
-    padding:0;
-}
-
-.list h4{
-
-    padding:20px 22px 10px;
-
-    font-size:18px;
-}
-
-.list p{
-
-    padding:0 22px 22px;
-
-    color:var(--sub);
+    font-size:15px;
 }
 
 /* =====================
@@ -378,34 +465,45 @@ h3{
 
     display:block;
 
-    padding:15px 18px;
+    padding:16px 18px;
 
     border-radius:14px;
 
     background:transparent;
 
-    font-weight:600;
+    font-weight:700;
 }
 
 .submenu a:hover{
 
     background:var(--hover);
 
-    transform:translateX(4px);
+    transform:translateX(5px);
 }
 
 /* =====================
-   SIDEBAR
+   RECOMMEND CARD
 ===================== */
 
-#sub,
-#side{
+.list img{
 
-    display:flex;
+    width:100%;
 
-    flex-direction:column;
+    aspect-ratio:16/9;
 
-    gap:20px;
+    object-fit:cover;
+}
+
+.list h4{
+
+    padding:20px 22px 10px;
+}
+
+.list p{
+
+    padding:0 22px 24px;
+
+    color:var(--sub);
 }
 
 /* =====================
@@ -414,19 +512,30 @@ h3{
 
 .r a{
 
-    display:inline-block;
+    display:inline-flex;
 
-    margin-top:18px;
+    align-items:center;
 
-    padding:12px 18px;
+    justify-content:center;
+
+    margin-top:20px;
+
+    padding:13px 20px;
+
+    border-radius:999px;
 
     background:var(--accent);
 
     color:white;
 
-    border-radius:999px;
-
     font-weight:700;
+}
+
+.r a:hover{
+
+    opacity:0.9;
+
+    transform:translateY(-2px);
 }
 
 /* =====================
@@ -439,12 +548,43 @@ h3{
 }
 
 /* =====================
+   PROFILE STYLE BOX
+===================== */
+
+.box1{
+
+    position:relative;
+}
+
+.box1::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    width:14px;
+
+    height:14px;
+
+    background:#00ff90;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 12px #00ff90;
+}
+
+/* =====================
    FOOTER
 ===================== */
 
 footer{
 
-    margin-top:50px;
+    margin-top:60px;
 
     padding:40px 20px;
 
@@ -457,7 +597,7 @@ footer{
 }
 
 /* =====================
-   PAGE TOP
+   PAGETOP
 ===================== */
 
 .nav-fix-pos-pagetop a{
@@ -493,7 +633,7 @@ footer{
    MOBILE
 ===================== */
 
-@media screen and (max-width:1100px){
+@media screen and (max-width:1200px){
 
     #contents-in{
 
@@ -503,6 +643,16 @@ footer{
     #sub,
     #side{
 
+        position:relative;
+
+        top:0;
+    }
+}
+
+@media screen and (max-width:800px){
+
+    #contact{
+
         display:none;
     }
 
@@ -511,33 +661,23 @@ footer{
         flex-wrap:wrap;
     }
 
-    #contact{
+    #menubar a{
 
-        display:none;
+        width:100%;
     }
-}
 
-/* =====================
-   SMALL MOBILE
-===================== */
+    section{
 
-@media screen and (max-width:700px){
+        padding:22px;
+    }
 
     h2{
 
-        font-size:19px;
+        font-size:20px;
     }
 
-    section,
-    .list{
+    h3{
 
-        padding:18px;
-    }
-
-    #menubar a{
-
-        min-width:unset;
-
-        width:100%;
+        font-size:18px;
     }
 }
