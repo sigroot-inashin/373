@@ -1,9 +1,7 @@
 @charset "utf-8";
 
-
-
 /* =========================
-   基本設定
+   リセット
 ========================= */
 
 *{
@@ -12,9 +10,14 @@
   box-sizing:border-box;
 }
 
+/* =========================
+   body
+========================= */
+
 body{
   background:#0f1419;
   color:#e7e9ea;
+
   font-family:
     "Segoe UI",
     "Hiragino Sans",
@@ -24,21 +27,23 @@ body{
 }
 
 /* =========================
-   レイアウト
+   全体レイアウト
 ========================= */
 
 .layout{
   max-width:1300px;
-  margin:auto;
+
+  margin:0 auto;
 
   display:flex;
+
   gap:24px;
 
   padding:0 20px;
 }
 
 /* =========================
-   左サイド
+   左サイドバー
 ========================= */
 
 .sidebar-left{
@@ -53,27 +58,29 @@ body{
 }
 
 .logo{
-  font-size:32px;
+  font-size:34px;
   font-weight:bold;
 
-  margin-bottom:30px;
-
   color:#4ba3ff;
+
+  margin-bottom:35px;
 }
 
 .nav-menu{
   display:flex;
   flex-direction:column;
-  gap:10px;
+
+  gap:8px;
 }
 
 .nav-menu a{
-  color:#e7e9ea;
   text-decoration:none;
+
+  color:#e7e9ea;
 
   font-size:20px;
 
-  padding:12px 18px;
+  padding:14px 18px;
 
   border-radius:999px;
 
@@ -98,12 +105,12 @@ body{
   background:#4ba3ff;
   color:white;
 
-  font-size:17px;
-  font-weight:bold;
-
   padding:14px;
 
   border-radius:999px;
+
+  font-size:17px;
+  font-weight:bold;
 
   cursor:pointer;
 
@@ -115,7 +122,7 @@ body{
 }
 
 /* =========================
-   メイン
+   メインタイムライン
 ========================= */
 
 .timeline{
@@ -138,6 +145,8 @@ body{
   border-bottom:1px solid #2f3336;
 
   padding:18px;
+
+  z-index:100;
 }
 
 .timeline-header h1{
@@ -176,8 +185,8 @@ body{
   justify-content:center;
   align-items:center;
 
-  font-weight:bold;
   font-size:20px;
+  font-weight:bold;
 
   flex-shrink:0;
 }
@@ -188,6 +197,7 @@ body{
 
 .post-user{
   display:flex;
+
   gap:8px;
 
   flex-wrap:wrap;
@@ -213,7 +223,7 @@ body{
 .post-actions{
   display:flex;
 
-  gap:30px;
+  gap:28px;
 
   color:#71767b;
 
@@ -222,6 +232,7 @@ body{
 
 .post-actions span{
   cursor:pointer;
+
   transition:0.2s;
 }
 
@@ -230,7 +241,7 @@ body{
 }
 
 /* =========================
-   右サイド
+   右サイドバー
 ========================= */
 
 .sidebar-right{
@@ -252,9 +263,9 @@ body{
 }
 
 .side-card h2{
-  margin-bottom:18px;
-
   font-size:20px;
+
+  margin-bottom:18px;
 }
 
 .trend{
@@ -304,7 +315,11 @@ body{
   }
 
   .timeline{
+    width:100%;
+
     border:none;
   }
+
+}
 
 }
