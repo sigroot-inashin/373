@@ -1,7 +1,6 @@
 /* ==========================================
-   RIa Personal Timeline UI
-   Full CSS
-   SNS × Blog Hybrid
+   RIa Personal Timeline Style
+   Minimal SNS Layout
 ========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
@@ -24,17 +23,13 @@
 }
 
 /* =====================
-   RESET
+   BASE
 ===================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
@@ -45,27 +40,18 @@ body{
 
     font-family:'Noto Sans JP',sans-serif;
 
-    line-height:1.8;
-
     overflow-x:hidden;
-}
 
-/* =====================
-   LINKS
-===================== */
+    line-height:1.8;
+}
 
 a{
 
-    text-decoration:none;
-
     color:inherit;
 
+    text-decoration:none;
+
     transition:0.2s ease;
-}
-
-a:hover{
-
-    opacity:0.92;
 }
 
 /* =====================
@@ -81,7 +67,7 @@ header{
     z-index:9999;
 
     background:
-    rgba(15,20,25,0.97);
+    rgba(15,20,25,0.96);
 
     backdrop-filter:blur(10px);
 
@@ -89,7 +75,7 @@ header{
     1px solid var(--border);
 }
 
-/* ヘッダー内部 */
+/* ヘッダー配置 */
 
 header .inner{
 
@@ -103,6 +89,8 @@ header .inner{
 
     justify-content:flex-start;
 
+    gap:18px;
+
     padding:14px 0;
 }
 
@@ -112,32 +100,28 @@ header .inner{
 
 #logo{
 
-    margin-right:18px;
+    margin-right:10px;
 }
 
 #logo img{
 
     height:42px;
 
-    width:auto;
-
     border-radius:12px;
-
-    display:block;
 }
 
 /* =====================
    不要要素削除
 ===================== */
 
-/* Welcome文字削除 */
+/* Welcome消す */
 
 #contact{
 
     display:none;
 }
 
-/* 言語切替削除 */
+/* 言語切替消す */
 
 #language-switcher{
 
@@ -157,8 +141,6 @@ header .inner{
     1px solid var(--border);
 }
 
-/* 左上寄せ */
-
 #menubar ul{
 
     width:min(1200px,94%);
@@ -167,18 +149,21 @@ header .inner{
 
     display:flex;
 
-    align-items:center;
-
     justify-content:flex-start;
 
-    gap:8px;
+    align-items:center;
+
+    gap:10px;
 
     list-style:none;
 
     padding:10px 0;
 }
 
-/* メニュー */
+#menubar li{
+
+    list-style:none;
+}
 
 #menubar a{
 
@@ -188,18 +173,18 @@ header .inner{
 
     justify-content:center;
 
-    padding:11px 18px;
+    padding:12px 18px;
 
     border-radius:999px;
-
-    color:var(--sub);
 
     font-size:14px;
 
     font-weight:700;
+
+    color:var(--sub);
 }
 
-/* 英語小文字削除 */
+/* 英語文字消す */
 
 #menubar a span{
 
@@ -210,10 +195,8 @@ header .inner{
 
     background:var(--hover);
 
-    color:var(--text);
+    color:white;
 }
-
-/* 現在ページ */
 
 #menubar .current a{
 
@@ -238,7 +221,7 @@ header .inner{
     display:block;
 }
 
-/* サイド削除 */
+/* サイド消す */
 
 #sub,
 #side{
@@ -255,30 +238,6 @@ header .inner{
     display:flex;
 
     flex-direction:column;
-
-    gap:0;
-}
-
-/* =====================
-   HERO IMAGE
-===================== */
-
-#mainimg{
-
-    overflow:hidden;
-
-    margin-bottom:0;
-}
-
-#mainimg img{
-
-    width:100%;
-
-    display:block;
-
-    border-radius:20px;
-
-    object-fit:cover;
 }
 
 /* =====================
@@ -318,7 +277,7 @@ section::before,
 
     position:absolute;
 
-    top:18px;
+    top:20px;
 
     left:20px;
 
@@ -347,7 +306,7 @@ section::after,
 
     position:absolute;
 
-    top:22px;
+    top:24px;
 
     left:80px;
 
@@ -355,23 +314,41 @@ section::after,
 
     font-weight:800;
 
-    color:var(--text);
+    color:white;
 }
 
 /* =====================
-   不要タイトル削除
+   タイトル
 ===================== */
+
+/* セクションタイトル削除 */
 
 h2{
 
     display:none;
 }
 
-/* 「サイトをご覧いただき〜」削除 */
+/* 投稿タイトル */
 
-section h3{
+h3{
 
-    display:none;
+    font-size:22px;
+
+    line-height:1.6;
+
+    margin-bottom:18px;
+
+    font-weight:800;
+}
+
+h4{
+
+    font-size:18px;
+
+    padding:
+    18px 20px 10px;
+
+    font-weight:800;
 }
 
 /* =====================
@@ -381,8 +358,6 @@ section h3{
 p{
 
     font-size:15px;
-
-    line-height:1.9;
 
     margin-bottom:18px;
 }
@@ -418,14 +393,11 @@ p{
 
 #new dd{
 
-    padding-bottom:16px;
-
-    border-bottom:
-    1px solid var(--border);
+    padding-bottom:14px;
 }
 
 /* =====================
-   NEW ICON
+   TAG
 ===================== */
 
 .newicon{
@@ -448,34 +420,36 @@ p{
 }
 
 /* =====================
-   LIST CARD
+   IMAGE
+===================== */
+
+#mainimg{
+
+    overflow:hidden;
+}
+
+#mainimg img,
+.list img{
+
+    width:100%;
+
+    border-radius:18px;
+
+    display:block;
+
+    object-fit:cover;
+
+    margin-top:10px;
+}
+
+/* =====================
+   LIST
 ===================== */
 
 .list{
 
     padding:
     78px 0 0;
-}
-
-.list img{
-
-    width:100%;
-
-    display:block;
-
-    border-radius:18px;
-
-    object-fit:cover;
-}
-
-.list h4{
-
-    padding:
-    18px 20px 10px;
-
-    font-size:18px;
-
-    font-weight:800;
 }
 
 .list p{
@@ -534,7 +508,7 @@ footer{
 }
 
 /* =====================
-   PAGE TOP
+   TOP BUTTON
 ===================== */
 
 .nav-fix-pos-pagetop a{
@@ -590,7 +564,7 @@ footer{
     .list{
 
         padding:
-        72px 16px 22px;
+        74px 16px 22px;
     }
 
     section::before,
@@ -604,11 +578,11 @@ footer{
 
         left:74px;
 
-        font-size:13px;
+        font-size:12px;
     }
 
-    p{
+    h3{
 
-        font-size:14px;
+        font-size:19px;
     }
 }
