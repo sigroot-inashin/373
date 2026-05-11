@@ -817,761 +817,161 @@ img.fl {
     width: 100%;
   }
 }
-/* --- X風レイアウト・ベース設定 --- */
-body {
-    background-color: #ffffff; /* Xの基本背景色 */
-    background-image: none; /* 元のグラデーションを背景から除去（必要なら残せます） */
-    display: flex;
-    justify-content: center;
-}
-
-.inner {
-    max-width: 1250px;
-    width: 100%;
-    margin: 0 auto;
-    display: flex; /* 3カラムを横並びに */
-    padding: 0;
-}
-
-/* --- 左側：固定ナビゲーションタブ --- */
-header {
-    width: 275px;
-    height: 100vh;
-    position: fixed; /* 左側に固定 */
-    left: calc(50% - 625px);
-    background: #ffffff; /* ヘッダーの背景を白に（元のグラデーションは装飾で使用） */
-    border-right: 1px solid #eff3f4;
-    display: flex;
-    flex-direction: column;
-    padding: 10px 12px;
-}
-
-header #logo {
-    width: 50px;
-    margin: 0 0 20px 12px;
-    float: none;
-}
-
-/* メニューを垂直方向に */
-#menubar {
-    background: none;
-    box-shadow: none;
-    top: 0;
-    width: 100%;
-    position: relative;
-}
-
-#menubar li {
-    float: none;
-    width: 100%;
-    border-right: none;
-}
-
-#menubar li a {
-    text-align: left;
-    font-size: 20px;
-    padding: 12px 16px;
-    border-radius: 9999px; /* X特有の丸み */
-    transition: background 0.2s;
-}
-
-#menubar li a:hover {
-    background-color: rgba(15, 20, 25, 0.1);
-}
-
-/* 左下のユーザープロフィールエリア（追加） */
-.user-profile-nav {
-    margin-top: auto;
-    margin-bottom: 20px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    border-radius: 9999px;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.user-profile-nav:hover {
-    background-color: rgba(15, 20, 25, 0.1);
-}
-
-.user-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #ccc; /* ここにアイコン画像 */
-    margin-right: 12px;
-}
-
-.user-info-text {
-    font-size: 15px;
-    line-height: 1.2;
-}
-
-.user-name { font-weight: bold; }
-.user-id { color: #536471; font-size: 14px; }
-
-/* --- 中央：メインコンテンツ --- */
-#contents {
-    margin-left: 275px; /* 左カラム分を空ける */
-    width: 600px;
-    min-height: 100vh;
-    border-right: 1px solid #eff3f4;
-    background: #fff;
-    padding-top: 0;
-}
-
-#main {
-    float: none;
-    width: 100%;
-}
-
-#main h2 {
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.85); /* 透明感のあるヘッダー */
-    color: #0f1419;
-    border-bottom: 1px solid #eff3f4;
-}
-
-/* --- 右側：サイドバー（おすすめ等） --- */
-#sub, #side {
-    width: 350px;
-    padding: 12px 20px;
-    position: sticky;
-    top: 0;
-    height: 100vh;
-}
-
-.box1 {
-    background-color: #f7f9f9; /* Xのサイドバー背景色 */
-    border-radius: 16px;
-    border: none !important;
-}
-
-/* --- カラーバリエーション（Xテーマ風） --- */
-:root {
-    --x-blue: #1d9bf0;
-    --x-pink: #f91880;
-    --x-orange: #ff7a00;
-}
-
-/* ボタンやリンクの色変更例 */
-.btn-primary { background-color: var(--x-blue); }
-#drawOmikuji { background-color: var(--x-pink); } /* おみくじはアクセントカラーに */
-
-/* モバイル対応の調整（既存のメディアクエリを補完） */
-@media screen and (max-width: 1280px) {
-    header { width: 80px; left: 0; }
-    #menubar li a span, .user-info-text { display: none; }
-    #contents { margin-left: 80px; }
-}
-
-/* --- レイアウトの強制リセットと再構築 --- */
-
-/* 全体のコンテナを横並びにする */
-.inner {
-  display: flex !important;
-  max-width: 1250px !important;
-  margin: 0 auto !important;
-  float: none !important;
-  overflow: visible !important;
-}
-
-/* 左側：ヘッダー（ナビゲーション）を縦型固定に変更 */
-header {
-  position: sticky !important;
-  top: 0;
-  width: 280px !important; /* Xの左メニューに近い幅 */
-  height: 100vh !important;
-  background: linear-gradient(to bottom, #FFB6C1, #87CEEB) !important; /* 元のグラデーションを縦に活用 */
-  float: none !important;
-  display: flex !important;
-  flex-direction: column !important;
-  padding: 20px 10px !important;
-  box-sizing: border-box !important;
-  z-index: 100;
-}
-
-/* ロゴとコンタクト情報を縦に並べる */
-header #logo, #contact {
-  float: none !important;
-  width: 100% !important;
-  margin: 10px 0 !important;
-  text-align: left !important;
-}
-
-/* メニューバーを縦に展開 */
-#menubar {
-  background: transparent !important;
-  box-shadow: none !important;
-  display: block !important;
-  width: 100% !important;
-  top: 0 !important;
-}
-
-#menubar li {
-  float: none !important;
-  width: 100% !important;
-  border-right: none !important;
-  border-bottom: 1px solid rgba(255,255,255,0.3) !important;
-}
-
-#menubar li a {
-  text-align: left !important;
-  padding: 12px 15px !important;
-  color: #fff !important;
-}
-
-/* 左下のユーザープロフィールエリア（新規追加） */
-.user-profile-x {
-  margin-top: auto; /* 一番下に配置 */
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.user-profile-x img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.user-names {
-  line-height: 1.2;
-}
-
-.display-name {
-  font-weight: bold;
-  display: block;
-}
-
-.discord-id {
-  font-size: 11px;
-  opacity: 0.8;
-}
-
-/* 中央：メインコンテンツエリア */
-#contents {
-  flex: 1 !important;
-  max-width: 600px !important;
-  margin: 0 !important;
-  border-left: 1px solid #D1C9C0 !important;
-  border-right: 1px solid #D1C9C0 !important;
-  background: #fff !important;
-  float: none !important;
-}
-
-#contents-in, #main {
-  float: none !important;
-  width: 100% !important;
-}
-
-/* 右側：サイドバー */
-#sub, #side {
-  width: 300px !important;
-  float: none !important;
-  padding: 20px !important;
-}
-
-/* スマホ表示の時は元に戻す（崩れ防止） */
-@media screen and (max-width: 800px) {
-  .inner { display: block !important; }
-  header { position: relative !important; width: 100% !important; height: auto !important; }
-  #contents { width: 100% !important; border: none !important; }
-}
-
-<div class="container">
-    <aside class="left-sidebar">
-        <div class="x-logo">
-            <svg viewBox="0 0 24 24" width="30" height="30"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#"><span class="label">ホーム</span></a></li>
-                <li><a href="#"><span class="label">話題を検索</span></a></li>
-                <li><a href="#"><span class="label">通知</span></a></li>
-                <li><a href="#"><span class="label">プロフィール</span></a></li>
-            </ul>
-        </nav>
-        
-        <div class="user-profile">
-            <div class="user-icon"></div>
-            <div class="user-info">
-                <span class="user-name">Suzuki Yuto</span>
-                <span class="user-handle">@Discord_ID</span>
-            </div>
-        </div>
-    </aside>
-
-    <main>
-        <header class="main-header">
-            <h2>ホーム</h2>
-        </header>
-        
-        <article class="content-area">
-            <h3>お知らせ</h3>
-            <p>ここに元のサイトの内容をツイートのように流し込めます。</p>
-            
-            <button id="drawOmikuji">おみくじを引く</button>
-            <div id="omikujiResult">大吉</div>
-        </article>
-    </main>
-
-    <aside class="right-sidebar">
-        <div class="search-box">キーワード検索</div>
-        <div class="widget">
-            <h3>いまどうしてる？</h3>
-            <p>飯田線の秘境駅を探索中...</p>
-        </div>
-        <div class="widget">
-            <h3>おすすめユーザー</h3>
-            <p>@Kyōrindō_official</p>
-        </div>
-    </aside>
-</div>
-
-@charset "utf-8";
-
-/* --- 1. X風のカラー変数設定 --- */
-:root {
-  --main-bg: #000000;         /* 背景色（黒） */
-  --main-text: #E7E9EA;       /* 文字色 */
-  --accent-color: #1D9BF0;    /* Xブルー（ここを黄緑 #71CF48 などに変えると雰囲気が変わります） */
-  --border-color: #2F3336;    /* 境界線 */
-  --hover-bg: rgba(231, 233, 234, 0.1);
-  --sidebar-width: 275px;
-}
-
-/* ライトモード用の設定（必要に応じて切り替え） */
-body.light-mode {
-  --main-bg: #FFFFFF;
-  --main-text: #0F1419;
-  --accent-color: #1D9BF0;
-  --border-color: #EFF3F4;
-  --hover-bg: rgba(15, 20, 25, 0.1);
-}
-
-/* --- 2. 全体レイアウトの再構築 --- */
-body {
-  margin: 0;
-  padding: 0;
-  color: var(--main-text);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--main-bg);
-  line-height: 1.3;
-}
-
-.inner {
-  max-width: 1250px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-}
-
-/* --- 3. 左側固定メニュー (menubar) --- */
-header {
-  height: auto;
-  background: none;
-  position: sticky;
-  top: 0;
-  width: var(--sidebar-width);
-  padding: 0 12px;
-  display: flex;
-  flex-direction: column;
-}
-
-#menubar {
-  display: flex;
-  flex-direction: column;
-  background: transparent;
-  box-shadow: none;
-  top: 0;
-  width: 100%;
-}
-
-#menubar li {
-  float: none;
-  width: 100%;
-  border-right: none;
-}
-
-#menubar li a {
-  display: flex;
-  align-items: center;
-  padding: 12px;
-  font-size: 20px;
-  color: var(--main-text);
-  border-radius: 9999px; /* 丸いホバー */
-  transition: background-color 0.2s;
-  text-align: left;
-}
-
-#menubar li a:hover {
-  background-color: var(--hover-bg);
-}
-
-#menubar li a span {
-  font-size: 20px;
-  margin-left: 15px;
-  opacity: 1;
-}
-
-/* --- 4. 中央メインエリア (main) --- */
-#contents {
-  background: transparent;
-  border-left: 1px solid var(--border-color);
-  border-right: 1px solid var(--border-color);
-  width: 600px; /* Xのタイムライン標準幅 */
-  min-height: 100vh;
-}
-
-#main h2 {
-  background: rgba(0, 0, 0, 0.65); /* 透過背景 */
-  backdrop-filter: blur(12px);
-  position: sticky;
-  top: 0;
-  z-index: 5;
-  border-bottom: 1px solid var(--border-color);
-  font-size: 20px;
-  padding: 15px;
-}
-
-/* ポスト（リスト）のスタイル */
-#main .list {
-  border-top: none;
-  border-bottom: 1px solid var(--border-color);
-  transition: background 0.2s;
-}
-
-#main .list:hover {
-  background-color: rgba(255, 255, 255, 0.03);
-}
-
-/* --- 5. 右側サイドバー (sub/side) --- */
-#sub, #side {
-  width: 350px;
-  padding: 12px 20px;
-}
-
-#sub h2, #side h2 {
-  background: #16181C; /* Xのサイドバー風グレー */
-  border-radius: 16px 16px 0 0;
-  font-size: 18px;
-  padding: 12px;
-}
-
-#sub .box1, #side .box1 {
-  background: #16181C;
-  border: none;
-  border-radius: 16px;
-  padding: 15px;
-}
-
-/* --- 6. 既存機能（おみくじ）の維持・調整 --- */
-#drawOmikuji {
-  background-color: var(--accent-color);
-  border-radius: 9999px;
-  width: 90%;
-}
-
-#omikujiResult {
-  background-color: #16181C;
-  border-color: var(--accent-color);
-  color: var(--main-text);
-}
-
-/* --- 7. モバイル・タブレット対応 (Responsive) --- */
-@media screen and (max-width: 1280px) {
-  var(--sidebar-width): 80px;
-  #menubar li a span { display: none; } /* アイコンのみにする */
-}
-
-@media screen and (max-width: 800px) {
-  .inner { flex-direction: column; }
-  header {
-    position: fixed;
-    bottom: 0;
-    top: auto;
-    width: 100%;
-    height: 60px;
-    background: var(--main-bg);
-    border-top: 1px solid var(--border-color);
-    z-index: 100;
-  }
-  #menubar {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-  #contents { width: 100%; border: none; }
-  #sub, #side { display: none; } /* スマホではサイドバーを隠す */
-}
 
 
 /* ============================================================
-   ここから X(旧Twitter)風プロトコル（元のCSSの後に追記）
+   X-Style Overdrive (元の819行を完全に黙らせる設定)
    ============================================================ */
 
-/* 1. 背景と文字色を強制的にダークモードへ */
+/* 1. 全体構造のリセット */
 body {
-    background: #000000 !important; /* 黒背景 */
-    color: #E7E9EA !important;    /* 白に近いグレーの文字 */
+    background-color: #000000 !important;
+    background-image: none !important; /* 元のグラデーションを消去 */
+    color: #E7E9EA !important;
+    overflow-x: hidden;
 }
 
-/* 2. 全体レイアウト：3カラム構成を強制 */
+/* 2. 3カラム・レイアウトの強制 */
 .inner {
-    max-width: 1250px !important;
     display: flex !important;
     justify-content: center !important;
+    max-width: 1300px !important;
     margin: 0 auto !important;
     padding: 0 !important;
+    float: none !important;
 }
 
-/* 3. 左メニュー (header) を固定 */
+/* 3. 左サイド：ナビゲーション (Mac/iPad) */
 header {
-    background: transparent !important;
-    width: 275px !important;
+    flex: 0 0 275px !important; /* 幅固定 */
     height: 100vh !important;
     position: sticky !important;
     top: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    border-right: 1px solid #2F3336 !important;
-}
-
-header #logo {
-    float: none !important;
-    margin: 20px auto !important;
-}
-
-/* 4. メニューバーを縦並びに変形 */
-#menubar {
-    background: transparent !important;
-    box-shadow: none !important;
-    top: 0 !important;
-    width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
-}
-
-#menubar li {
-    float: none !important;
-    width: 100% !important;
-    border-right: none !important;
-}
-
-#menubar li a {
-    color: #E7E9EA !important;
-    text-align: left !important;
-    padding: 12px 20px !important;
-    font-size: 20px !important;
-    border-radius: 9999px !important;
-}
-
-#menubar li a:hover {
-    background-color: rgba(231, 233, 234, 0.1) !important;
-}
-
-/* 5. 中央コンテンツエリア (contents) */
-#contents {
-    width: 600px !important;
-    background: transparent !important;
-    border-right: 1px solid #2F3336 !important;
-    padding-top: 0 !important;
-}
-
-#contents-in {
-    float: none !important;
-    width: 100% !important;
-}
-
-#main {
-    float: none !important;
-    width: 100% !important;
-}
-
-/* 見出しをX風に（上に固定されるバー） */
-#main h2 {
-    background: rgba(0, 0, 2, 0.8) !important;
-    backdrop-filter: blur(12px);
-    position: sticky !important;
-    top: 0;
-    border-bottom: 1px solid #2F3336 !important;
-    margin-bottom: 0 !important;
-}
-
-/* 6. 右側サイドバー (sub / side) */
-#sub, #side {
-    width: 350px !important;
-    float: none !important;
-    padding: 20px !important;
-}
-
-/* 7. テーマカラーの変更（水色） */
-a, .tel, #drawOmikuji {
-    color: #1D9BF0 !important; /* Xブルー */
-}
-
-#drawOmikuji {
-    background-color: #1D9BF0 !important;
-    color: #fff !important;
-    border-radius: 9999px !important;
-}
-
-/* 8. モバイル対応：iPhone/iPad向け */
-@media screen and (max-width: 800px) {
-    .inner {
-        flex-direction: column !important;
-    }
-    header {
-        width: 100% !important;
-        height: 60px !important;
-        position: fixed !important;
-        bottom: 0 !important;
-        top: auto !important;
-        background: #000 !important;
-        z-index: 1000;
-        border-top: 1px solid #2F3336 !important;
-        border-right: none !important;
-    }
-    #menubar {
-        flex-direction: row !important;
-        justify-content: space-around !important;
-    }
-    #menubar li a span {
-        display: none !important; /* スマホでは文字を消してアイコン風に */
-    }
-    #contents {
-        width: 100% !important;
-        margin-bottom: 60px !important;
-    }
-    #sub, #side {
-        display: none !important; /* スマホではサイドを隠す */
-    }
-}
-
-/* =============================================
-   X風レイアウト強制上書き（最下部に追記）
-   ============================================= */
-
-/* 1. 全体の浮き（float）を解除してFlexbox化 */
-.inner {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    max-width: 1250px !important;
-    margin: 0 auto !important;
-    float: none !important;
-}
-
-/* 2. 左側メニュー（MacBok/iPad向け） */
-header {
-    width: 275px !important; /* Xの左メニュー幅 */
-    height: 100vh !important;
-    position: sticky !important;
-    top: 0 !important;
-    background: transparent !important;
+    background: #000 !important;
     border-right: 1px solid #2F3336 !important;
     display: flex !important;
     flex-direction: column !important;
     padding: 0 10px !important;
 }
 
-/* 元のロゴやコンタクトのfloatを無効化 */
+/* 元のヘッダー要素の無効化 */
 header #logo, #contact {
     float: none !important;
-    width: auto !important;
     margin: 20px 0 !important;
+    width: 100% !important;
+    text-align: left !important;
 }
 
-/* 3. メインコンテンツ（中央） */
-#contents {
-    flex: 1 !important; /* 残りの幅をすべて使う */
-    max-width: 600px !important; /* Xのタイムライン幅 */
+/* 4. メニューバーを「縦」のボタン群へ */
+#menubar {
+    display: flex !important;
+    flex-direction: column !important;
     background: transparent !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    top: 0 !important;
+    border-radius: 0 !important;
+}
+
+#menubar li {
+    float: none !important;
+    width: 100% !important;
+    border: none !important;
+}
+
+#menubar li a {
+    color: #E7E9EA !important;
+    font-size: 20px !important;
+    padding: 12px 15px !important;
+    border-radius: 9999px !important;
+    display: flex !important;
+    align-items: center !important;
+    transition: 0.2s !important;
+}
+
+#menubar li a:hover {
+    background-color: rgba(231, 233, 234, 0.1) !important;
+}
+
+/* 5. 中央：タイムライン (iPhone/iPad/Mac共通) */
+#contents {
+    flex: 0 0 600px !important; /* Xの黄金比幅 */
+    background: #000 !important;
     border-right: 1px solid #2F3336 !important;
-    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
 }
 
 #contents-in, #main {
     float: none !important;
     width: 100% !important;
+    padding: 0 !important;
 }
 
-/* 4. 右側サイドバー（iPad/MacBook向け） */
-#sub, #side {
-    width: 350px !important;
-    float: none !important;
+/* タイムラインのヘッダーっぽく */
+#main h2 {
+    position: sticky !important;
+    top: 0;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #2F3336 !important;
     margin: 0 !important;
+}
+
+/* 6. 右サイド：トレンド/おすすめ (Macのみ) */
+#sub, #side {
+    flex: 0 0 350px !important;
+    float: none !important;
+    background: #000 !important;
     padding: 20px !important;
     display: block !important;
 }
 
-/* --- デバイスごとの調整 --- */
+/* --- レスポンシブ (iPhone / iPad / MacBook) --- */
 
-/* MacBookなど広い画面 */
-@media screen and (min-width: 1281px) {
-    #menubar li a span { display: inline !important; }
-}
-
-/* iPadなど中間の画面 */
-@media screen and (max-width: 1280px) and (min-width: 801px) {
-    header { width: 80px !important; } /* メニューをアイコン幅に縮小 */
+/* iPad / MacBook Air (画面が少し狭い時) */
+@media screen and (max-width: 1280px) {
+    header { flex: 0 0 80px !important; } /* メニューをアイコン化 */
     #menubar li a span { display: none !important; }
-    #sub, #side { width: 300px !important; }
+    #sub, #side { display: none !important; } /* 右側を消して中央を広く */
 }
 
-/* iPhoneなどスマホ画面 */
+/* iPhone (スマホ) */
 @media screen and (max-width: 800px) {
-    .inner {
-        flex-direction: column !important; /* 縦並びに変更 */
-    }
+    .inner { flex-direction: column !important; }
     
-    /* 下部ナビゲーション化 */
+    /* 下部ナビゲーション */
     header {
+        flex: none !important;
         position: fixed !important;
         bottom: 0 !important;
         top: auto !important;
         width: 100% !important;
-        height: 60px !important;
-        background: #000 !important;
+        height: 65px !important;
         flex-direction: row !important;
         border-right: none !important;
         border-top: 1px solid #2F3336 !important;
         z-index: 9999;
     }
-
-    #menubar {
-        flex-direction: row !important;
-        width: 100% !important;
-        top: 0 !important;
-    }
-
-    #menubar li {
-        width: 25% !important; /* 均等配分 */
-    }
-
+    
+    #menubar { flex-direction: row !important; height: 100% !important; }
+    #menubar li { width: 25% !important; }
+    #menubar li a { justify-content: center !important; }
+    
     #contents {
+        flex: none !important;
         width: 100% !important;
-        max-width: none !important;
-        padding-bottom: 70px !important; /* メニューに被らないように */
+        padding-bottom: 80px !important;
     }
-
-    #sub, #side, #contact {
-        display: none !important; /* スマホでは右サイドを消す */
-    }
-
-    header #logo { display: none !important; } /* スマホではロゴを消す */
+    
+    #sub, #side, #logo, #contact { display: none !important; }
 }
 
-/* おみくじエリアの微調整 */
-#omikujiResult {
-    font-size: 1.5em !important;
+/* おみくじボタンを「ポストする」風に */
+#drawOmikuji {
+    background-color: #1D9BF0 !important; /* ここを黄緑等に変えれば色変更可能 */
     width: 90% !important;
     margin: 20px auto !important;
+    border-radius: 9999px !important;
 }
