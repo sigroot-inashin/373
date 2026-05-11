@@ -1312,3 +1312,146 @@ header {
   #contents { width: 100%; border: none; }
   #sub, #side { display: none; } /* スマホではサイドバーを隠す */
 }
+
+
+/* ============================================================
+   ここから X(旧Twitter)風プロトコル（元のCSSの後に追記）
+   ============================================================ */
+
+/* 1. 背景と文字色を強制的にダークモードへ */
+body {
+    background: #000000 !important; /* 黒背景 */
+    color: #E7E9EA !important;    /* 白に近いグレーの文字 */
+}
+
+/* 2. 全体レイアウト：3カラム構成を強制 */
+.inner {
+    max-width: 1250px !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+/* 3. 左メニュー (header) を固定 */
+header {
+    background: transparent !important;
+    width: 275px !important;
+    height: 100vh !important;
+    position: sticky !important;
+    top: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border-right: 1px solid #2F3336 !important;
+}
+
+header #logo {
+    float: none !important;
+    margin: 20px auto !important;
+}
+
+/* 4. メニューバーを縦並びに変形 */
+#menubar {
+    background: transparent !important;
+    box-shadow: none !important;
+    top: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+#menubar li {
+    float: none !important;
+    width: 100% !important;
+    border-right: none !important;
+}
+
+#menubar li a {
+    color: #E7E9EA !important;
+    text-align: left !important;
+    padding: 12px 20px !important;
+    font-size: 20px !important;
+    border-radius: 9999px !important;
+}
+
+#menubar li a:hover {
+    background-color: rgba(231, 233, 234, 0.1) !important;
+}
+
+/* 5. 中央コンテンツエリア (contents) */
+#contents {
+    width: 600px !important;
+    background: transparent !important;
+    border-right: 1px solid #2F3336 !important;
+    padding-top: 0 !important;
+}
+
+#contents-in {
+    float: none !important;
+    width: 100% !important;
+}
+
+#main {
+    float: none !important;
+    width: 100% !important;
+}
+
+/* 見出しをX風に（上に固定されるバー） */
+#main h2 {
+    background: rgba(0, 0, 2, 0.8) !important;
+    backdrop-filter: blur(12px);
+    position: sticky !important;
+    top: 0;
+    border-bottom: 1px solid #2F3336 !important;
+    margin-bottom: 0 !important;
+}
+
+/* 6. 右側サイドバー (sub / side) */
+#sub, #side {
+    width: 350px !important;
+    float: none !important;
+    padding: 20px !important;
+}
+
+/* 7. テーマカラーの変更（水色） */
+a, .tel, #drawOmikuji {
+    color: #1D9BF0 !important; /* Xブルー */
+}
+
+#drawOmikuji {
+    background-color: #1D9BF0 !important;
+    color: #fff !important;
+    border-radius: 9999px !important;
+}
+
+/* 8. モバイル対応：iPhone/iPad向け */
+@media screen and (max-width: 800px) {
+    .inner {
+        flex-direction: column !important;
+    }
+    header {
+        width: 100% !important;
+        height: 60px !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        top: auto !important;
+        background: #000 !important;
+        z-index: 1000;
+        border-top: 1px solid #2F3336 !important;
+        border-right: none !important;
+    }
+    #menubar {
+        flex-direction: row !important;
+        justify-content: space-around !important;
+    }
+    #menubar li a span {
+        display: none !important; /* スマホでは文字を消してアイコン風に */
+    }
+    #contents {
+        width: 100% !important;
+        margin-bottom: 60px !important;
+    }
+    #sub, #side {
+        display: none !important; /* スマホではサイドを隠す */
+    }
+}
