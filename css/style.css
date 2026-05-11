@@ -1,6 +1,7 @@
 /* ==========================================
-   RIa Personal Feed Style
-   ブログ × SNS投稿UI
+   RIa Personal Timeline UI
+   Full CSS
+   SNS × Blog Hybrid
 ========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
@@ -9,29 +10,31 @@
 
     --bg:#0f1419;
 
-    --card:#161b22;
+    --main:#161b22;
 
     --hover:#1d232c;
 
-    --border:#2b3440;
+    --border:#2f3844;
 
     --text:#e6edf3;
 
     --sub:#8b98a5;
 
     --accent:#3ea6ff;
-
-    --radius:22px;
 }
 
 /* =====================
-   BASE
+   RESET
 ===================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
@@ -47,13 +50,22 @@ body{
     overflow-x:hidden;
 }
 
-a{
+/* =====================
+   LINKS
+===================== */
 
-    color:inherit;
+a{
 
     text-decoration:none;
 
-    transition:0.25s ease;
+    color:inherit;
+
+    transition:0.2s ease;
+}
+
+a:hover{
+
+    opacity:0.92;
 }
 
 /* =====================
@@ -69,13 +81,15 @@ header{
     z-index:9999;
 
     background:
-    rgba(15,20,25,0.94);
+    rgba(15,20,25,0.97);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(10px);
 
     border-bottom:
     1px solid var(--border);
 }
+
+/* ヘッダー内部 */
 
 header .inner{
 
@@ -87,73 +101,47 @@ header .inner{
 
     align-items:center;
 
-    justify-content:space-between;
+    justify-content:flex-start;
 
-    padding:16px 0;
+    padding:14px 0;
 }
 
 /* =====================
    LOGO
 ===================== */
 
+#logo{
+
+    margin-right:18px;
+}
+
 #logo img{
 
-    height:46px;
+    height:42px;
 
-    border-radius:14px;
-}
+    width:auto;
 
-/* =====================
-   CONTACT
-===================== */
-
-#contact .tel{
-
-    font-size:14px;
-
-    font-weight:700;
-}
-
-#contact span{
+    border-radius:12px;
 
     display:block;
-
-    color:var(--sub);
-
-    font-size:11px;
 }
 
 /* =====================
-   LANGUAGE
+   不要要素削除
 ===================== */
+
+/* Welcome文字削除 */
+
+#contact{
+
+    display:none;
+}
+
+/* 言語切替削除 */
 
 #language-switcher{
 
-    display:flex;
-
-    gap:10px;
-}
-
-#language-switcher a{
-
-    padding:8px 14px;
-
-    border-radius:999px;
-
-    background:var(--card);
-
-    color:var(--sub);
-
-    font-size:12px;
-
-    font-weight:700;
-}
-
-#language-switcher a:hover{
-
-    background:var(--hover);
-
-    color:white;
+    display:none;
 }
 
 /* =====================
@@ -162,58 +150,70 @@ header .inner{
 
 #menubar{
 
+    background:
+    rgba(15,20,25,0.98);
+
     border-bottom:
     1px solid var(--border);
-
-    background:
-    rgba(15,20,25,0.97);
 }
+
+/* 左上寄せ */
 
 #menubar ul{
 
-    width:min(1000px,94%);
+    width:min(1200px,94%);
 
     margin:auto;
 
     display:flex;
 
-    justify-content:center;
+    align-items:center;
 
-    gap:10px;
+    justify-content:flex-start;
+
+    gap:8px;
 
     list-style:none;
 
-    padding:14px 0;
+    padding:10px 0;
 }
+
+/* メニュー */
 
 #menubar a{
 
     display:flex;
 
-    flex-direction:column;
-
     align-items:center;
 
     justify-content:center;
 
-    padding:14px 22px;
+    padding:11px 18px;
 
-    border-radius:14px;
+    border-radius:999px;
+
+    color:var(--sub);
+
+    font-size:14px;
 
     font-weight:700;
 }
 
+/* 英語小文字削除 */
+
 #menubar a span{
 
-    font-size:10px;
-
-    color:var(--sub);
+    display:none;
 }
 
 #menubar a:hover{
 
     background:var(--hover);
+
+    color:var(--text);
 }
+
+/* 現在ページ */
 
 #menubar .current a{
 
@@ -228,36 +228,17 @@ header .inner{
 
 #contents{
 
-    width:min(1000px,94%);
+    width:min(760px,94%);
 
-    margin:35px auto;
+    margin:0 auto;
 }
 
 #contents-in{
 
-    display:flex;
-
-    justify-content:center;
+    display:block;
 }
 
-/* =====================
-   MAIN
-===================== */
-
-#main{
-
-    width:100%;
-
-    max-width:760px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:24px;
-}
-
-/* サイド非表示 */
+/* サイド削除 */
 
 #sub,
 #side{
@@ -266,7 +247,42 @@ header .inner{
 }
 
 /* =====================
-   投稿カード
+   MAIN
+===================== */
+
+#main{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:0;
+}
+
+/* =====================
+   HERO IMAGE
+===================== */
+
+#mainimg{
+
+    overflow:hidden;
+
+    margin-bottom:0;
+}
+
+#mainimg img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:20px;
+
+    object-fit:cover;
+}
+
+/* =====================
+   投稿スタイル
 ===================== */
 
 section,
@@ -274,31 +290,25 @@ section,
 
     position:relative;
 
-    background:var(--card);
+    padding:
+    78px 22px 26px;
 
-    border:
+    border-bottom:
     1px solid var(--border);
 
-    border-radius:var(--radius);
+    background:transparent;
 
-    padding:
-    82px 28px 28px;
-
-    overflow:hidden;
-
-    transition:0.25s ease;
+    transition:0.2s ease;
 }
 
 section:hover,
 .list:hover{
 
     background:var(--hover);
-
-    transform:translateY(-2px);
 }
 
 /* =====================
-   投稿ヘッダー
+   投稿アイコン
 ===================== */
 
 section::before,
@@ -308,9 +318,9 @@ section::before,
 
     position:absolute;
 
-    top:24px;
+    top:18px;
 
-    left:24px;
+    left:20px;
 
     width:48px;
 
@@ -318,67 +328,50 @@ section::before,
 
     border-radius:50%;
 
-    background:url("../images/icon.jpg");
+    background:
+    url("../images/icon.jpg");
 
     background-size:cover;
 
     background-position:center;
-
-    border:2px solid var(--accent);
 }
 
-/* 名前 */
+/* =====================
+   投稿者情報
+===================== */
 
 section::after,
 .list::after{
 
-    content:"りあ  @ria_official ・ just now";
+    content:"りあ  @ria_official";
 
     position:absolute;
 
-    top:26px;
+    top:22px;
 
-    left:86px;
+    left:80px;
 
     font-size:14px;
 
     font-weight:800;
 
-    color:white;
+    color:var(--text);
 }
 
 /* =====================
-   HEADINGS
+   不要タイトル削除
 ===================== */
 
 h2{
 
-    font-size:23px;
-
-    margin-bottom:22px;
-
-    color:var(--accent);
-
-    font-weight:900;
+    display:none;
 }
 
-h3{
+/* 「サイトをご覧いただき〜」削除 */
 
-    font-size:24px;
+section h3{
 
-    margin-bottom:18px;
-
-    line-height:1.5;
-}
-
-h4{
-
-    font-size:20px;
-
-    padding:
-    18px 24px 10px;
-
-    font-weight:800;
+    display:none;
 }
 
 /* =====================
@@ -387,9 +380,11 @@ h4{
 
 p{
 
-    margin-bottom:18px;
-
     font-size:15px;
+
+    line-height:1.9;
+
+    margin-bottom:18px;
 }
 
 .color1{
@@ -416,7 +411,7 @@ p{
 
     color:var(--sub);
 
-    font-size:13px;
+    font-size:12px;
 
     font-weight:700;
 }
@@ -430,7 +425,7 @@ p{
 }
 
 /* =====================
-   TAG
+   NEW ICON
 ===================== */
 
 .newicon{
@@ -439,7 +434,7 @@ p{
 
     margin-left:10px;
 
-    padding:5px 12px;
+    padding:4px 10px;
 
     border-radius:999px;
 
@@ -453,48 +448,40 @@ p{
 }
 
 /* =====================
-   IMAGE
+   LIST CARD
 ===================== */
 
-#mainimg{
+.list{
 
-    overflow:hidden;
-
-    border-radius:24px;
+    padding:
+    78px 0 0;
 }
 
-#mainimg img,
 .list img{
 
     width:100%;
 
     display:block;
 
-    border-radius:20px;
+    border-radius:18px;
 
     object-fit:cover;
-
-    transition:0.5s ease;
 }
 
-#mainimg:hover img,
-.list:hover img{
+.list h4{
 
-    transform:scale(1.02);
-}
+    padding:
+    18px 20px 10px;
 
-/* =====================
-   RECOMMEND
-===================== */
+    font-size:18px;
 
-.list{
-
-    padding:82px 0 0;
+    font-weight:800;
 }
 
 .list p{
 
-    padding:0 24px 24px;
+    padding:
+    0 20px 20px;
 
     color:var(--sub);
 }
@@ -511,9 +498,9 @@ p{
 
     justify-content:center;
 
-    margin-top:18px;
+    margin-top:12px;
 
-    padding:13px 20px;
+    padding:11px 18px;
 
     border-radius:999px;
 
@@ -521,12 +508,9 @@ p{
 
     color:white;
 
+    font-size:14px;
+
     font-weight:700;
-}
-
-.r a:hover{
-
-    opacity:0.92;
 }
 
 /* =====================
@@ -535,16 +519,18 @@ p{
 
 footer{
 
-    margin-top:60px;
+    margin-top:40px;
 
-    padding:40px 20px;
-
-    text-align:center;
+    padding:30px 20px;
 
     border-top:
     1px solid var(--border);
 
+    text-align:center;
+
     color:var(--sub);
+
+    font-size:13px;
 }
 
 /* =====================
@@ -555,13 +541,15 @@ footer{
 
     position:fixed;
 
-    right:24px;
+    right:22px;
 
-    bottom:24px;
+    bottom:22px;
 
-    width:56px;
+    width:54px;
 
-    height:56px;
+    height:54px;
+
+    border-radius:50%;
 
     display:flex;
 
@@ -569,13 +557,11 @@ footer{
 
     justify-content:center;
 
-    border-radius:50%;
-
     background:var(--accent);
 
     color:white;
 
-    font-size:22px;
+    font-size:20px;
 
     font-weight:900;
 }
@@ -584,43 +570,45 @@ footer{
    MOBILE
 ===================== */
 
-@media screen and (max-width:800px){
-
-    #contact{
-
-        display:none;
-    }
+@media screen and (max-width:700px){
 
     #menubar ul{
 
-        flex-wrap:wrap;
+        overflow-x:auto;
+
+        justify-content:flex-start;
+
+        padding-bottom:12px;
     }
 
     #menubar a{
 
-        width:100%;
+        white-space:nowrap;
     }
 
     section,
     .list{
 
         padding:
-        78px 20px 22px;
+        72px 16px 22px;
     }
 
-    h2{
+    section::before,
+    .list::before{
 
-        font-size:20px;
-    }
-
-    h3{
-
-        font-size:20px;
+        left:16px;
     }
 
     section::after,
     .list::after{
 
-        font-size:12px;
+        left:74px;
+
+        font-size:13px;
+    }
+
+    p{
+
+        font-size:14px;
     }
 }
