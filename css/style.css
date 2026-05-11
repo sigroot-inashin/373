@@ -817,3 +817,154 @@ img.fl {
     width: 100%;
   }
 }
+/* --- X風レイアウト・ベース設定 --- */
+body {
+    background-color: #ffffff; /* Xの基本背景色 */
+    background-image: none; /* 元のグラデーションを背景から除去（必要なら残せます） */
+    display: flex;
+    justify-content: center;
+}
+
+.inner {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex; /* 3カラムを横並びに */
+    padding: 0;
+}
+
+/* --- 左側：固定ナビゲーションタブ --- */
+header {
+    width: 275px;
+    height: 100vh;
+    position: fixed; /* 左側に固定 */
+    left: calc(50% - 625px);
+    background: #ffffff; /* ヘッダーの背景を白に（元のグラデーションは装飾で使用） */
+    border-right: 1px solid #eff3f4;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px;
+}
+
+header #logo {
+    width: 50px;
+    margin: 0 0 20px 12px;
+    float: none;
+}
+
+/* メニューを垂直方向に */
+#menubar {
+    background: none;
+    box-shadow: none;
+    top: 0;
+    width: 100%;
+    position: relative;
+}
+
+#menubar li {
+    float: none;
+    width: 100%;
+    border-right: none;
+}
+
+#menubar li a {
+    text-align: left;
+    font-size: 20px;
+    padding: 12px 16px;
+    border-radius: 9999px; /* X特有の丸み */
+    transition: background 0.2s;
+}
+
+#menubar li a:hover {
+    background-color: rgba(15, 20, 25, 0.1);
+}
+
+/* 左下のユーザープロフィールエリア（追加） */
+.user-profile-nav {
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.user-profile-nav:hover {
+    background-color: rgba(15, 20, 25, 0.1);
+}
+
+.user-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc; /* ここにアイコン画像 */
+    margin-right: 12px;
+}
+
+.user-info-text {
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.user-name { font-weight: bold; }
+.user-id { color: #536471; font-size: 14px; }
+
+/* --- 中央：メインコンテンツ --- */
+#contents {
+    margin-left: 275px; /* 左カラム分を空ける */
+    width: 600px;
+    min-height: 100vh;
+    border-right: 1px solid #eff3f4;
+    background: #fff;
+    padding-top: 0;
+}
+
+#main {
+    float: none;
+    width: 100%;
+}
+
+#main h2 {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.85); /* 透明感のあるヘッダー */
+    color: #0f1419;
+    border-bottom: 1px solid #eff3f4;
+}
+
+/* --- 右側：サイドバー（おすすめ等） --- */
+#sub, #side {
+    width: 350px;
+    padding: 12px 20px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.box1 {
+    background-color: #f7f9f9; /* Xのサイドバー背景色 */
+    border-radius: 16px;
+    border: none !important;
+}
+
+/* --- カラーバリエーション（Xテーマ風） --- */
+:root {
+    --x-blue: #1d9bf0;
+    --x-pink: #f91880;
+    --x-orange: #ff7a00;
+}
+
+/* ボタンやリンクの色変更例 */
+.btn-primary { background-color: var(--x-blue); }
+#drawOmikuji { background-color: var(--x-pink); } /* おみくじはアクセントカラーに */
+
+/* モバイル対応の調整（既存のメディアクエリを補完） */
+@media screen and (max-width: 1280px) {
+    header { width: 80px; left: 0; }
+    #menubar li a span, .user-info-text { display: none; }
+    #contents { margin-left: 80px; }
+}
