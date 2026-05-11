@@ -1,7 +1,6 @@
 /* ==========================================
-   RIa Hybrid Style
-   Blog × X風 SNS UI
-   オリジナル構成版
+   RIa Personal Feed Style
+   ブログ × SNS投稿UI
 ========================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
@@ -10,13 +9,11 @@
 
     --bg:#0f1419;
 
-    --main:#161b22;
+    --card:#161b22;
 
-    --subbg:#1c2128;
+    --hover:#1d232c;
 
-    --hover:#222933;
-
-    --border:#2f3844;
+    --border:#2b3440;
 
     --text:#e6edf3;
 
@@ -24,8 +21,7 @@
 
     --accent:#3ea6ff;
 
-    --radius:20px;
-
+    --radius:22px;
 }
 
 /* =====================
@@ -57,7 +53,7 @@ a{
 
     text-decoration:none;
 
-    transition:0.25s;
+    transition:0.25s ease;
 }
 
 /* =====================
@@ -73,9 +69,9 @@ header{
     z-index:9999;
 
     background:
-    rgba(15,20,25,0.92);
+    rgba(15,20,25,0.94);
 
-    backdrop-filter:blur(10px);
+    backdrop-filter:blur(12px);
 
     border-bottom:
     1px solid var(--border);
@@ -83,7 +79,7 @@ header{
 
 header .inner{
 
-    width:min(1400px,94%);
+    width:min(1200px,94%);
 
     margin:auto;
 
@@ -93,7 +89,7 @@ header .inner{
 
     justify-content:space-between;
 
-    padding:18px 0;
+    padding:16px 0;
 }
 
 /* =====================
@@ -144,7 +140,7 @@ header .inner{
 
     border-radius:999px;
 
-    background:var(--subbg);
+    background:var(--card);
 
     color:var(--sub);
 
@@ -169,12 +165,13 @@ header .inner{
     border-bottom:
     1px solid var(--border);
 
-    background:rgba(15,20,25,0.95);
+    background:
+    rgba(15,20,25,0.97);
 }
 
 #menubar ul{
 
-    width:min(1200px,95%);
+    width:min(1000px,94%);
 
     margin:auto;
 
@@ -186,7 +183,7 @@ header .inner{
 
     list-style:none;
 
-    padding:12px 0;
+    padding:14px 0;
 }
 
 #menubar a{
@@ -226,53 +223,32 @@ header .inner{
 }
 
 /* =====================
-   LAYOUT
+   CONTENTS
 ===================== */
 
 #contents{
 
-    width:min(1400px,94%);
+    width:min(1000px,94%);
 
-    margin:30px auto;
+    margin:35px auto;
 }
 
 #contents-in{
 
-    display:grid;
-
-    grid-template-columns:
-    280px
-    minmax(0,760px)
-    300px;
-
-    gap:30px;
-}
-
-/* =====================
-   SIDEBAR
-===================== */
-
-#sub,
-#side{
-
     display:flex;
 
-    flex-direction:column;
-
-    gap:22px;
-
-    position:sticky;
-
-    top:130px;
-
-    height:fit-content;
+    justify-content:center;
 }
 
 /* =====================
-   MAIN BLOG AREA
+   MAIN
 ===================== */
 
 #main{
+
+    width:100%;
+
+    max-width:760px;
 
     display:flex;
 
@@ -281,74 +257,94 @@ header .inner{
     gap:24px;
 }
 
+/* サイド非表示 */
+
+#sub,
+#side{
+
+    display:none;
+}
+
 /* =====================
-   ARTICLE CARD
+   投稿カード
 ===================== */
 
 section,
-.list,
-nav,
-.box1{
+.list{
 
-    background:var(--main);
+    position:relative;
+
+    background:var(--card);
 
     border:
     1px solid var(--border);
 
     border-radius:var(--radius);
 
+    padding:
+    82px 28px 28px;
+
     overflow:hidden;
 
-    transition:0.25s;
+    transition:0.25s ease;
 }
 
 section:hover,
-.list:hover,
-nav:hover{
+.list:hover{
 
     background:var(--hover);
+
+    transform:translateY(-2px);
 }
 
 /* =====================
-   ARTICLE INNER
+   投稿ヘッダー
 ===================== */
 
-section{
+section::before,
+.list::before{
 
-    padding:28px;
+    content:"";
+
+    position:absolute;
+
+    top:24px;
+
+    left:24px;
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    background:url("../images/icon.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    border:2px solid var(--accent);
 }
 
-nav,
-.box1{
+/* 名前 */
 
-    padding:22px;
-}
+section::after,
+.list::after{
 
-/* =====================
-   HERO IMAGE
-===================== */
+    content:"りあ  @ria_official ・ just now";
 
-#mainimg{
+    position:absolute;
 
-    overflow:hidden;
+    top:26px;
 
-    border-radius:24px;
-}
+    left:86px;
 
-#mainimg img{
+    font-size:14px;
 
-    width:100%;
+    font-weight:800;
 
-    display:block;
-
-    object-fit:cover;
-
-    transition:0.7s;
-}
-
-#mainimg:hover img{
-
-    transform:scale(1.03);
+    color:white;
 }
 
 /* =====================
@@ -357,7 +353,7 @@ nav,
 
 h2{
 
-    font-size:24px;
+    font-size:23px;
 
     margin-bottom:22px;
 
@@ -368,18 +364,39 @@ h2{
 
 h3{
 
-    font-size:22px;
+    font-size:24px;
 
-    margin-bottom:16px;
+    margin-bottom:18px;
 
     line-height:1.5;
 }
 
 h4{
 
-    font-size:18px;
+    font-size:20px;
+
+    padding:
+    18px 24px 10px;
 
     font-weight:800;
+}
+
+/* =====================
+   TEXT
+===================== */
+
+p{
+
+    margin-bottom:18px;
+
+    font-size:15px;
+}
+
+.color1{
+
+    color:var(--accent);
+
+    font-weight:700;
 }
 
 /* =====================
@@ -392,7 +409,7 @@ h4{
 
     flex-direction:column;
 
-    gap:20px;
+    gap:18px;
 }
 
 #new dt{
@@ -406,10 +423,10 @@ h4{
 
 #new dd{
 
+    padding-bottom:16px;
+
     border-bottom:
     1px solid var(--border);
-
-    padding-bottom:18px;
 }
 
 /* =====================
@@ -436,72 +453,48 @@ h4{
 }
 
 /* =====================
-   BLOG STYLE PARAGRAPH
+   IMAGE
 ===================== */
 
-p{
+#mainimg{
 
-    margin-bottom:18px;
+    overflow:hidden;
 
-    font-size:15px;
+    border-radius:24px;
 }
 
-/* =====================
-   SUBMENU
-===================== */
-
-.submenu{
-
-    list-style:none;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:10px;
-}
-
-.submenu a{
-
-    display:block;
-
-    padding:16px 18px;
-
-    border-radius:14px;
-
-    background:transparent;
-
-    font-weight:700;
-}
-
-.submenu a:hover{
-
-    background:var(--hover);
-
-    transform:translateX(5px);
-}
-
-/* =====================
-   RECOMMEND CARD
-===================== */
-
+#mainimg img,
 .list img{
 
     width:100%;
 
-    aspect-ratio:16/9;
+    display:block;
+
+    border-radius:20px;
 
     object-fit:cover;
+
+    transition:0.5s ease;
 }
 
-.list h4{
+#mainimg:hover img,
+.list:hover img{
 
-    padding:20px 22px 10px;
+    transform:scale(1.02);
+}
+
+/* =====================
+   RECOMMEND
+===================== */
+
+.list{
+
+    padding:82px 0 0;
 }
 
 .list p{
 
-    padding:0 22px 24px;
+    padding:0 24px 24px;
 
     color:var(--sub);
 }
@@ -518,7 +511,7 @@ p{
 
     justify-content:center;
 
-    margin-top:20px;
+    margin-top:18px;
 
     padding:13px 20px;
 
@@ -533,49 +526,7 @@ p{
 
 .r a:hover{
 
-    opacity:0.9;
-
-    transform:translateY(-2px);
-}
-
-/* =====================
-   TEXT
-===================== */
-
-.color1{
-
-    color:var(--accent);
-}
-
-/* =====================
-   PROFILE STYLE BOX
-===================== */
-
-.box1{
-
-    position:relative;
-}
-
-.box1::before{
-
-    content:"";
-
-    position:absolute;
-
-    top:18px;
-
-    right:18px;
-
-    width:14px;
-
-    height:14px;
-
-    background:#00ff90;
-
-    border-radius:50%;
-
-    box-shadow:
-    0 0 12px #00ff90;
+    opacity:0.92;
 }
 
 /* =====================
@@ -597,20 +548,20 @@ footer{
 }
 
 /* =====================
-   PAGETOP
+   PAGE TOP
 ===================== */
 
 .nav-fix-pos-pagetop a{
 
     position:fixed;
 
-    right:25px;
+    right:24px;
 
-    bottom:25px;
+    bottom:24px;
 
-    width:58px;
+    width:56px;
 
-    height:58px;
+    height:56px;
 
     display:flex;
 
@@ -633,22 +584,6 @@ footer{
    MOBILE
 ===================== */
 
-@media screen and (max-width:1200px){
-
-    #contents-in{
-
-        grid-template-columns:1fr;
-    }
-
-    #sub,
-    #side{
-
-        position:relative;
-
-        top:0;
-    }
-}
-
 @media screen and (max-width:800px){
 
     #contact{
@@ -666,9 +601,11 @@ footer{
         width:100%;
     }
 
-    section{
+    section,
+    .list{
 
-        padding:22px;
+        padding:
+        78px 20px 22px;
     }
 
     h2{
@@ -678,6 +615,12 @@ footer{
 
     h3{
 
-        font-size:18px;
+        font-size:20px;
+    }
+
+    section::after,
+    .list::after{
+
+        font-size:12px;
     }
 }
