@@ -1,8 +1,8 @@
 @charset "utf-8";
 
-/* =========================
+/* ======================
    リセット
-========================= */
+====================== */
 
 *{
   margin:0;
@@ -10,12 +10,12 @@
   box-sizing:border-box;
 }
 
-/* =========================
+/* ======================
    body
-========================= */
+====================== */
 
 body{
-  background:#0f1419;
+  background:#0b1017;
   color:#e7e9ea;
 
   font-family:
@@ -23,17 +23,34 @@ body{
     "Hiragino Sans",
     sans-serif;
 
-  line-height:1.7;
+  overflow-x:hidden;
 }
 
-/* =========================
-   全体レイアウト
-========================= */
+/* ======================
+   背景エフェクト
+====================== */
+
+.bg-effect{
+  position:fixed;
+
+  width:100%;
+  height:100%;
+
+  background:
+    radial-gradient(circle at top left,#4b6fff33,transparent 30%),
+    radial-gradient(circle at bottom right,#ff6ec733,transparent 30%);
+
+  z-index:-1;
+}
+
+/* ======================
+   レイアウト
+====================== */
 
 .layout{
-  max-width:1300px;
+  max-width:1400px;
 
-  margin:0 auto;
+  margin:auto;
 
   display:flex;
 
@@ -42,12 +59,12 @@ body{
   padding:0 20px;
 }
 
-/* =========================
-   左サイドバー
-========================= */
+/* ======================
+   左サイド
+====================== */
 
 .sidebar-left{
-  width:250px;
+  width:260px;
 
   position:sticky;
   top:0;
@@ -58,41 +75,77 @@ body{
 }
 
 .logo{
-  font-size:34px;
+  font-size:32px;
   font-weight:bold;
 
-  color:#4ba3ff;
+  margin-bottom:20px;
 
-  margin-bottom:35px;
+  background:linear-gradient(90deg,#4ba3ff,#b66dff);
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-.nav-menu{
+.lang-switch{
   display:flex;
-  flex-direction:column;
 
-  gap:8px;
+  gap:10px;
+
+  margin-bottom:30px;
 }
 
-.nav-menu a{
+.lang-switch a{
+  color:#9aa4af;
+
   text-decoration:none;
 
-  color:#e7e9ea;
+  font-size:14px;
 
-  font-size:20px;
+  padding:6px 12px;
 
-  padding:14px 18px;
+  border:1px solid #2f3336;
 
   border-radius:999px;
 
   transition:0.2s;
 }
 
+.lang-switch a:hover{
+  background:#1d2228;
+  color:white;
+}
+
+.nav-menu{
+  display:flex;
+  flex-direction:column;
+
+  gap:10px;
+}
+
+.nav-menu a{
+  color:#e7e9ea;
+
+  text-decoration:none;
+
+  font-size:20px;
+
+  padding:14px 18px;
+
+  border-radius:14px;
+
+  transition:0.2s;
+}
+
 .nav-menu a:hover{
   background:#1d2228;
+
+  transform:translateX(5px);
 }
 
 .nav-menu .active{
-  font-weight:bold;
+  background:linear-gradient(90deg,#4ba3ff22,#b66dff22);
+
+  border:1px solid #4ba3ff55;
 }
 
 .main-button{
@@ -102,10 +155,11 @@ body{
 
   border:none;
 
-  background:#4ba3ff;
+  background:linear-gradient(90deg,#4ba3ff,#b66dff);
+
   color:white;
 
-  padding:14px;
+  padding:15px;
 
   border-radius:999px;
 
@@ -114,72 +168,88 @@ body{
 
   cursor:pointer;
 
-  transition:0.2s;
+  transition:0.3s;
 }
 
 .main-button:hover{
-  opacity:0.9;
+  transform:scale(1.03);
+
+  box-shadow:0 0 20px #4ba3ff55;
 }
 
-/* =========================
-   メインタイムライン
-========================= */
+/* ======================
+   タイムライン
+====================== */
 
 .timeline{
-  width:620px;
+  width:650px;
+
+  min-height:100vh;
 
   border-left:1px solid #2f3336;
   border-right:1px solid #2f3336;
 
-  min-height:100vh;
+  backdrop-filter:blur(10px);
 }
 
 .timeline-header{
   position:sticky;
   top:0;
 
-  background:rgba(15,20,25,0.9);
+  background:#0f1419dd;
 
   backdrop-filter:blur(10px);
 
-  border-bottom:1px solid #2f3336;
+  padding:20px;
 
-  padding:18px;
+  border-bottom:1px solid #2f3336;
 
   z-index:100;
 }
 
 .timeline-header h1{
-  font-size:20px;
+  font-size:22px;
 }
 
-/* =========================
+/* ======================
    投稿
-========================= */
+====================== */
 
 .post{
   display:flex;
 
   gap:14px;
 
-  padding:18px;
+  padding:20px;
 
   border-bottom:1px solid #2f3336;
 
-  transition:0.2s;
+  transition:0.3s;
 }
 
 .post:hover{
-  background:#161b22;
+  background:#151a22;
+}
+
+.post.blue{
+  border-left:4px solid #4ba3ff;
+}
+
+.post.purple{
+  border-left:4px solid #b66dff;
+}
+
+.post.orange{
+  border-left:4px solid #ff9b42;
 }
 
 .post-icon{
-  width:48px;
-  height:48px;
+  width:52px;
+  height:52px;
 
   border-radius:50%;
 
-  background:#4ba3ff;
+  background:linear-gradient(135deg,#4ba3ff,#b66dff);
 
   display:flex;
   justify-content:center;
@@ -211,23 +281,21 @@ body{
 
 .id,
 .date{
-  color:#71767b;
+  color:#8b98a5;
 }
 
 .post p{
   font-size:15px;
 
-  margin-bottom:14px;
+  margin-bottom:15px;
 }
 
 .post-actions{
   display:flex;
 
-  gap:28px;
+  gap:30px;
 
-  color:#71767b;
-
-  font-size:14px;
+  color:#8b98a5;
 }
 
 .post-actions span{
@@ -240,9 +308,9 @@ body{
   color:#4ba3ff;
 }
 
-/* =========================
-   右サイドバー
-========================= */
+/* ======================
+   右サイド
+====================== */
 
 .sidebar-right{
   width:320px;
@@ -251,11 +319,11 @@ body{
 }
 
 .side-card{
-  background:#16181c;
+  background:#151a22;
 
   border:1px solid #2f3336;
 
-  border-radius:18px;
+  border-radius:20px;
 
   padding:20px;
 
@@ -263,9 +331,9 @@ body{
 }
 
 .side-card h2{
-  font-size:20px;
-
   margin-bottom:18px;
+
+  font-size:20px;
 }
 
 .trend{
@@ -281,16 +349,37 @@ body{
 .trend-category{
   display:block;
 
-  color:#71767b;
+  color:#8b98a5;
 
   font-size:13px;
 
   margin-bottom:4px;
 }
 
-/* =========================
+.trend a{
+  color:#4ba3ff;
+
+  text-decoration:none;
+
+  font-weight:bold;
+}
+
+.trend a:hover{
+  text-decoration:underline;
+}
+
+.discord{
+  background:
+    linear-gradient(
+      135deg,
+      #5865f222,
+      #8b5cf622
+    );
+}
+
+/* ======================
    スマホ対応
-========================= */
+====================== */
 
 @media screen and (max-width:1100px){
 
@@ -319,7 +408,5 @@ body{
 
     border:none;
   }
-
-}
 
 }
