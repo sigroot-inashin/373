@@ -5,100 +5,119 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sig official - Fortune</title>
+<title>Sig Official — Fortune</title>
 
 <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="bg-effect"></div>
-
 <div class="layout">
 
-<!-- 左 -->
+<!-- LEFT -->
 <aside class="sidebar-left">
 
 <div class="logo">
-SOB
+<span class="sig">SIG</span>
+<span class="official">OFFICIAL</span>
 </div>
 
 <nav class="nav-menu">
 
-<a href="index.html">
- ホーム
-</a>
+<a href="index.html">Home</a>
 
-<a href="service.html">
- サービス
-</a>
+<a href="service.html">Services</a>
 
-<a href="recruit.html">
- 製作者
-</a>
+<a href="recruit.html">Developer</a>
+
+<a href="company.html">About</a>
 
 <a href="link.html" class="active">
- おみくじ
+Fortune
 </a>
 
-<a href="contact.html">
- お問い合わせ
-</a>
+<a href="contact.html">Contact</a>
 
 </nav>
 
 <button class="main-button">
-FORTUNE
+System Access
 </button>
 
 </aside>
 
-<!-- メイン -->
+<!-- MAIN -->
 <main class="timeline">
 
 <div class="timeline-header">
-<h1>おみくじ</h1>
+<h1>Fortune System</h1>
 </div>
+
+<section class="fortune-wrapper">
 
 <div class="fortune-card">
 
+<div class="fortune-label">
+SIG RANDOM SYSTEM
+</div>
+
 <h2>
- 今日の運勢
+Daily Fortune
 </h2>
 
 <p id="fortune-result">
-ボタンを押してください
+Awaiting system execution.
 </p>
 
 <button id="fortune-button">
-運勢を見る
+Run Fortune
 </button>
 
 </div>
 
+</section>
+
 </main>
 
-<!-- 右 -->
+<!-- RIGHT -->
 <aside class="sidebar-right">
 
 <div class="side-card">
 
-<h2> Fortune Level</h2>
+<h2>
+Fortune Levels
+</h2>
 
 <div class="trend">
-大吉
+Excellent
 </div>
 
 <div class="trend">
-中吉
+Good
 </div>
 
 <div class="trend">
-小吉
+Average
 </div>
 
 <div class="trend">
-吉
+Low
+</div>
+
+</div>
+
+<div class="side-card">
+
+<h2>
+System State
+</h2>
+
+<div class="trend">
+Random Engine — Online
+</div>
+
+<div class="trend">
+Probability System — Stable
 </div>
 
 </div>
@@ -110,11 +129,15 @@ FORTUNE
 <script>
 
 const fortunes = [
-"🌟 大吉",
-"✨ 中吉",
-"🍀 小吉",
-"🎴 吉",
-"☁️ 末吉"
+
+"Excellent — High probability of success today.",
+
+"Good — Stable progress is expected.",
+
+"Average — Maintain a balanced pace.",
+
+"Low — Careful decisions are recommended."
+
 ];
 
 document
