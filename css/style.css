@@ -817,3 +817,173 @@ img.fl {
     width: 100%;
   }
 }
+
+/* ============================================================
+   Modern SNS Interface Plugin (X/Instagram Inspired)
+   ※元の819行は一切消さずに、この下に貼り付けてください
+   ============================================================ */
+
+/* 1. カラーと変数の定義 */
+:root {
+    --sns-bg: #000000;
+    --sns-card-bg: #000000;
+    --sns-border: #2F3336;
+    --sns-text-main: #E7E9EA;
+    --sns-text-sub: #71767B;
+    --sns-accent: #00F2FF; /* ネオン水色（黄緑にする場合は #ADFF2F） */
+    --sns-hover: rgba(255, 255, 255, 0.1);
+}
+
+/* 2. 強力なリセット（既存のfloatやグラデーションを無効化） */
+body {
+    background: var(--sns-bg) !important;
+    color: var(--sns-text-main) !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+#contents, #contents-in, #main, #sub, #side, .inner, header, footer {
+    float: none !important;
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-sizing: border-box !important;
+}
+
+/* 3. ベースレイアウト（3カラム構成） */
+#contents.inner {
+    display: flex !important;
+    justify-content: center !important;
+    max-width: 1250px !important;
+    padding: 0 !important;
+    min-height: 100vh;
+}
+
+/* 左カラム：ナビゲーション */
+header {
+    flex: 0 0 275px !important;
+    position: sticky !important;
+    top: 0 !important;
+    height: 100vh !important;
+    border-right: 1px solid var(--sns-border) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 10px 20px !important;
+}
+
+/* ロゴとメニューのSNS風アレンジ */
+header #logo { margin: 20px 0 !important; }
+#menubar { display: block !important; top: 0 !important; }
+#menubar ul { display: flex !important; flex-direction: column !important; }
+#menubar li { width: 100% !important; border: none !important; }
+#menubar li a {
+    color: var(--sns-text-main) !important;
+    font-size: 19px !important;
+    font-weight: bold !important;
+    padding: 12px 16px !important;
+    border-radius: 9999px !important;
+    display: flex !important;
+    align-items: center !important;
+}
+#menubar li a:hover { background: var(--sns-hover) !important; }
+#menubar li.current a { color: var(--sns-accent) !important; }
+
+/* 中央カラム：メインフィード */
+#contents-in {
+    flex: 0 0 600px !important;
+    border-right: 1px solid var(--sns-border) !important;
+}
+
+#main { width: 100% !important; }
+#main h2 {
+    position: sticky !important;
+    top: 0;
+    z-index: 10;
+    background: rgba(0,0,0,0.7) !important;
+    backdrop-filter: blur(12px);
+    font-size: 20px !important;
+    border-bottom: 1px solid var(--sns-border) !important;
+    padding: 15px !important;
+}
+
+/* 更新情報（タイムライン投稿風） */
+#new dl { padding: 15px !important; border-bottom: 1px solid var(--sns-border); }
+#new dt { color: var(--sns-text-sub) !important; font-size: 13px !important; }
+#new dd { padding: 0 !important; border: none !important; margin-bottom: 10px !important; }
+
+/* 右カラム：サイドバー */
+#sub, #side {
+    flex: 0 0 350px !important;
+    padding: 20px !important;
+}
+
+#sub h2, #side h2 {
+    background: #16181C !important;
+    border-radius: 16px 16px 0 0 !important;
+    padding: 12px 16px !important;
+    font-size: 18px !important;
+}
+
+.box1, .submenu {
+    background: #16181C !important;
+    border-radius: 0 0 16px 16px !important;
+    border: none !important;
+    margin-bottom: 20px !important;
+}
+
+/* 4. おみくじボタンを「ポスト」ボタン風に */
+#drawOmikuji {
+    background-color: var(--sns-accent) !important;
+    color: #000 !important;
+    width: 90% !important;
+    border-radius: 9999px !important;
+    font-weight: 900 !important;
+    transition: opacity 0.2s !important;
+}
+
+/* 5. レスポンシブ・マジック */
+
+/* iPad / MacBook 等 */
+@media screen and (max-width: 1280px) {
+    header { flex: 0 0 80px !important; padding: 10px !important; }
+    #menubar li a span { display: none !important; } /* 文字を消してアイコン風に */
+    #sub, #side { display: none !important; } /* 右サイドを隠す */
+}
+
+/* iPhone (スマホ) */
+@media screen and (max-width: 800px) {
+    #contents.inner { flex-direction: column !important; }
+    #contents-in { flex: none !important; width: 100% !important; }
+    
+    /* 下部タブバー（Instagram風） */
+    header {
+        position: fixed !important;
+        bottom: 0 !important;
+        top: auto !important;
+        width: 100% !important;
+        height: 65px !important;
+        flex-direction: row !important;
+        border-right: none !important;
+        border-top: 1px solid var(--sns-border) !important;
+        background: #000 !important;
+        z-index: 1000;
+        padding: 0 !important;
+        justify-content: space-around !important;
+    }
+    
+    #menubar { width: 100% !important; }
+    #menubar ul { flex-direction: row !important; justify-content: space-around !important; }
+    #menubar li { width: auto !important; }
+    
+    #logo, #contact, #language-switcher, #sub, #side { display: none !important; }
+    
+    #main { padding-bottom: 80px !important; }
+}
+
+/* フッターのクリーンアップ */
+footer {
+    border-top: 1px solid var(--sns-border) !important;
+    padding: 40px 0 !important;
+    background: #000 !important;
+}
