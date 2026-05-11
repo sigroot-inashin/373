@@ -1,436 +1,320 @@
-@charset "utf-8";
-
 /* =========================
-   基本設定
+   X風デザイン
 ========================= */
 
-body {
-  margin: 0;
-  padding: 0;
-  background: #000;
-  color: #e7e9ea;
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-size: 15px;
-  line-height: 1.7;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-h1, h2, h3, h4, h5, p, ul, ol, li, dl, dt, dd, form, figure {
-  margin: 0;
-  padding: 0;
+body{
+    background:#000;
+    color:#e7e9ea;
+    font-family:Arial,sans-serif;
 }
 
-ul {
-  list-style: none;
-}
-
-img {
-  border: none;
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-}
-
-a {
-  color: #1d9bf0;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-a:hover {
-  color: #1a8cd8;
-}
-
-/* =========================
-   全体
-========================= */
-
-.inner {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-#contents {
-  background: #000;
-  overflow: hidden;
-  padding: 0;
-}
-
-/* =========================
-   ヘッダー
-========================= */
-
-header {
-  background: rgba(0,0,0,0.95);
-  border-bottom: 1px solid #2f3336;
-  height: auto;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  backdrop-filter: blur(12px);
-}
-
-header #logo {
-  width: 180px;
-  padding: 20px 0;
-}
-
-#contact {
-  display: none;
-}
-
-/* =========================
-   メニュー
-========================= */
-
-#menubar {
-  background: #000;
-  border-top: 1px solid #2f3336;
-  border-bottom: 1px solid #2f3336;
-  border-radius: 0;
-  box-shadow: none;
-  top: 0;
-}
-
-#menubar li {
-  border-right: none;
-}
-
-#menubar li a {
-  color: white;
-  padding: 18px 0;
-  font-size: 15px;
-  font-weight: bold;
-  transition: 0.2s;
-}
-
-#menubar li a:hover {
-  background: rgba(255,255,255,0.08);
-}
-
-#menubar li.current a {
-  background: rgba(29,155,240,0.15);
-  color: #1d9bf0;
-}
-
-#menubar li a span {
-  color: #71767b;
-  opacity: 1;
+a{
+    text-decoration:none;
+    color:white;
 }
 
 /* =========================
    レイアウト
 ========================= */
 
-#contents-in {
-  float: left;
-  width: 78%;
-}
-
-#main {
-  float: right;
-  width: 72%;
-  background: #000;
-  border-left: 1px solid #2f3336;
-  border-right: 1px solid #2f3336;
-  min-height: 100vh;
-}
-
-#sub {
-  float: left;
-  width: 24%;
-  background: #000;
-  padding-top: 20px;
-}
-
-#side {
-  float: right;
-  width: 18%;
-  background: #000;
-  padding-top: 20px;
+.layout{
+    display:flex;
+    max-width:1300px;
+    margin:auto;
 }
 
 /* =========================
-   メインタイトル
+   左サイド
 ========================= */
 
-#main h2 {
-  background: rgba(0,0,0,0.9);
-  color: white;
-  border-bottom: 1px solid #2f3336;
-  padding: 20px;
-  font-size: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  backdrop-filter: blur(12px);
+.left-sidebar{
+    width:260px;
+    height:100vh;
+    position:sticky;
+    top:0;
+    padding:10px;
+    border-right:1px solid #2f3336;
 }
 
-#main h3 {
-  border: none;
-  color: white;
-  padding: 10px 20px;
+.logo{
+    font-size:30px;
+    padding:15px;
+}
+
+.sidebar-menu{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.sidebar-menu a{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+    border-radius:999px;
+    font-size:20px;
+    transition:0.2s;
+}
+
+.sidebar-menu a:hover{
+    background:rgba(255,255,255,0.1);
+}
+
+.sidebar-menu a.active{
+    font-weight:bold;
+}
+
+.post-button{
+    width:100%;
+    border:none;
+    background:#1d9bf0;
+    color:white;
+    padding:15px;
+    border-radius:999px;
+    font-size:17px;
+    font-weight:bold;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+.post-button:hover{
+    background:#1a8cd8;
+}
+
+/* プロフィール */
+
+.profile-box{
+    position:absolute;
+    bottom:20px;
+    left:10px;
+    width:230px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    border-radius:999px;
+    transition:0.2s;
+}
+
+.profile-box:hover{
+    background:rgba(255,255,255,0.1);
+}
+
+.profile-box img{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.profile-name{
+    font-weight:bold;
+}
+
+.profile-id{
+    color:#71767b;
+    font-size:14px;
 }
 
 /* =========================
-   投稿カード
+   メイン
 ========================= */
 
-#main .list {
-  position: relative;
-  overflow: hidden;
-  padding: 18px;
-  border-bottom: 1px solid #2f3336;
-  transition: 0.2s;
-  background: #000;
+.main-content{
+    width:600px;
+    border-right:1px solid #2f3336;
+    min-height:100vh;
 }
 
-#main .list:hover {
-  background: rgba(255,255,255,0.03);
+.top-bar{
+    position:sticky;
+    top:0;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(10px);
+    padding:20px;
+    font-size:20px;
+    font-weight:bold;
+    border-bottom:1px solid #2f3336;
+    z-index:100;
 }
 
-#main .list a {
-  display: block;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
+/* 投稿 */
+
+.tweet{
+    display:flex;
+    gap:12px;
+    padding:16px;
+    border-bottom:1px solid #2f3336;
+    transition:0.2s;
 }
 
-#main .list a:hover {
-  background: transparent;
-  color: inherit;
+.tweet:hover{
+    background:rgba(255,255,255,0.03);
 }
 
-#main .list figure {
-  float: left;
-  width: 15%;
+.tweet-icon{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    object-fit:cover;
 }
 
-#main .list figure img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
+.tweet-body{
+    flex:1;
 }
 
-#main .list h4 {
-  border: none;
-  padding-left: 0;
-  margin-left: 90px;
-  margin-bottom: 5px;
-  color: white;
-  font-size: 16px;
+.tweet-header{
+    margin-bottom:5px;
 }
 
-#main .list p {
-  margin-left: 90px;
-  padding: 0 !important;
-  color: #e7e9ea;
-  line-height: 1.7;
-  font-size: 15px;
+.tweet-name{
+    font-weight:bold;
 }
 
-#main .list a::before {
-  display: none;
+.tweet-id,
+.tweet-time{
+    color:#71767b;
+    margin-left:5px;
+}
+
+.tweet-text{
+    line-height:1.7;
+    margin-bottom:10px;
+}
+
+.tweet-image{
+    width:100%;
+    border-radius:16px;
+    border:1px solid #2f3336;
+    margin-top:10px;
+}
+
+.tweet-actions{
+    display:flex;
+    justify-content:space-between;
+    margin-top:15px;
+    color:#71767b;
+}
+
+.tweet-actions i{
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.tweet-actions i:hover{
+    color:#1d9bf0;
 }
 
 /* =========================
-   サイドバー
+   右サイド
 ========================= */
 
-#sub h2,
-#side h2 {
-  background: #16181c;
-  color: white;
-  border-radius: 999px;
-  margin-bottom: 15px;
-  padding: 12px;
-  font-size: 16px;
+.right-sidebar{
+    width:350px;
+    padding:15px;
 }
 
-#sub .box1,
-#side .box1 {
-  background: #16181c;
-  border: 1px solid #2f3336;
-  border-radius: 20px;
-  padding: 15px;
-  margin-bottom: 20px;
+.search-box{
+    position:sticky;
+    top:0;
+    background:#000;
+    padding-bottom:15px;
 }
 
-#sub .submenu,
-#side .submenu {
-  border-bottom: none;
+.search-box input{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:999px;
+    background:#202327;
+    color:white;
+    font-size:15px;
 }
 
-#sub .submenu li a,
-#side .submenu li a {
-  background: transparent;
-  color: white;
-  border: none;
-  padding: 14px 16px;
-  border-radius: 999px;
-  margin-bottom: 5px;
-  transition: 0.2s;
+.trend-box{
+    background:#16181c;
+    border-radius:20px;
+    padding:20px;
 }
 
-#sub .submenu li a:hover,
-#side .submenu li a:hover {
-  background: rgba(255,255,255,0.08);
+.trend-box h2{
+    margin-bottom:20px;
 }
 
-#sub .list,
-#side .list {
-  border-top: 1px solid #2f3336;
-  padding: 12px 0;
+.trend-item{
+    padding:12px 0;
+    border-bottom:1px solid #2f3336;
 }
 
-#sub .list:last-of-type,
-#side .list:last-of-type {
-  border-bottom: none;
+.trend-item:last-child{
+    border-bottom:none;
 }
 
-#sub .list h4,
-#side .list h4 {
-  color: white;
+.trend-item span{
+    display:block;
+    color:#71767b;
+    font-size:13px;
 }
 
-#sub .list p,
-#side .list p {
-  color: #71767b;
+.trend-item strong{
+    margin-top:5px;
+    display:block;
 }
 
 /* =========================
-   ボタン
+   スマホ
 ========================= */
 
-#drawOmikuji {
-  background: #1d9bf0;
-  border-radius: 999px;
-  box-shadow: none;
-  font-size: 17px;
+@media(max-width:1100px){
+
+    .right-sidebar{
+        display:none;
+    }
+
+    .main-content{
+        flex:1;
+    }
+
 }
 
-#drawOmikuji:hover {
-  background: #1a8cd8;
-  transform: none;
+@media(max-width:800px){
+
+    .left-sidebar{
+        width:80px;
+    }
+
+    .sidebar-menu a span,
+    .profile-box{
+        display:none;
+    }
+
+    .post-button{
+        font-size:0;
+        height:55px;
+    }
+
+    .post-button::before{
+        content:"+";
+        font-size:30px;
+    }
+
 }
 
-/* =========================
-   おみくじ結果
-========================= */
+@media(max-width:600px){
 
-#omikujiResult {
-  background: #16181c;
-  border: 1px solid #2f3336;
-  color: white;
-  box-shadow: none;
-}
+    .left-sidebar{
+        display:none;
+    }
 
-/* =========================
-   テーブル
-========================= */
+    .main-content{
+        width:100%;
+    }
 
-.ta1,
-.ta1 td,
-.ta1 th {
-  border: 1px solid #2f3336;
-  color: #e7e9ea;
-}
-
-.ta1 caption {
-  background: #1d9bf0;
-  border: none;
-}
-
-/* =========================
-   フッター
-========================= */
-
-footer {
-  background: #000;
-  color: #71767b;
-  border-top: 1px solid #2f3336;
-}
-
-#copyright {
-  background: #000;
-  color: #71767b;
-}
-
-/* =========================
-   NEWアイコン
-========================= */
-
-.newicon {
-  background: #1d9bf0;
-  color: white;
-}
-
-/* =========================
-   ページトップ
-========================= */
-
-body.is-fixed-pagetop .nav-fix-pos-pagetop a {
-  background: rgba(29,155,240,0.9);
-  border: none;
-  border-radius: 50%;
-}
-
-/* =========================
-   スマホ対応
-========================= */
-
-@media screen and (max-width: 800px) {
-
-  #main,
-  #sub,
-  #side,
-  #contents-in {
-    float: none;
-    width: auto;
-  }
-
-  #sub,
-  #side {
-    display: none;
-  }
-
-  #main {
-    border: none;
-  }
-
-  #main .list figure {
-    width: auto;
-  }
-
-  #main .list figure img {
-    width: 48px;
-    height: 48px;
-  }
-
-  #main .list h4,
-  #main .list p {
-    margin-left: 70px;
-  }
-
-  #menubar {
-    display: none;
-  }
-
-  #menubar-s {
-    display: block;
-    background: #000;
-  }
-
-  #menubar-s li a {
-    background: #000;
-    color: white;
-    border-bottom: 1px solid #2f3336;
-  }
-
-  #menubar_hdr.close,
-  #menubar_hdr.open {
-    background-color: #000;
-    border: 1px solid #2f3336;
-  }
 }
