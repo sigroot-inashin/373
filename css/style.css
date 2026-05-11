@@ -1136,3 +1136,179 @@ header #logo, #contact {
         </div>
     </aside>
 </div>
+
+@charset "utf-8";
+
+/* --- 1. X風のカラー変数設定 --- */
+:root {
+  --main-bg: #000000;         /* 背景色（黒） */
+  --main-text: #E7E9EA;       /* 文字色 */
+  --accent-color: #1D9BF0;    /* Xブルー（ここを黄緑 #71CF48 などに変えると雰囲気が変わります） */
+  --border-color: #2F3336;    /* 境界線 */
+  --hover-bg: rgba(231, 233, 234, 0.1);
+  --sidebar-width: 275px;
+}
+
+/* ライトモード用の設定（必要に応じて切り替え） */
+body.light-mode {
+  --main-bg: #FFFFFF;
+  --main-text: #0F1419;
+  --accent-color: #1D9BF0;
+  --border-color: #EFF3F4;
+  --hover-bg: rgba(15, 20, 25, 0.1);
+}
+
+/* --- 2. 全体レイアウトの再構築 --- */
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--main-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--main-bg);
+  line-height: 1.3;
+}
+
+.inner {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* --- 3. 左側固定メニュー (menubar) --- */
+header {
+  height: auto;
+  background: none;
+  position: sticky;
+  top: 0;
+  width: var(--sidebar-width);
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+#menubar {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  box-shadow: none;
+  top: 0;
+  width: 100%;
+}
+
+#menubar li {
+  float: none;
+  width: 100%;
+  border-right: none;
+}
+
+#menubar li a {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  font-size: 20px;
+  color: var(--main-text);
+  border-radius: 9999px; /* 丸いホバー */
+  transition: background-color 0.2s;
+  text-align: left;
+}
+
+#menubar li a:hover {
+  background-color: var(--hover-bg);
+}
+
+#menubar li a span {
+  font-size: 20px;
+  margin-left: 15px;
+  opacity: 1;
+}
+
+/* --- 4. 中央メインエリア (main) --- */
+#contents {
+  background: transparent;
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  width: 600px; /* Xのタイムライン標準幅 */
+  min-height: 100vh;
+}
+
+#main h2 {
+  background: rgba(0, 0, 0, 0.65); /* 透過背景 */
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 20px;
+  padding: 15px;
+}
+
+/* ポスト（リスト）のスタイル */
+#main .list {
+  border-top: none;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.2s;
+}
+
+#main .list:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* --- 5. 右側サイドバー (sub/side) --- */
+#sub, #side {
+  width: 350px;
+  padding: 12px 20px;
+}
+
+#sub h2, #side h2 {
+  background: #16181C; /* Xのサイドバー風グレー */
+  border-radius: 16px 16px 0 0;
+  font-size: 18px;
+  padding: 12px;
+}
+
+#sub .box1, #side .box1 {
+  background: #16181C;
+  border: none;
+  border-radius: 16px;
+  padding: 15px;
+}
+
+/* --- 6. 既存機能（おみくじ）の維持・調整 --- */
+#drawOmikuji {
+  background-color: var(--accent-color);
+  border-radius: 9999px;
+  width: 90%;
+}
+
+#omikujiResult {
+  background-color: #16181C;
+  border-color: var(--accent-color);
+  color: var(--main-text);
+}
+
+/* --- 7. モバイル・タブレット対応 (Responsive) --- */
+@media screen and (max-width: 1280px) {
+  var(--sidebar-width): 80px;
+  #menubar li a span { display: none; } /* アイコンのみにする */
+}
+
+@media screen and (max-width: 800px) {
+  .inner { flex-direction: column; }
+  header {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    width: 100%;
+    height: 60px;
+    background: var(--main-bg);
+    border-top: 1px solid var(--border-color);
+    z-index: 100;
+  }
+  #menubar {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #contents { width: 100%; border: none; }
+  #sub, #side { display: none; } /* スマホではサイドバーを隠す */
+}
