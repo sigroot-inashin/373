@@ -1,6 +1,7 @@
-/* =========================
-   X風デザイン
-========================= */
+/* =========================================
+   RIa ORIGINAL COMMUNITY UI
+   SNS × GAME × CYBER
+========================================= */
 
 *{
     margin:0;
@@ -9,109 +10,220 @@
 }
 
 body{
-    background:#000;
-    color:#e7e9ea;
-    font-family:Arial,sans-serif;
+
+    background:
+    radial-gradient(circle at top left,#24123d 0%,#090909 35%,#000 100%);
+
+    color:#f5f7ff;
+    font-family:
+    "Segoe UI",
+    "Hiragino Sans",
+    sans-serif;
+
+    overflow-x:hidden;
 }
+
+/* =========================================
+   スクロールバー
+========================================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#080808;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(
+        #7a5cff,
+        #00d2ff
+    );
+
+    border-radius:999px;
+}
+
+/* =========================================
+   リンク
+========================================= */
 
 a{
+    color:inherit;
     text-decoration:none;
-    color:white;
 }
 
-/* =========================
+/* =========================================
    レイアウト
-========================= */
+========================================= */
 
 .layout{
     display:flex;
-    max-width:1300px;
+    max-width:1450px;
     margin:auto;
 }
 
-/* =========================
-   左サイド
-========================= */
+/* =========================================
+   左サイドバー
+========================================= */
 
 .left-sidebar{
-    width:260px;
+
+    width:270px;
     height:100vh;
+
     position:sticky;
     top:0;
-    padding:10px;
-    border-right:1px solid #2f3336;
+
+    padding:20px;
+
+    border-right:
+    1px solid rgba(255,255,255,0.08);
+
+    background:
+    linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.01)
+    );
+
+    backdrop-filter:blur(16px);
 }
 
+/* ロゴ */
+
 .logo{
-    font-size:30px;
-    padding:15px;
+
+    font-size:32px;
+    font-weight:900;
+    letter-spacing:0.2em;
+
+    margin-bottom:30px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #7a5cff,
+        #00d2ff
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
+
+/* メニュー */
 
 .sidebar-menu{
     display:flex;
     flex-direction:column;
-    gap:5px;
+    gap:8px;
 }
 
 .sidebar-menu a{
+
     display:flex;
     align-items:center;
     gap:15px;
-    padding:15px;
-    border-radius:999px;
-    font-size:20px;
-    transition:0.2s;
+
+    padding:15px 18px;
+
+    border-radius:18px;
+
+    transition:0.25s;
+    font-size:17px;
 }
 
 .sidebar-menu a:hover{
-    background:rgba(255,255,255,0.1);
+
+    background:
+    rgba(122,92,255,0.18);
+
+    transform:translateX(6px);
+
+    box-shadow:
+    0 0 20px rgba(122,92,255,0.2);
 }
 
-.sidebar-menu a.active{
-    font-weight:bold;
-}
+/* 投稿ボタン */
 
 .post-button{
+
     width:100%;
+
     border:none;
-    background:#1d9bf0;
-    color:white;
+
+    margin-top:25px;
+
     padding:15px;
-    border-radius:999px;
+
+    border-radius:18px;
+
+    color:white;
+
     font-size:17px;
     font-weight:bold;
-    margin-top:20px;
+
     cursor:pointer;
+
+    background:
+    linear-gradient(
+        135deg,
+        #7a5cff,
+        #00cfff
+    );
+
+    transition:0.25s;
 }
 
 .post-button:hover{
-    background:#1a8cd8;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 30px rgba(0,210,255,0.3);
 }
 
 /* プロフィール */
 
 .profile-box{
+
     position:absolute;
+
     bottom:20px;
-    left:10px;
-    width:230px;
+    left:20px;
+
+    width:220px;
+
     display:flex;
     align-items:center;
-    gap:10px;
+    gap:12px;
+
     padding:12px;
-    border-radius:999px;
-    transition:0.2s;
+
+    border-radius:20px;
+
+    background:
+    rgba(255,255,255,0.04);
+
+    transition:0.25s;
 }
 
 .profile-box:hover{
-    background:rgba(255,255,255,0.1);
+
+    background:
+    rgba(255,255,255,0.08);
 }
 
 .profile-box img{
-    width:45px;
-    height:45px;
+
+    width:48px;
+    height:48px;
+
     border-radius:50%;
     object-fit:cover;
+
+    border:
+    2px solid #7a5cff;
 }
 
 .profile-name{
@@ -119,59 +231,98 @@ a{
 }
 
 .profile-id{
-    color:#71767b;
-    font-size:14px;
+
+    color:#9ea7c2;
+    font-size:13px;
 }
 
-/* =========================
+/* =========================================
    メイン
-========================= */
+========================================= */
 
 .main-content{
-    width:600px;
-    border-right:1px solid #2f3336;
+
+    width:650px;
     min-height:100vh;
+
+    border-right:
+    1px solid rgba(255,255,255,0.06);
 }
+
+/* 上バー */
 
 .top-bar{
+
     position:sticky;
     top:0;
-    background:rgba(0,0,0,0.8);
-    backdrop-filter:blur(10px);
-    padding:20px;
-    font-size:20px;
-    font-weight:bold;
-    border-bottom:1px solid #2f3336;
+
     z-index:100;
+
+    padding:22px;
+
+    font-size:22px;
+    font-weight:bold;
+
+    backdrop-filter:blur(20px);
+
+    background:
+    rgba(0,0,0,0.45);
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.08);
 }
 
-/* 投稿 */
+/* =========================================
+   投稿
+========================================= */
 
 .tweet{
+
     display:flex;
-    gap:12px;
-    padding:16px;
-    border-bottom:1px solid #2f3336;
-    transition:0.2s;
+    gap:15px;
+
+    margin:18px;
+    padding:18px;
+
+    border-radius:28px;
+
+    transition:0.25s;
+
+    background:
+    rgba(255,255,255,0.035);
+
+    border:
+    1px solid rgba(255,255,255,0.06);
+
+    backdrop-filter:blur(12px);
 }
 
 .tweet:hover{
-    background:rgba(255,255,255,0.03);
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.35);
 }
+
+/* アイコン */
 
 .tweet-icon{
-    width:50px;
-    height:50px;
+
+    width:54px;
+    height:54px;
+
     border-radius:50%;
     object-fit:cover;
+
+    border:
+    2px solid #00d2ff;
 }
 
-.tweet-body{
-    flex:1;
-}
+/* 投稿ヘッダー */
 
 .tweet-header{
-    margin-bottom:5px;
+    margin-bottom:10px;
 }
 
 .tweet-name{
@@ -180,77 +331,137 @@ a{
 
 .tweet-id,
 .tweet-time{
-    color:#71767b;
-    margin-left:5px;
+
+    color:#8c96b3;
+    margin-left:6px;
 }
+
+/* 投稿本文 */
 
 .tweet-text{
-    line-height:1.7;
-    margin-bottom:10px;
+
+    line-height:1.8;
+    color:#f4f7ff;
 }
+
+/* 投稿画像 */
 
 .tweet-image{
+
     width:100%;
-    border-radius:16px;
-    border:1px solid #2f3336;
-    margin-top:10px;
+
+    margin-top:15px;
+
+    border-radius:20px;
+
+    border:
+    1px solid rgba(255,255,255,0.08);
 }
 
+/* アクション */
+
 .tweet-actions{
+
     display:flex;
     justify-content:space-between;
-    margin-top:15px;
-    color:#71767b;
+
+    margin-top:18px;
+
+    color:#98a0ba;
 }
 
 .tweet-actions i{
+
     cursor:pointer;
-    transition:0.2s;
+    transition:0.25s;
 }
 
 .tweet-actions i:hover{
-    color:#1d9bf0;
+
+    color:#00d2ff;
+
+    transform:scale(1.15);
 }
 
-/* =========================
+/* =========================================
    右サイド
-========================= */
+========================================= */
 
 .right-sidebar{
-    width:350px;
-    padding:15px;
+
+    width:360px;
+    padding:20px;
 }
 
+/* 検索 */
+
 .search-box{
+
     position:sticky;
     top:0;
-    background:#000;
+
     padding-bottom:15px;
+
+    background:
+    rgba(0,0,0,0.55);
+
+    backdrop-filter:blur(12px);
 }
 
 .search-box input{
+
     width:100%;
-    padding:14px;
+
+    padding:15px 20px;
+
     border:none;
-    border-radius:999px;
-    background:#202327;
+
+    border-radius:18px;
+
+    background:
+    rgba(255,255,255,0.06);
+
     color:white;
-    font-size:15px;
+
+    outline:none;
 }
 
+/* トレンド */
+
 .trend-box{
-    background:#16181c;
-    border-radius:20px;
-    padding:20px;
+
+    padding:22px;
+
+    border-radius:28px;
+
+    background:
+    rgba(255,255,255,0.04);
+
+    border:
+    1px solid rgba(255,255,255,0.06);
+
+    backdrop-filter:blur(16px);
 }
 
 .trend-box h2{
     margin-bottom:20px;
 }
 
+/* トレンド項目 */
+
 .trend-item{
-    padding:12px 0;
-    border-bottom:1px solid #2f3336;
+
+    padding:14px 0;
+
+    border-bottom:
+    1px solid rgba(255,255,255,0.05);
+
+    transition:0.25s;
+}
+
+.trend-item:hover{
+
+    padding-left:8px;
 }
 
 .trend-item:last-child{
@@ -258,21 +469,24 @@ a{
 }
 
 .trend-item span{
+
     display:block;
-    color:#71767b;
+
+    color:#8f97b5;
     font-size:13px;
 }
 
 .trend-item strong{
-    margin-top:5px;
+
     display:block;
+    margin-top:5px;
 }
 
-/* =========================
-   スマホ
-========================= */
+/* =========================================
+   モバイル
+========================================= */
 
-@media(max-width:1100px){
+@media(max-width:1200px){
 
     .right-sidebar{
         display:none;
@@ -281,13 +495,13 @@ a{
     .main-content{
         flex:1;
     }
-
 }
 
-@media(max-width:800px){
+@media(max-width:850px){
 
     .left-sidebar{
-        width:80px;
+
+        width:95px;
     }
 
     .sidebar-menu a span,
@@ -296,18 +510,19 @@ a{
     }
 
     .post-button{
+
         font-size:0;
-        height:55px;
+        height:58px;
     }
 
     .post-button::before{
-        content:"+";
-        font-size:30px;
-    }
 
+        content:"+";
+        font-size:32px;
+    }
 }
 
-@media(max-width:600px){
+@media(max-width:650px){
 
     .left-sidebar{
         display:none;
@@ -317,4 +532,9 @@ a{
         width:100%;
     }
 
+    .tweet{
+
+        margin:10px;
+        border-radius:20px;
+    }
 }
