@@ -817,3 +817,278 @@ img.fl {
     width: 100%;
   }
 }
+/* ========================================
+   X (旧Twitter) 風デザイン
+======================================== */
+
+/* 全体 */
+body {
+    background: #000;
+    color: #e7e9ea;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* リンク */
+a {
+    color: #1d9bf0;
+}
+
+a:hover {
+    color: #1a8cd8;
+}
+
+/* ヘッダー消す */
+header {
+    display: none;
+}
+
+/* メインレイアウト */
+#contents {
+    background: #000;
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    gap: 20px;
+    padding-top: 0;
+}
+
+/* 左メニュー */
+#sub {
+    width: 260px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 20px;
+    border-right: 1px solid #2f3336;
+    background: #000;
+}
+
+/* 中央タイムライン */
+#main {
+    width: 600px;
+    border-right: 1px solid #2f3336;
+    border-left: 1px solid #2f3336;
+    background: #000;
+    min-height: 100vh;
+}
+
+/* 右サイド */
+#side {
+    width: 350px;
+    padding: 20px;
+}
+
+/* タイトル */
+#main h2 {
+    background: #000;
+    color: #fff;
+    font-size: 20px;
+    border-bottom: 1px solid #2f3336;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(12px);
+    z-index: 10;
+}
+
+/* 投稿カード */
+.post-card {
+    border-bottom: 1px solid #2f3336;
+    padding: 16px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.post-card:hover {
+    background: rgba(255,255,255,0.03);
+}
+
+/* 投稿ヘッダー */
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* アイコン */
+.post-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+}
+
+/* 名前 */
+.post-name {
+    font-weight: bold;
+    color: #fff;
+}
+
+/* ID */
+.post-id {
+    color: #71767b;
+    margin-left: 6px;
+    font-size: 14px;
+}
+
+/* 投稿本文 */
+.post-content {
+    margin-left: 60px;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* 投稿画像 */
+.post-image {
+    margin-left: 60px;
+    margin-top: 12px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #2f3336;
+}
+
+/* メニュー */
+.x-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* メニューボタン */
+.x-menu a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.x-menu a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* 投稿ボタン */
+.post-btn {
+    background: #1d9bf0;
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 14px;
+    border-radius: 999px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.post-btn:hover {
+    background: #1a8cd8;
+}
+
+/* 左下プロフィール */
+.profile-box {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 220px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 999px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.profile-box:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.profile-box img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    font-weight: bold;
+    color: white;
+}
+
+.profile-id {
+    color: #71767b;
+    font-size: 14px;
+}
+
+/* 右トレンド */
+.trend-box {
+    background: #16181c;
+    border-radius: 18px;
+    padding: 20px;
+}
+
+.trend-box h3 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.trend-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #2f3336;
+}
+
+.trend-item:last-child {
+    border-bottom: none;
+}
+
+.trend-category {
+    color: #71767b;
+    font-size: 13px;
+}
+
+.trend-name {
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+/* スマホ */
+@media screen and (max-width: 1000px) {
+
+    #side {
+        display: none;
+    }
+
+    #sub {
+        width: 80px;
+    }
+
+    #main {
+        width: calc(100% - 80px);
+    }
+
+    .x-menu a span {
+        display: none;
+    }
+
+    .profile-box {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    #sub {
+        display: none;
+    }
+
+    #main {
+        width: 100%;
+    }
+}
