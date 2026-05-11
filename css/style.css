@@ -968,3 +968,121 @@ header #logo {
     #menubar li a span, .user-info-text { display: none; }
     #contents { margin-left: 80px; }
 }
+
+/* --- レイアウトの強制リセットと再構築 --- */
+
+/* 全体のコンテナを横並びにする */
+.inner {
+  display: flex !important;
+  max-width: 1250px !important;
+  margin: 0 auto !important;
+  float: none !important;
+  overflow: visible !important;
+}
+
+/* 左側：ヘッダー（ナビゲーション）を縦型固定に変更 */
+header {
+  position: sticky !important;
+  top: 0;
+  width: 280px !important; /* Xの左メニューに近い幅 */
+  height: 100vh !important;
+  background: linear-gradient(to bottom, #FFB6C1, #87CEEB) !important; /* 元のグラデーションを縦に活用 */
+  float: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 20px 10px !important;
+  box-sizing: border-box !important;
+  z-index: 100;
+}
+
+/* ロゴとコンタクト情報を縦に並べる */
+header #logo, #contact {
+  float: none !important;
+  width: 100% !important;
+  margin: 10px 0 !important;
+  text-align: left !important;
+}
+
+/* メニューバーを縦に展開 */
+#menubar {
+  background: transparent !important;
+  box-shadow: none !important;
+  display: block !important;
+  width: 100% !important;
+  top: 0 !important;
+}
+
+#menubar li {
+  float: none !important;
+  width: 100% !important;
+  border-right: none !important;
+  border-bottom: 1px solid rgba(255,255,255,0.3) !important;
+}
+
+#menubar li a {
+  text-align: left !important;
+  padding: 12px 15px !important;
+  color: #fff !important;
+}
+
+/* 左下のユーザープロフィールエリア（新規追加） */
+.user-profile-x {
+  margin-top: auto; /* 一番下に配置 */
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-profile-x img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-names {
+  line-height: 1.2;
+}
+
+.display-name {
+  font-weight: bold;
+  display: block;
+}
+
+.discord-id {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* 中央：メインコンテンツエリア */
+#contents {
+  flex: 1 !important;
+  max-width: 600px !important;
+  margin: 0 !important;
+  border-left: 1px solid #D1C9C0 !important;
+  border-right: 1px solid #D1C9C0 !important;
+  background: #fff !important;
+  float: none !important;
+}
+
+#contents-in, #main {
+  float: none !important;
+  width: 100% !important;
+}
+
+/* 右側：サイドバー */
+#sub, #side {
+  width: 300px !important;
+  float: none !important;
+  padding: 20px !important;
+}
+
+/* スマホ表示の時は元に戻す（崩れ防止） */
+@media screen and (max-width: 800px) {
+  .inner { display: block !important; }
+  header { position: relative !important; width: 100% !important; height: auto !important; }
+  #contents { width: 100% !important; border: none !important; }
+}
