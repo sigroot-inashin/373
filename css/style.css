@@ -1455,3 +1455,123 @@ a, .tel, #drawOmikuji {
         display: none !important; /* スマホではサイドを隠す */
     }
 }
+
+/* =============================================
+   X風レイアウト強制上書き（最下部に追記）
+   ============================================= */
+
+/* 1. 全体の浮き（float）を解除してFlexbox化 */
+.inner {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    max-width: 1250px !important;
+    margin: 0 auto !important;
+    float: none !important;
+}
+
+/* 2. 左側メニュー（MacBok/iPad向け） */
+header {
+    width: 275px !important; /* Xの左メニュー幅 */
+    height: 100vh !important;
+    position: sticky !important;
+    top: 0 !important;
+    background: transparent !important;
+    border-right: 1px solid #2F3336 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 10px !important;
+}
+
+/* 元のロゴやコンタクトのfloatを無効化 */
+header #logo, #contact {
+    float: none !important;
+    width: auto !important;
+    margin: 20px 0 !important;
+}
+
+/* 3. メインコンテンツ（中央） */
+#contents {
+    flex: 1 !important; /* 残りの幅をすべて使う */
+    max-width: 600px !important; /* Xのタイムライン幅 */
+    background: transparent !important;
+    border-right: 1px solid #2F3336 !important;
+    margin: 0 !important;
+}
+
+#contents-in, #main {
+    float: none !important;
+    width: 100% !important;
+}
+
+/* 4. 右側サイドバー（iPad/MacBook向け） */
+#sub, #side {
+    width: 350px !important;
+    float: none !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    display: block !important;
+}
+
+/* --- デバイスごとの調整 --- */
+
+/* MacBookなど広い画面 */
+@media screen and (min-width: 1281px) {
+    #menubar li a span { display: inline !important; }
+}
+
+/* iPadなど中間の画面 */
+@media screen and (max-width: 1280px) and (min-width: 801px) {
+    header { width: 80px !important; } /* メニューをアイコン幅に縮小 */
+    #menubar li a span { display: none !important; }
+    #sub, #side { width: 300px !important; }
+}
+
+/* iPhoneなどスマホ画面 */
+@media screen and (max-width: 800px) {
+    .inner {
+        flex-direction: column !important; /* 縦並びに変更 */
+    }
+    
+    /* 下部ナビゲーション化 */
+    header {
+        position: fixed !important;
+        bottom: 0 !important;
+        top: auto !important;
+        width: 100% !important;
+        height: 60px !important;
+        background: #000 !important;
+        flex-direction: row !important;
+        border-right: none !important;
+        border-top: 1px solid #2F3336 !important;
+        z-index: 9999;
+    }
+
+    #menubar {
+        flex-direction: row !important;
+        width: 100% !important;
+        top: 0 !important;
+    }
+
+    #menubar li {
+        width: 25% !important; /* 均等配分 */
+    }
+
+    #contents {
+        width: 100% !important;
+        max-width: none !important;
+        padding-bottom: 70px !important; /* メニューに被らないように */
+    }
+
+    #sub, #side, #contact {
+        display: none !important; /* スマホでは右サイドを消す */
+    }
+
+    header #logo { display: none !important; } /* スマホではロゴを消す */
+}
+
+/* おみくじエリアの微調整 */
+#omikujiResult {
+    font-size: 1.5em !important;
+    width: 90% !important;
+    margin: 20px auto !important;
+}
