@@ -677,3 +677,55 @@ body{
     grid-template-columns:1fr;
   }
 }
+
+/* =========================
+   DEVELOPER TIMELINE
+========================= */
+
+.dev-timeline{
+
+  margin-top:50px;
+}
+
+.timeline-title{
+
+  font-size:22px;
+
+  margin-bottom:28px;
+}
+
+.timeline-item{
+
+  display:flex;
+
+  gap:24px;
+
+  padding:24px 0;
+
+  border-top:1px solid var(--line);
+}
+
+.timeline-year{
+
+  width:90px;
+
+  color:var(--accent2);
+
+  font-weight:700;
+
+  flex-shrink:0;
+}
+
+.timeline-content h4{
+
+  margin-bottom:10px;
+
+  font-size:18px;
+}
+
+.timeline-content p{
+
+  color:var(--sub);
+
+  line-height:1.8;
+}
