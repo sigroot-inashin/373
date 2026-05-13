@@ -900,3 +900,171 @@ body{
     grid-template-columns:1fr;
   }
 }
+
+/* =========================
+   DATE TIME WIDGET
+========================= */
+
+.datetime-widget{
+
+  position:absolute;
+
+  bottom:24px;
+
+  left:14px;
+
+  width:calc(100% - 28px);
+
+  padding:16px;
+
+  border-radius:22px;
+
+  background:
+    rgba(255,255,255,0.55);
+
+  backdrop-filter:blur(20px);
+
+  border:
+    1px solid rgba(255,255,255,0.4);
+
+  box-shadow:
+    0 8px 30px rgba(15,23,42,0.06);
+
+  overflow:hidden;
+}
+
+/* LIGHT EFFECT */
+
+.datetime-widget::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:120px;
+  height:120px;
+
+  background:
+    radial-gradient(
+      rgba(52,211,153,0.22),
+      transparent 70%
+    );
+
+  top:-40px;
+  right:-40px;
+}
+
+/* DATE */
+
+#clock-date{
+
+  font-size:14px;
+
+  color:#64748b;
+
+  margin-bottom:6px;
+
+  font-family:
+    'Orbitron',
+    sans-serif;
+
+  letter-spacing:1px;
+}
+
+/* TIME */
+
+#clock-time{
+
+  font-size:28px;
+
+  font-weight:800;
+
+  color:#00a36c;
+
+  font-family:
+    'Orbitron',
+    sans-serif;
+
+  letter-spacing:2px;
+
+  text-shadow:
+    0 0 12px rgba(52,211,153,0.2);
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+
+.mobile-nav{
+
+  display:none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width:800px){
+
+  .mobile-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:74px;
+
+    background:
+      rgba(255,255,255,0.84);
+
+    backdrop-filter:blur(24px);
+
+    border-top:
+      1px solid rgba(15,23,42,0.06);
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    z-index:9999;
+  }
+
+  .mobile-nav a{
+
+    text-decoration:none;
+
+    color:#64748b;
+
+    font-size:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:4px;
+  }
+
+  .mobile-nav a span{
+
+    font-size:22px;
+  }
+
+  .mobile-nav .active{
+
+    color:#00a36c;
+  }
+
+  .datetime-widget{
+
+    display:none;
+  }
+
+}
