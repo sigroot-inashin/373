@@ -1127,12 +1127,12 @@ body{
 
 .theme-btn{
 
-  width:36px;
-  height:36px;
+  width:48px;
+  height:48px;
 
   border:none;
 
-  border-radius:50%;
+  border-radius:16px;
 
   cursor:pointer;
 
@@ -1140,8 +1140,19 @@ body{
 
   position:relative;
 
+  background:
+    rgba(255,255,255,0.72);
+
+  font-size:24px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
   box-shadow:
-    0 4px 12px rgba(15,23,42,0.12);
+    0 4px 12px rgba(15,23,42,0.08);
 }
 
 /* HOVER */
@@ -1149,34 +1160,9 @@ body{
 .theme-btn:hover{
 
   transform:
-    scale(1.18);
+    translateY(-4px)
+    scale(1.06);
 
   box-shadow:
-    0 8px 20px rgba(15,23,42,0.18);
+    0 12px 24px rgba(15,23,42,0.14);
 }
-
-/* ACTIVE EFFECT */
-
-.theme-btn::after{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  border-radius:50%;
-
-  border:
-    2px solid rgba(255,255,255,0.7);
-
-  opacity:0;
-
-  transition:0.25s;
-}
-
-.theme-btn:hover::after{
-
-  opacity:1;
-}
-
