@@ -36,66 +36,53 @@ WELCOME !!
      THEME SWITCHER
 ========================= -->
 
+<!-- =========================
+     THEME SWITCHER
+========================= -->
+
 <div class="theme-switcher">
 
 <div class="theme-title">
 Theme Color
 </div>
 
-<div class="theme-buttons">
+<select
+class="theme-select"
+onchange="setTheme(this.value)"
+>
 
-<button class="theme-btn green"
-onclick="setTheme('green')">
+<option value="green">
+🥝 Green
+</option>
 
-🥝
+<option value="orange">
+🍊 Orange
+</option>
 
-</button>
+<option value="red">
+🍎 Red
+</option>
 
-<button class="theme-btn orange"
-onclick="setTheme('orange')">
+<option value="yellow">
+🍋 Yellow
+</option>
 
-🍊
+<option value="blue">
+🫐 Blue
+</option>
 
-</button>
+<option value="cyan">
+🧊 Cyan
+</option>
 
-<button class="theme-btn red"
-onclick="setTheme('red')">
+<option value="pink">
+🍑 Pink
+</option>
 
-🍎
-
-</button>
-
-<button class="theme-btn yellow"
-onclick="setTheme('yellow')">
-
-🍋
-
-</button>
-
-<button class="theme-btn blue"
-onclick="setTheme('blue')">
-
-🫐
-
-</button>
-
-<button class="theme-btn cyan"
-onclick="setTheme('cyan')">
-
-🧊
-
-</button>
-
-<button class="theme-btn pink"
-onclick="setTheme('pink')">
-
-🍑
-
-</button>
+</select>
 
 </div>
-
-</div>
+  
 
   <!-- =========================
      DATE TIME WIDGET
