@@ -1166,3 +1166,64 @@ body{
   box-shadow:
     0 12px 24px rgba(15,23,42,0.14);
 }
+
+
+
+/* =========================
+   THEME SELECT
+========================= */
+
+.theme-select{
+
+  width:100%;
+
+  padding:14px 18px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:
+    rgba(255,255,255,0.72);
+
+  backdrop-filter:blur(20px);
+
+  color:#1e293b;
+
+  font-size:15px;
+
+  font-weight:600;
+
+  font-family:
+    'Exo 2',
+    sans-serif;
+
+  cursor:pointer;
+
+  outline:none;
+
+  box-shadow:
+    0 4px 14px rgba(15,23,42,0.06);
+
+  transition:0.25s;
+}
+
+/* HOVER */
+
+.theme-select:hover{
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(15,23,42,0.1);
+}
+
+/* OPTION */
+
+.theme-select option{
+
+  background:#ffffff;
+
+  color:#1e293b;
+}
