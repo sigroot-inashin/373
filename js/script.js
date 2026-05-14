@@ -123,3 +123,67 @@ function setTheme(color){
     )`
   );
 }
+
+function setTheme(color){
+
+  const root =
+    document.documentElement;
+
+  const themes = {
+
+    green:[
+      '#00a36c',
+      '#34d399'
+    ],
+
+    orange:[
+      '#ff7b00',
+      '#fb923c'
+    ],
+
+    red:[
+      '#ef4444',
+      '#f87171'
+    ],
+
+    yellow:[
+      '#eab308',
+      '#facc15'
+    ],
+
+    blue:[
+      '#2563eb',
+      '#60a5fa'
+    ],
+
+    cyan:[
+      '#06b6d4',
+      '#67e8f9'
+    ],
+
+    pink:[
+      '#ec4899',
+      '#f472b6'
+    ]
+  };
+
+  root.style.setProperty(
+    '--green',
+    themes[color][0]
+  );
+
+  root.style.setProperty(
+    '--green2',
+    themes[color][1]
+  );
+
+  root.style.setProperty(
+    '--grad',
+
+    `linear-gradient(
+      135deg,
+      ${themes[color][0]},
+      ${themes[color][1]}
+    )`
+  );
+}
