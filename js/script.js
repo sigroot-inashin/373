@@ -187,3 +187,137 @@ function setTheme(color){
     )`
   );
 }
+
+
+/* ========================================
+   CLOCK
+======================================== */
+
+function updateClock(){
+
+  const now = new Date();
+
+  const year =
+    now.getFullYear();
+
+  const month =
+    String(now.getMonth()+1)
+    .padStart(2,'0');
+
+  const day =
+    String(now.getDate())
+    .padStart(2,'0');
+
+  const hour =
+    String(now.getHours())
+    .padStart(2,'0');
+
+  const minute =
+    String(now.getMinutes())
+    .padStart(2,'0');
+
+  const second =
+    String(now.getSeconds())
+    .padStart(2,'0');
+
+  document.getElementById(
+    'clock-date'
+  ).textContent =
+    `${year}/${month}/${day}`;
+
+  document.getElementById(
+    'clock-time'
+  ).textContent =
+    `${hour}:${minute}:${second}`;
+}
+
+updateClock();
+
+setInterval(
+  updateClock,
+  1000
+);
+
+/* ========================================
+   THEME SYSTEM
+======================================== */
+
+function setTheme(color){
+
+  const root =
+    document.documentElement;
+
+  const themes = {
+
+    saikyo:[
+      '#00a36c',
+      '#34d399'
+    ],
+
+    chuo:[
+      '#ff7b00',
+      '#fb923c'
+    ],
+
+    yamanote:[
+      '#84cc16',
+      '#bef264'
+    ],
+
+    keihin:[
+      '#2563eb',
+      '#60a5fa'
+    ],
+
+    sobu:[
+      '#facc15',
+      '#fde047'
+    ],
+
+    joban:[
+      '#10b981',
+      '#6ee7b7'
+    ],
+
+    ueno:[
+      '#8b5cf6',
+      '#c4b5fd'
+    ],
+
+    cyber:[
+      '#06b6d4',
+      '#67e8f9'
+    ],
+
+    sunset:[
+      '#f97316',
+      '#fdba74'
+    ],
+
+    pink:[
+      '#ec4899',
+      '#f9a8d4'
+    ]
+  };
+
+  root.style.setProperty(
+    '--green',
+    themes[color][0]
+  );
+
+  root.style.setProperty(
+    '--green2',
+    themes[color][1]
+  );
+
+  root.style.setProperty(
+
+    '--grad',
+
+    `linear-gradient(
+      135deg,
+      ${themes[color][0]},
+      ${themes[color][1]}
+    )`
+  );
+}
