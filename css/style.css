@@ -1228,3 +1228,432 @@ body{
   color:#1e293b;
 }
 
+
+/* ========================================
+   ROOT THEME SYSTEM
+======================================== */
+
+:root{
+
+  --green:#00a36c;
+
+  --green2:#34d399;
+
+  --grad:
+    linear-gradient(
+      135deg,
+      #00a36c,
+      #34d399
+    );
+
+  --bg:#f4f7fb;
+
+  --card:
+    rgba(255,255,255,0.68);
+
+  --text:#1e293b;
+
+  --sub:#64748b;
+}
+
+/* ========================================
+   RESET
+======================================== */
+
+*{
+
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  background:var(--bg);
+
+  color:var(--text);
+
+  font-family:
+    'Exo 2',
+    sans-serif;
+
+  display:flex;
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+}
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar-left{
+
+  width:280px;
+
+  min-height:100vh;
+
+  padding:24px 18px;
+
+  border-right:
+    1px solid rgba(15,23,42,0.06);
+
+  backdrop-filter:blur(20px);
+
+  background:
+    rgba(255,255,255,0.45);
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:18px;
+}
+
+/* ========================================
+   LOGO
+======================================== */
+
+.logo{
+
+  font-size:28px;
+
+  font-weight:900;
+
+  color:var(--green);
+
+  font-family:
+    'Orbitron',
+    sans-serif;
+
+  letter-spacing:2px;
+}
+
+/* ========================================
+   MENU
+======================================== */
+
+.menu{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:12px;
+}
+
+.menu a{
+
+  text-decoration:none;
+
+  color:var(--sub);
+
+  padding:14px 18px;
+
+  border-radius:18px;
+
+  transition:0.25s;
+
+  font-weight:700;
+}
+
+.menu a:hover{
+
+  background:
+    rgba(255,255,255,0.7);
+
+  color:var(--green);
+
+  transform:
+    translateX(4px);
+}
+
+/* ========================================
+   MAIN BUTTON
+======================================== */
+
+.main-button{
+
+  background:var(--grad);
+
+  border:none;
+
+  border-radius:28px;
+
+  padding:22px;
+
+  color:white;
+
+  box-shadow:
+    0 12px 30px rgba(15,23,42,0.12);
+
+  overflow:hidden;
+
+  position:relative;
+}
+
+/* ========================================
+   WELCOME PANEL
+======================================== */
+
+.welcome-button{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:16px;
+}
+
+/* ========================================
+   WELCOME TEXT
+======================================== */
+
+.welcome-top{
+
+  font-size:20px;
+
+  font-weight:800;
+
+  font-family:
+    'Orbitron',
+    sans-serif;
+
+  letter-spacing:1px;
+}
+
+/* ========================================
+   THEME SELECT
+======================================== */
+
+.theme-select{
+
+  width:100%;
+
+  padding:14px 18px;
+
+  border:none;
+
+  border-radius:18px;
+
+  background:
+    rgba(255,255,255,0.92);
+
+  color:#1e293b;
+
+  font-size:14px;
+
+  font-weight:700;
+
+  font-family:
+    'Exo 2',
+    sans-serif;
+
+  cursor:pointer;
+
+  outline:none;
+
+  appearance:none;
+
+  -webkit-appearance:none;
+
+  transition:0.25s;
+
+  box-shadow:
+    0 4px 14px rgba(15,23,42,0.08);
+
+  background-image:
+
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+
+  background-repeat:no-repeat;
+
+  background-position:
+    right 14px center;
+
+  background-size:
+    18px;
+}
+
+.theme-select:hover{
+
+  transform:
+    translateY(-2px);
+}
+
+/* ========================================
+   DATE TIME
+======================================== */
+
+.datetime-widget{
+
+  padding:18px;
+
+  border-radius:24px;
+
+  background:var(--card);
+
+  backdrop-filter:blur(20px);
+
+  box-shadow:
+    0 8px 24px rgba(15,23,42,0.06);
+}
+
+#clock-date{
+
+  color:var(--sub);
+
+  margin-bottom:8px;
+
+  font-family:
+    'Orbitron',
+    sans-serif;
+}
+
+#clock-time{
+
+  font-size:30px;
+
+  font-weight:900;
+
+  color:var(--green);
+
+  font-family:
+    'Orbitron',
+    sans-serif;
+}
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.main-content{
+
+  flex:1;
+
+  padding:32px;
+}
+
+/* ========================================
+   CARD
+======================================== */
+
+.card{
+
+  background:var(--card);
+
+  backdrop-filter:blur(20px);
+
+  border-radius:28px;
+
+  padding:28px;
+
+  margin-bottom:24px;
+
+  box-shadow:
+    0 10px 24px rgba(15,23,42,0.06);
+}
+
+.card h2{
+
+  color:var(--green);
+
+  margin-bottom:16px;
+
+  font-family:
+    'Orbitron',
+    sans-serif;
+}
+
+/* ========================================
+   MOBILE NAV
+======================================== */
+
+.mobile-nav{
+
+  display:none;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media screen and (max-width:800px){
+
+  body{
+
+    flex-direction:column;
+  }
+
+  .sidebar-left{
+
+    width:100%;
+
+    min-height:auto;
+
+    border-right:none;
+  }
+
+  .main-content{
+
+    padding:20px;
+  }
+
+  .mobile-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:74px;
+
+    background:
+      rgba(255,255,255,0.86);
+
+    backdrop-filter:blur(20px);
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    border-top:
+      1px solid rgba(15,23,42,0.06);
+
+    z-index:9999;
+  }
+
+  .mobile-nav a{
+
+    text-decoration:none;
+
+    color:var(--sub);
+
+    font-size:12px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:4px;
+  }
+
+  .mobile-nav a span{
+
+    font-size:20px;
+  }
+
+  .mobile-nav .active{
+
+    color:var(--green);
+  }
+}
+
