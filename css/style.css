@@ -1657,19 +1657,20 @@ body{
   }
 }
 
+
 .logo{
     display:flex;
     align-items:center;
-    justify-content:flex-start;
 
-    padding:14px 10px 18px;
+    padding:18px 14px 22px;
 
     background:transparent;
 }
 
 .sig-logo{
-    display:block;
-    width:210px;
-    height:auto;
-}
+    width:240px;
 
+    height:auto;
+
+    display:block;
+}
