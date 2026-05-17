@@ -20,8 +20,6 @@
 <svg
 xmlns="http://www.w3.org/2000/svg"
 viewBox="0 0 450 56"
-width="210"
-height="auto"
 class="sig-logo">
 
   <defs>
@@ -32,40 +30,53 @@ class="sig-logo">
                     x2="100%"
                     y2="100%">
 
-      <stop offset="0%" stop-color="#33ccff" />
-      <stop offset="60%" stop-color="#a370ff" />
-      <stop offset="100%" stop-color="#ff75bd" />
+      <stop offset="0%" stop-color="#38d7ff"/>
+      <stop offset="60%" stop-color="#9b6dff"/>
+      <stop offset="100%" stop-color="#ff7ac8"/>
 
     </linearGradient>
+
+    <!-- 発光 -->
+
+    <filter id="glow">
+
+      <feDropShadow dx="0"
+                    dy="0"
+                    stdDeviation="4"
+                    flood-color="#8c6cff"
+                    flood-opacity="0.45"/>
+
+    </filter>
 
     <style>
 
       .main-text{
-        font-family:'Quicksand','Segoe UI',sans-serif;
+        font-family:'Segoe UI',sans-serif;
         font-weight:900;
-        font-size:30px;
+        font-size:31px;
       }
 
       .sub-text{
-        font-family:'Quicksand','Segoe UI',sans-serif;
+        font-family:'Segoe UI',sans-serif;
         font-weight:700;
-        font-size:9.5px;
+        font-size:10px;
       }
 
     </style>
 
   </defs>
 
-  <!-- ロゴマーク -->
+  <!-- アイコン -->
 
-  <g transform="translate(14,10)">
+  <g transform="translate(14,10)"
+     filter="url(#glow)">
 
     <rect width="36"
           height="36"
-          rx="8"
+          rx="9"
           fill="none"
           stroke="url(#coolCuteGrad)"
-          stroke-width="3.5"/>
+          stroke-width="4.5"/>
 
     <path d="M 11,18
              C 14,13 25,13 25,18
@@ -76,20 +87,21 @@ class="sig-logo">
 
           fill="none"
           stroke="#ffffff"
-          stroke-width="4"
+          stroke-width="5"
           stroke-linecap="round"
           stroke-linejoin="round"/>
 
     <circle cx="30"
             cy="14"
-            r="2.8"
+            r="3.2"
             fill="url(#coolCuteGrad)"/>
 
   </g>
 
-  <!-- テキスト -->
+  <!-- ロゴ文字 -->
 
-  <g transform="translate(68,0)">
+  <g transform="translate(70,0)"
+     filter="url(#glow)">
 
     <text x="0"
           y="31"
@@ -101,10 +113,10 @@ class="sig-logo">
     </text>
 
     <text x="2"
-          y="46"
+          y="47"
           class="sub-text"
-          fill="#8f92a6"
-          letter-spacing="5">
+          fill="#c5c8d8"
+          letter-spacing="4">
 
       OFFICIAL SITE
 
